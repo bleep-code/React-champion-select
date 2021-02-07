@@ -1,5 +1,13 @@
 .picker {
   width: 100%;
   height: 91%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+
   border: 4px solid black;
+
+  overflow-y: scroll;
+  overflow-x: hidden;
 }

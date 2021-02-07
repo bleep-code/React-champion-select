@@ -1,0 +1,25 @@
+.picker__champion {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  width: calc(100% / 8);
+  margin: 0.5%;
+}
+
+.picker__champion:hover {
+  cursor: pointer;
+}
+
+.picker__champion--image {
+  width: 75%;
+  margin-bottom: 5%;
+  border: 2px solid var(--champion-picker-color);
+  pointer-events: none;
+}
+
+.picker__champion--name {
+  font-size: 14px;
+  color: var(--champion-picker-color);
+  pointer-events: none;
+}
