@@ -1,0 +1,37 @@
+:root {
+  --champion-select-width: 60%;
+  --team-width: calc(var(--champion-select-width) / 2);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.champion-select {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  text-align: center;
+}
+
+.team {
+  width: var(--team-width);
+  height: 100%;
+  background-color: rgb(50, 65, 146);
+}
+
+.friendly-team {
+}
+
+.enemy-team {
+}
+
+.champion-picker {
+  width: var(--champion-select-width);
+  background-color: rgb(216, 122, 240);
+  height: 100%;
+}
