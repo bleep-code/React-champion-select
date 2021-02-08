@@ -1,7 +1,7 @@
 :root {
-  --champion-select-width: 45%;
+  --champion-select-width: 50%;
   --team-width: calc((100% - var(--champion-select-width)) / 2);
-  --team-height: 65%;
+  --team-height: 60%;
   --champion-picker-color: rgb(136, 136, 125);
 }
 
