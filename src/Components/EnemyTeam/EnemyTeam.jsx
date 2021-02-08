@@ -1,10 +1,12 @@
 import React from 'react';
-
+import BansList from '../BansList/BansList';
+import Team from '../Team/Team';
 class EnemyTeam extends React.Component {
   render() {
     return (
-      <div className="enemy-team team">
-        <h2>/Enemy Team</h2>
+      <div className="friendly-team team">
+        <BansList />
+        <Team />
       </div>
     );
   }

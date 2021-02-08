@@ -5,7 +5,6 @@ class FriendlyTeam extends React.Component {
   render() {
     return (
       <div className="friendly-team team">
-        Friendly Team
         <BansList />
         <Team />
       </div>

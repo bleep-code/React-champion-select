@@ -1,8 +1,8 @@
 import React from 'react';
-
+import './BansList.css';
 class BansList extends React.Component {
   render() {
-    return <h2>BansList</h2>;
+    return <div className="team__bans-list bans"></div>;
   }
 }
 
