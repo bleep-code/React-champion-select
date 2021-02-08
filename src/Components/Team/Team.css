@@ -1,7 +1,3 @@
-.team {
-  position: relative;
-}
-
 .team__players {
   width: 100%;
   height: var(--team-height);
