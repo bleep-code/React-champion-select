@@ -1,15 +1,3 @@
-/* .picker {
-    height: 65%;
-    position: relative;
-    overflow: scroll;
-    overflow-x: hidden;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-    border-top: 2px solid var(--borderGold);
-    border-bottom: 2px solid var(--borderGold);
-  } */
-
 .champion-picker {
   height: 100%;
   width: 100%;
