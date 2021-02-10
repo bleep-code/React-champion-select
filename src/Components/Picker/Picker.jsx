@@ -6,12 +6,7 @@ import Champion from '../Champion/Champion';
 class Picker extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { champions: [], chosen: undefined };
-    this.setChosen = this.setChosen.bind(this);
-  }
-
-  setChosen(e) {
-    this.setState({ chosen: e.target.innerText });
+    this.state = { champions: [] };
   }
 
   getChampions() {
@@ -31,8 +26,8 @@ class Picker extends React.Component {
             tags={tags}
             blurb={blurb}
             key={id}
-            chosen={this.state.chosen}
-            onClick={this.setChosen}
+            chosen={this.props.chosen}
+            onClick={this.props.setChosen}
           />
         ));
       });

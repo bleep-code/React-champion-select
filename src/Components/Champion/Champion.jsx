@@ -12,7 +12,7 @@ class Champion extends React.Component {
     return (
       <div
         className={`picker__champion ${
-          this.props.chosen === this.props.name ? 'chosen' : ''
+          this.props.chosen?.innerText === this.props.name ? 'chosen' : ''
         }`}
         onClick={(e) => {
           this.props.onClick(e);

@@ -9,6 +9,22 @@ import SummonerSpells from '../SummonerSpells/SumonerSpells';
 
 import './ChampionPicker.css';
 class ChampionPicker extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { chosen: undefined, locked: [] };
+    this.setChosen = this.setChosen.bind(this);
+    this.setLocked = this.setLocked.bind(this);
+  }
+
+  setChosen(e) {
+    this.setState({ chosen: e.target });
+  }
+
+  setLocked() {
+    // this.setState({ locked: undefined });
+    console.log(this.state.locked);
+  }
+
   render() {
     return (
       <div className="champion-picker">
@@ -18,7 +34,7 @@ class ChampionPicker extends React.Component {
           <Search />
         </div>
         <div className="champion-picker__mid-section section">
-          <Picker />
+          <Picker setChosen={this.setChosen} chosen={this.state.chosen} />
           <LockButton />
         </div>
         <div className="champion-picker__bottom-section section">
