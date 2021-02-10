@@ -27,6 +27,7 @@ class Picker extends React.Component {
             blurb={blurb}
             key={id}
             chosen={this.props.chosen}
+            locked={this.props.locked}
             onClick={this.props.setChosen}
           />
         ));

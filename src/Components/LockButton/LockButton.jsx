@@ -5,7 +5,10 @@ class LockButton extends React.Component {
     return (
       <div className="picker__lock-in--wrapper">
         <div className="picker__lock-in--outer">
-          <div className="picker__lock-in--button"></div>
+          <div
+            className="picker__lock-in--button"
+            onClick={this.props.setLocked}
+          />
           <span className="picker__lock-in--button--text">Lock In</span>
         </div>
       </div>

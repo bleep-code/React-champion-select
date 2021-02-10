@@ -21,7 +21,9 @@ class ChampionPicker extends React.Component {
   }
 
   setLocked() {
-    // this.setState({ locked: undefined });
+    this.setState({
+      locked: [...this.state.locked, this.state.chosen.innerText],
+    });
     console.log(this.state.locked);
   }
 
@@ -34,8 +36,12 @@ class ChampionPicker extends React.Component {
           <Search />
         </div>
         <div className="champion-picker__mid-section section">
-          <Picker setChosen={this.setChosen} chosen={this.state.chosen} />
-          <LockButton />
+          <Picker
+            setChosen={this.setChosen}
+            chosen={this.state.chosen}
+            locked={this.state.locked}
+          />
+          <LockButton setLocked={this.setLocked} />
         </div>
         <div className="champion-picker__bottom-section section">
           <SummonerSpells />
