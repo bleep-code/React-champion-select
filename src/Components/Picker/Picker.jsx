@@ -1,16 +1,17 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import axios from 'axios';
 import './Picker.css';
 import Champion from '../Champion/Champion';
 
-function Picker(props) {
-  const [champions, setChampions] = useState([]);
-  const chooseChampion = (e) => {
-    console.log(e);
-    console.log(e.target);
-  };
-  const getChampions = () =>
-    axios
+class Picker extends React.Component {
+  // const [champions, setChampions] = useState([]);
+  constructor(props) {
+    super(props);
+    this.state = { champions: [] };
+  }
+
+  getChampions() {
+    return axios
       .get(
         'http://ddragon.leagueoflegends.com/cdn/11.3.1/data/en_US/champion.json'
       )
@@ -28,21 +29,23 @@ function Picker(props) {
             key={id}
           />
         ));
-        // return map player props itemss
+        // return map player props items
       });
+  }
 
-  useEffect(
-    () =>
-      getChampions().then((res) => {
-        setChampions(res);
-      }),
-    []
-  );
-  return (
-    <div className="champion-picker__mid-section--picker picker">
-      {champions}
-    </div>
-  );
+  componentDidMount() {
+    this.getChampions().then((res) => {
+      this.setState({ champions: res });
+    });
+  }
+
+  render() {
+    return (
+      <div className="champion-picker__mid-section--picker picker">
+        {this.state.champions}
+      </div>
+    );
+  }
 }
 
 export default Picker;

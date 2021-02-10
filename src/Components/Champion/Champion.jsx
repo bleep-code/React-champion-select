@@ -9,16 +9,9 @@ class Champion extends React.Component {
     };
   }
 
-  onClick(e) {
-    // Adam don't kill me plz, explain the other way
-    const chosen = document.querySelector('.chosen');
-    !!chosen && chosen.classList.remove('chosen');
-    e.target && e.target.classList.add('chosen');
-  }
-
   render() {
     return (
-      <div className={`picker__champion`} onClick={this.onClick}>
+      <div className={`picker__champion`}>
         <img
           src={`http://ddragon.leagueoflegends.com/cdn/11.3.1/img/champion/${this.props.image}`}
           alt={this.props.name}
