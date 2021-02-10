@@ -4,10 +4,14 @@ import './Picker.css';
 import Champion from '../Champion/Champion';
 
 class Picker extends React.Component {
-  // const [champions, setChampions] = useState([]);
   constructor(props) {
     super(props);
-    this.state = { champions: [] };
+    this.state = { champions: [], chosen: undefined };
+    this.setChosen = this.setChosen.bind(this);
+  }
+
+  setChosen(e) {
+    this.setState({ chosen: e.target.innerText });
   }
 
   getChampions() {
@@ -27,9 +31,10 @@ class Picker extends React.Component {
             tags={tags}
             blurb={blurb}
             key={id}
+            chosen={this.state.chosen}
+            onClick={this.setChosen}
           />
         ));
-        // return map player props items
       });
   }
 
@@ -37,6 +42,10 @@ class Picker extends React.Component {
     this.getChampions().then((res) => {
       this.setState({ champions: res });
     });
+  }
+
+  componentDidUpdate() {
+    this.componentDidMount();
   }
 
   render() {

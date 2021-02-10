@@ -5,13 +5,19 @@ class Champion extends React.Component {
     super(props);
     this.state = {
       chosen: false,
-      locked: false,
     };
   }
 
   render() {
     return (
-      <div className={`picker__champion`}>
+      <div
+        className={`picker__champion ${
+          this.props.chosen === this.props.name ? 'chosen' : ''
+        }`}
+        onClick={(e) => {
+          this.props.onClick(e);
+        }}
+      >
         <img
           src={`http://ddragon.leagueoflegends.com/cdn/11.3.1/img/champion/${this.props.image}`}
           alt={this.props.name}
