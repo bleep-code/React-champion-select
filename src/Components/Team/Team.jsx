@@ -3,10 +3,12 @@ import Player from '../Player/Player';
 import './Team.css';
 class Team extends React.Component {
   render() {
+    const { chosen, locked, turn } = this.props;
+
     return (
       <>
         <div className="team__players">
-          <Player></Player>
+          <Player locked={locked} chosen={chosen} turn={turn}></Player>
           <Player></Player>
           <Player></Player>
           <Player></Player>

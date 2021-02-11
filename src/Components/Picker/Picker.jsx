@@ -10,6 +10,7 @@ class Picker extends React.Component {
   }
 
   getChampions() {
+    const { chosen, locked, setChosen } = this.props;
     return axios
       .get(
         'http://ddragon.leagueoflegends.com/cdn/11.3.1/data/en_US/champion.json'
@@ -26,9 +27,9 @@ class Picker extends React.Component {
             tags={tags}
             blurb={blurb}
             key={id}
-            chosen={this.props.chosen}
-            locked={this.props.locked}
-            onClick={this.props.setChosen}
+            chosen={chosen}
+            locked={locked}
+            onClick={setChosen}
           />
         ));
       });

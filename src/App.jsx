@@ -20,7 +20,7 @@ class App extends React.Component {
   }
 
   setChosen(e) {
-    this.setState({ chosen: e.target });
+    !!e.target && this.setState({ chosen: e.target });
   }
 
   setLocked() {
@@ -40,26 +40,19 @@ class App extends React.Component {
   }
 
   render() {
+    const { chosen, locked, turn } = this.state;
     return (
       <div className="champion-select">
-        <FriendlyTeam
-          locked={this.state.locked}
-          chosen={this.state.chosen}
-          turn={this.state.turn}
-        />
+        <FriendlyTeam locked={locked} chosen={chosen} turn={turn} />
         <ChampionPicker
-          locked={this.state.locked}
-          chosen={this.state.chosen}
-          turn={this.state.turn}
+          locked={locked}
+          chosen={chosen}
+          turn={turn}
           setChosen={this.setChosen}
           setLocked={this.setLocked}
           setTurn={this.setTurn}
         />
-        <EnemyTeam
-          locked={this.state.locked}
-          chosen={this.state.chosen}
-          turn={this.state.turn}
-        />
+        <EnemyTeam locked={locked} chosen={chosen} turn={turn} />
       </div>
     );
   }

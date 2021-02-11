@@ -27,24 +27,18 @@ class ChampionPicker extends React.Component {
   }
 
   render() {
+    const { time } = this.state;
+    const { turn, chosen, setChosen, locked, setLocked, setTurn } = this.props;
     return (
       <div className="champion-picker">
         <div className="champion-picker__top-section section">
-          <Announcement turn={this.props.turn} />
-          <Timer time={this.state.time} countDown={this.countDown} />
+          <Announcement turn={turn} />
+          <Timer time={time} countDown={this.countDown} />
           <Search />
         </div>
         <div className="champion-picker__mid-section section">
-          <Picker
-            setChosen={this.props.setChosen}
-            chosen={this.props.chosen}
-            locked={this.props.locked}
-          />
-          <LockButton
-            setLocked={this.props.setLocked}
-            setTurn={this.props.setTurn}
-            chosen={this.props.chosen}
-          />
+          <Picker setChosen={setChosen} chosen={chosen} locked={locked} />
+          <LockButton setLocked={setLocked} setTurn={setTurn} chosen={chosen} />
         </div>
         <div className="champion-picker__bottom-section section">
           <SummonerSpells />

@@ -3,18 +3,20 @@ import './LockButton.css';
 var _ = require('lodash');
 class LockButton extends React.Component {
   render() {
+    const { chosen, setLocked, setTurn } = this.props;
+
     return (
       <div className="picker__lock-in--wrapper">
         <div
           className={`picker__lock-in--outer ${
-            _.isEmpty(this.props.chosen) && 'disabled'
+            _.isEmpty(chosen) && 'disabled'
           }`}
         >
           <div
             className={`picker__lock-in--button`}
             onClick={() => {
-              this.props.setLocked();
-              this.props.setTurn();
+              setLocked();
+              setTurn();
             }}
           />
           <span className="picker__lock-in--button--text">Lock In</span>

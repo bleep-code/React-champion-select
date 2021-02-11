@@ -15,7 +15,7 @@
   transform: translate(20%, -50%);
   width: 15%;
   height: 5%;
-  background-color: gold;
+  background-color: var(--background-gold);
 }
 
 .summoner-spells::after {
@@ -26,5 +26,5 @@
   transform: translate(-20%, -50%);
   width: 15%;
   height: 5%;
-  background-color: gold;
+  background-color: var(--background-gold);
 }
