@@ -11,12 +11,19 @@ import './ChampionPicker.css';
 class ChampionPicker extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { time: 5, intervalId: undefined };
+    this.state = { time: 60, intervalId: undefined };
     this.countDown = this.countDown.bind(this);
   }
 
   countDown() {
     this.setState({ time: this.state.time - 1 });
+  }
+
+  componentDidUpdate() {
+    if (this.state.time === 0) {
+      this.setState({ time: 60 });
+      this.props.setLocked();
+    }
   }
 
   render() {

@@ -4,11 +4,13 @@ import EnemyTeam from './Components/EnemyTeam/EnemyTeam';
 import ChampionPicker from './Components/ChampionPicker/ChampionPicker';
 import './App.css';
 
+var _ = require('lodash');
+
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      chosen: undefined,
+      chosen: {},
       locked: [],
       turn: 1,
     };
@@ -22,10 +24,15 @@ class App extends React.Component {
   }
 
   setLocked() {
-    this.setState({
-      locked: [...this.state.locked, this.state.chosen.innerText],
-    });
-    this.setState({ chosen: {} });
+    if (_.isEmpty(this.state.chosen)) {
+      console.log('what are you doing bro');
+      // render a <broken app> here
+    } else {
+      this.setState({
+        locked: [...this.state.locked, this.state.chosen.innerText],
+      });
+      this.setState({ chosen: {} });
+    }
   }
 
   setTurn() {
