@@ -2,11 +2,13 @@ import React from 'react';
 import axios from 'axios';
 import './Picker.css';
 import Champion from '../Champion/Champion';
+var _ = require('lodash');
 
 class Picker extends React.Component {
   constructor(props) {
     super(props);
     this.state = { champions: [] };
+    this.onUpdate = this.onUpdate.bind(this);
   }
 
   getChampions() {
@@ -15,10 +17,8 @@ class Picker extends React.Component {
       .get(
         'http://ddragon.leagueoflegends.com/cdn/11.3.1/data/en_US/champion.json'
       )
-      .then(({ data: { data } }) => {
-        return Object.entries(
-          data
-        ).map(([key, { id, name, title, image, tags, blurb }]) => (
+      .then(({ data: { data } }) =>
+        _.flatMap(data).map(({ id, name, title, image, tags, blurb }) => (
           <Champion
             id={id}
             name={name}
@@ -29,20 +29,23 @@ class Picker extends React.Component {
             key={id}
             chosen={chosen}
             locked={locked}
-            onClick={setChosen}
+            setChosen={setChosen}
+            onUpdate={this.onUpdate}
           />
-        ));
-      });
+        ))
+      );
   }
 
   componentDidMount() {
-    this.getChampions().then((res) => {
-      this.setState({ champions: res });
+    this.getChampions().then((champions) => {
+      this.setState({ champions });
     });
   }
 
-  componentDidUpdate() {
-    this.componentDidMount();
+  onUpdate() {
+    this.getChampions().then((champions) => {
+      this.setState({ champions });
+    });
   }
 
   render() {

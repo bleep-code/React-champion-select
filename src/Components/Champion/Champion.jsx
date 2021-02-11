@@ -7,7 +7,7 @@ class Champion extends React.Component {
   }
 
   render() {
-    const { chosen, locked, name } = this.props;
+    const { chosen, locked, name, setChosen, onUpdate } = this.props;
 
     return (
       <div
@@ -19,7 +19,8 @@ class Champion extends React.Component {
             : ''
         }`}
         onClick={(e) => {
-          this.props.onClick(e);
+          setChosen(e);
+          setTimeout(onUpdate, 0);
         }}
       >
         <img
