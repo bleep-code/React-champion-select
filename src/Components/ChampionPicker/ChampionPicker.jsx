@@ -11,15 +11,20 @@ import './ChampionPicker.css';
 class ChampionPicker extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = { time: 5, intervalId: undefined };
+    this.countDown = this.countDown.bind(this);
+  }
+
+  countDown() {
+    this.setState({ time: this.state.time - 1 });
   }
 
   render() {
     return (
       <div className="champion-picker">
         <div className="champion-picker__top-section section">
-          <Announcement />
-          <Timer />
+          <Announcement turn={this.props.turn} />
+          <Timer time={this.state.time} countDown={this.countDown} />
           <Search />
         </div>
         <div className="champion-picker__mid-section section">

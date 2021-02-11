@@ -35,15 +35,24 @@ class App extends React.Component {
   render() {
     return (
       <div className="champion-select">
-        <FriendlyTeam locked={this.state.locked} chosen={this.state.chosen} />
+        <FriendlyTeam
+          locked={this.state.locked}
+          chosen={this.state.chosen}
+          turn={this.state.turn}
+        />
         <ChampionPicker
           locked={this.state.locked}
           chosen={this.state.chosen}
+          turn={this.state.turn}
           setChosen={this.setChosen}
           setLocked={this.setLocked}
           setTurn={this.setTurn}
         />
-        <EnemyTeam locked={this.state.locked} chosen={this.state.chosen} />
+        <EnemyTeam
+          locked={this.state.locked}
+          chosen={this.state.chosen}
+          turn={this.state.turn}
+        />
       </div>
     );
   }
