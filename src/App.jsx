@@ -7,9 +7,14 @@ import './App.css';
 class App extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { chosen: undefined, locked: [] };
+    this.state = {
+      chosen: undefined,
+      locked: [],
+      turn: 1,
+    };
     this.setChosen = this.setChosen.bind(this);
     this.setLocked = this.setLocked.bind(this);
+    this.setTurn = this.setTurn.bind(this);
   }
 
   setChosen(e) {
@@ -20,19 +25,25 @@ class App extends React.Component {
     this.setState({
       locked: [...this.state.locked, this.state.chosen.innerText],
     });
-    console.log(this.state.locked);
+    this.setState({ chosen: {} });
   }
+
+  setTurn() {
+    this.setState({ turn: this.state.turn + 1 });
+  }
+
   render() {
     return (
       <div className="champion-select">
-        <FriendlyTeam />
+        <FriendlyTeam locked={this.state.locked} chosen={this.state.chosen} />
         <ChampionPicker
-          setChosen={this.setChosen}
-          setLocked={this.setLocked}
           locked={this.state.locked}
           chosen={this.state.chosen}
+          setChosen={this.setChosen}
+          setLocked={this.setLocked}
+          setTurn={this.setTurn}
         />
-        <EnemyTeam />
+        <EnemyTeam locked={this.state.locked} chosen={this.state.chosen} />
       </div>
     );
   }

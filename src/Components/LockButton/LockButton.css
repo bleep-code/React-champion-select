@@ -1,3 +1,12 @@
+.disabled {
+  cursor: not-allowed;
+}
+
+.disabled > div,
+.disabled > span {
+  pointer-events: none;
+}
+
 .picker__lock-in--wrapper {
   width: 50%;
   height: 8.3%;

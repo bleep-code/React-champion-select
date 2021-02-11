@@ -28,7 +28,11 @@ class ChampionPicker extends React.Component {
             chosen={this.props.chosen}
             locked={this.props.locked}
           />
-          <LockButton setLocked={this.props.setLocked} />
+          <LockButton
+            setLocked={this.props.setLocked}
+            setTurn={this.props.setTurn}
+            chosen={this.props.chosen}
+          />
         </div>
         <div className="champion-picker__bottom-section section">
           <SummonerSpells />

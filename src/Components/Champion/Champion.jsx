@@ -28,7 +28,7 @@ class Champion extends React.Component {
           className="picker__champion--image"
         />
         <span className="picker__champion--name">{this.props.name}</span>
-        <i class="fas fa-ban" />
+        <i className="fas fa-ban" />
       </div>
     );
   }
