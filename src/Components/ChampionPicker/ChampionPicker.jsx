@@ -11,20 +11,7 @@ import './ChampionPicker.css';
 class ChampionPicker extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { chosen: undefined, locked: [] };
-    this.setChosen = this.setChosen.bind(this);
-    this.setLocked = this.setLocked.bind(this);
-  }
-
-  setChosen(e) {
-    this.setState({ chosen: e.target });
-  }
-
-  setLocked() {
-    this.setState({
-      locked: [...this.state.locked, this.state.chosen.innerText],
-    });
-    console.log(this.state.locked);
+    this.state = {};
   }
 
   render() {
@@ -37,11 +24,11 @@ class ChampionPicker extends React.Component {
         </div>
         <div className="champion-picker__mid-section section">
           <Picker
-            setChosen={this.setChosen}
-            chosen={this.state.chosen}
-            locked={this.state.locked}
+            setChosen={this.props.setChosen}
+            chosen={this.props.chosen}
+            locked={this.props.locked}
           />
-          <LockButton setLocked={this.setLocked} />
+          <LockButton setLocked={this.props.setLocked} />
         </div>
         <div className="champion-picker__bottom-section section">
           <SummonerSpells />
