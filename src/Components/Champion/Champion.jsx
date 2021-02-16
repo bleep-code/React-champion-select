@@ -9,10 +9,12 @@ class Champion extends React.Component {
   render() {
     const { chosen, locked, name, setChosen, onUpdate } = this.props;
 
+    const lockedNames = locked?.map((x) => x.children[1].innerText);
     return (
       <div
         className={`picker__champion ${
-          locked?.includes(name)
+          //think about the way how to rerender on lock so it can change class immediately
+          lockedNames?.includes(name)
             ? 'locked'
             : chosen?.innerText === name
             ? 'chosen'

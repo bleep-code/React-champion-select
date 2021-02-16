@@ -16,6 +16,13 @@ class Player extends React.Component {
       availableRoles[Math.floor(Math.random() * availableRoles.length)];
   }
 
+  renderBgImage() {
+    const { chosen, locked, isPicking } = this.props;
+    return !!locked
+      ? locked.children[0].src
+      : isPicking && !_.isEmpty(chosen) && chosen?.children[0]?.src;
+  }
+
   render() {
     const { chosen, locked, isPicking, isPickingNext } = this.props;
 
@@ -32,9 +39,7 @@ class Player extends React.Component {
         <div
           className="player__image"
           style={{
-            backgroundImage: `url(${
-              isPicking && !_.isEmpty(chosen) && chosen?.children[0]?.src
-            })`,
+            backgroundImage: `url(${this.renderBgImage()})`,
           }}
         ></div>
         <div className="player__details">

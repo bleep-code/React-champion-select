@@ -29,7 +29,7 @@ class App extends React.Component {
       // render a <broken app> here
     } else {
       this.setState({
-        locked: [...this.state.locked, this.state.chosen.innerText],
+        locked: [...this.state.locked, this.state.chosen],
       });
       this.setState({ chosen: {} });
     }
