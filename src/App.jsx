@@ -42,7 +42,10 @@ class App extends React.Component {
   render() {
     const { chosen, locked, turn } = this.state;
     return (
-      <div className="champion-select">
+      <div
+        className="champion-select"
+        style={{ pointerEvents: this.state.turn === 10 && 'none' }}
+      >
         <FriendlyTeam locked={locked} chosen={chosen} turn={turn} />
         <ChampionPicker
           locked={locked}
