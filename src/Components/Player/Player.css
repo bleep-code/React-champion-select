@@ -13,8 +13,7 @@
   /* should vary on isFriendly or isEnemy status, TBD */
   height: 100%;
   width: 2%;
-  background-color: rgba(255, 255, 255, 0.2);
-  /* visibility should vary on isPicking status, TBD */
+  background-color: gold;
 }
 
 .player__summoner-spells {
@@ -31,6 +30,7 @@
   margin-right: 5%;
   background-color: #fff;
   border-radius: 50%;
+  background-size: cover;
 }
 
 .player__details {
