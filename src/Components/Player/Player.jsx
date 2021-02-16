@@ -32,7 +32,6 @@ class Player extends React.Component {
       : isPickingNext
       ? 'Picking next..'
       : '';
-
     return (
       <div
         className="team__players--player player"
