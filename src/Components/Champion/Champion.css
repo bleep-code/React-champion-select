@@ -13,6 +13,10 @@
   cursor: pointer;
 }
 
+.picker__champion i {
+  pointer-events: none;
+}
+
 .picker__champion--image {
   width: 80%;
   margin-bottom: 5%;
