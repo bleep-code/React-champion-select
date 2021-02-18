@@ -19,7 +19,6 @@ class App extends React.Component {
     this.setChosen = this.setChosen.bind(this);
     this.setLocked = this.setLocked.bind(this);
     this.countDown = this.countDown.bind(this);
-    this.setTurn = this.setTurn.bind(this);
   }
 
   setChosen({ target }) {
@@ -27,7 +26,7 @@ class App extends React.Component {
   }
 
   setLocked() {
-    const { chosen, locked } = this.state;
+    const { chosen, locked, turn } = this.state;
     if (_.isEmpty(chosen)) {
       console.log('what are you doing bro');
       // render a <broken app> here
@@ -37,12 +36,9 @@ class App extends React.Component {
         locked: [...locked, chosen],
         chosen: {},
         time: 60,
+        turn: turn + 1,
       });
     }
-  }
-
-  setTurn() {
-    this.setState({ turn: this.state.turn + 1 });
   }
 
   countDown() {
@@ -71,7 +67,6 @@ class App extends React.Component {
           setChosen={this.setChosen}
           setLocked={this.setLocked}
           countDown={this.countDown}
-          setTurn={this.setTurn}
         />
         <EnemyTeam locked={locked} chosen={chosen} turn={turn} />
       </div>
