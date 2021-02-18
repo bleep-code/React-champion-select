@@ -22,18 +22,19 @@ class App extends React.Component {
     this.setTurn = this.setTurn.bind(this);
   }
 
-  setChosen(e) {
-    !!e.target && this.setState({ chosen: e.target });
+  setChosen({ target }) {
+    !!target && !_.isEmpty(target) && this.setState({ chosen: target });
   }
 
   setLocked() {
-    if (_.isEmpty(this.state.chosen)) {
+    const { chosen, locked } = this.state;
+    if (_.isEmpty(chosen)) {
       console.log('what are you doing bro');
       // render a <broken app> here
     } else {
-      console.log(this.state.chosen);
+      console.log(chosen);
       this.setState({
-        locked: [...this.state.locked, this.state.chosen],
+        locked: [...locked, chosen],
         chosen: {},
         time: 60,
       });
@@ -59,7 +60,7 @@ class App extends React.Component {
     return (
       <div
         className="champion-select"
-        style={{ pointerEvents: this.state.turn === 11 && 'none' }}
+        style={{ pointerEvents: turn === 11 && 'none' }}
       >
         <FriendlyTeam locked={locked} chosen={chosen} turn={turn} />
         <ChampionPicker

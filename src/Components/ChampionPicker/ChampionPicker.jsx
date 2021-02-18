@@ -11,32 +11,18 @@ class ChampionPicker extends React.Component {
   constructor(props) {
     super(props);
     this.state = {};
-    // this.state = { time: 60, intervalId: undefined };
-    // this.countDown = this.countDown.bind(this);
   }
 
-  // countDown() {
-  //   this.setState({ time: this.state.time - 1 });
-  // }
-
-  // componentDidUpdate() {
-  //   if (this.state.time === 0) {
-  //     this.setState({ time: 60 });
-  //     this.props.setLocked();
-  //   }
-  // }
-
   render() {
-    // const { time } = this.state;
     const {
       turn,
+      time,
       chosen,
-      setChosen,
       locked,
+      countDown,
+      setChosen,
       setLocked,
       setTurn,
-      time,
-      countDown,
     } = this.props;
     return (
       <div className="champion-picker">
