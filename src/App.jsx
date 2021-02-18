@@ -27,18 +27,14 @@ class App extends React.Component {
 
   setLocked() {
     const { chosen, locked, turn } = this.state;
-    if (_.isEmpty(chosen)) {
-      console.log('what are you doing bro');
-      // render a <broken app> here
-    } else {
-      console.log(chosen);
-      this.setState({
-        locked: [...locked, chosen],
-        chosen: {},
-        time: 60,
-        turn: turn + 1,
-      });
-    }
+    !_.isEmpty(chosen)
+      ? this.setState({
+          locked: [...locked, chosen],
+          chosen: {},
+          time: 60,
+          turn: turn + 1,
+        })
+      : console.log('what are you doing bro');
   }
 
   countDown() {

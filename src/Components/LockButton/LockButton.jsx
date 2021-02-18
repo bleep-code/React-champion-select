@@ -3,7 +3,7 @@ import './LockButton.css';
 var _ = require('lodash');
 class LockButton extends React.Component {
   render() {
-    const { chosen, setLocked } = this.props;
+    const { chosen, setLocked, onUpdate } = this.props;
 
     return (
       <div className="picker__lock-in--wrapper">
@@ -12,7 +12,13 @@ class LockButton extends React.Component {
             _.isEmpty(chosen) && 'disabled'
           }`}
         >
-          <div className={`picker__lock-in--button`} onClick={setLocked} />
+          <div
+            className={`picker__lock-in--button`}
+            onClick={() => {
+              setLocked();
+              setTimeout(onUpdate, 0);
+            }}
+          />
           <span className="picker__lock-in--button--text">Lock In</span>
         </div>
       </div>
