@@ -38,13 +38,18 @@ class Player extends React.Component {
     return (
       <div
         className="team__players--player player"
-        onClick={this.availableNicknames}
+        style={{
+          flexDirection: !enemy ? 'row' : 'row-reverse',
+        }}
       >
         <div
           className="player__picking-sign"
           style={{ opacity: isPicking ? 1 : 0 }}
         />
-        <div className="player__summoner-spells">
+        <div
+          className="player__summoner-spells"
+          style={{ margin: !enemy ? '0 5% 0 7.5%' : '0 7.5% 0 5%' }}
+        >
           <div className="player_summoner-spells--upper" />
           <div className="player_summoner-spells--lower" />
         </div>
@@ -54,9 +59,14 @@ class Player extends React.Component {
             backgroundImage: `url(${bgImage})`,
             borderColor,
           }}
-        ></div>
+        />
         <div className="player__details">
-          <span className="player__details--is-picking">{pickingStatus}</span>
+          <span
+            className="player__details--is-picking"
+            style={{ left: !enemy ? '0' : 'calc(100-2%)' }}
+          >
+            {pickingStatus}
+          </span>
           <span className="player__details--position">{this.role}</span>
           <span className="player__details--name">{name}</span>
         </div>
