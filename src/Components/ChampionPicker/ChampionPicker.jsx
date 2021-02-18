@@ -65,11 +65,7 @@ class ChampionPicker extends React.Component {
         </div>
         <div className="champion-picker__mid-section section">
           <Picker champions={this.state.champions} />
-          <LockButton
-            setLocked={setLocked}
-            chosen={chosen}
-            onUpdate={this.onUpdate}
-          />
+          <LockButton setLocked={setLocked} chosen={chosen} />
         </div>
         <div className="champion-picker__bottom-section section">
           <SummonerSpells />
