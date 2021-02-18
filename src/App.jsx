@@ -2,6 +2,7 @@ import React from 'react';
 import FriendlyTeam from './Components/FriendlyTeam/FriendlyTeam';
 import EnemyTeam from './Components/EnemyTeam/EnemyTeam';
 import ChampionPicker from './Components/ChampionPicker/ChampionPicker';
+import CrashedGame from './Components/CrashedGame/CrashedGame';
 import './App.css';
 
 var _ = require('lodash');
@@ -13,8 +14,9 @@ class App extends React.Component {
       chosen: {},
       locked: [],
       turn: 1,
-      time: 60,
+      time: 5,
       intervalId: undefined,
+      isCrashed: false,
     };
     this.setChosen = this.setChosen.bind(this);
     this.setLocked = this.setLocked.bind(this);
@@ -34,7 +36,7 @@ class App extends React.Component {
           time: 60,
           turn: turn + 1,
         })
-      : console.log('what are you doing bro');
+      : this.setState({ isCrashed: true });
   }
 
   countDown() {
@@ -48,8 +50,10 @@ class App extends React.Component {
   }
 
   render() {
-    const { chosen, locked, turn, time } = this.state;
-    return (
+    const { chosen, locked, turn, time, isCrashed } = this.state;
+    return !!isCrashed ? (
+      <CrashedGame />
+    ) : (
       <div
         className="champion-select"
         style={{ pointerEvents: turn === 11 && 'none' }}
