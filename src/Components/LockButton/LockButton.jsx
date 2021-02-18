@@ -12,12 +12,7 @@ class LockButton extends React.Component {
             _.isEmpty(chosen) && 'disabled'
           }`}
         >
-          <div
-            className={`picker__lock-in--button`}
-            onClick={() => {
-              setLocked();
-            }}
-          />
+          <div className={`picker__lock-in--button`} onClick={setLocked} />
           <span className="picker__lock-in--button--text">Lock In</span>
         </div>
       </div>
