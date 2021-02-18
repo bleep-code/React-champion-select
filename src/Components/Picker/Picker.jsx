@@ -43,9 +43,7 @@ class Picker extends React.Component {
   }
 
   onUpdate() {
-    this.getChampions().then((champions) => {
-      this.setState({ champions });
-    });
+    this.componentDidMount();
   }
 
   render() {

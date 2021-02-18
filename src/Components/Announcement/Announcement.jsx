@@ -8,7 +8,7 @@ class Announcement extends React.Component {
   render() {
     return (
       <span className="champion-picker__top-section--announcement">
-        {this.props.turn === 10
+        {this.props.turn === 11
           ? 'Game will start in:'
           : this.props.turn % 2 !== 0
           ? 'Choose your champion!'
