@@ -17,7 +17,13 @@ class Player extends React.Component {
   }
 
   render() {
-    const { chosen, locked, isPicking, isPickingNext } = this.props;
+    const { chosen, locked, isPicking, isPickingNext, enemy } = this.props;
+
+    const pickingStatus = isPicking
+      ? 'Picking ..'
+      : isPickingNext
+      ? 'Picking next..'
+      : '';
 
     const bgImage = !!locked
       ? locked.children[0].src
@@ -27,11 +33,8 @@ class Player extends React.Component {
       ? locked.innerText
       : (isPicking && chosen?.innerText) || this.name;
 
-    const pickingStatus = isPicking
-      ? 'Picking ..'
-      : isPickingNext
-      ? 'Picking next..'
-      : '';
+    const borderColor = !!enemy ? 'red' : 'gold';
+
     return (
       <div
         className="team__players--player player"
@@ -49,6 +52,7 @@ class Player extends React.Component {
           className="player__image"
           style={{
             backgroundImage: `url(${bgImage})`,
+            borderColor,
           }}
         ></div>
         <div className="player__details">

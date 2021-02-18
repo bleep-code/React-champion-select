@@ -30,7 +30,10 @@
   margin-right: 5%;
   background-color: #fff;
   border-radius: 50%;
+  border: 2px solid transparent;
   background-size: cover;
+  background-position-y: 100%;
+  background-color: black;
 }
 
 .player__details {
