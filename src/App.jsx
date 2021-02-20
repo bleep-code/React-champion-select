@@ -14,7 +14,8 @@ class App extends React.Component {
       chosen: {},
       locked: [],
       turn: 1,
-      time: 5,
+      time: 60,
+      intervalId: undefined,
       isCrashed: false,
     };
     this.setChosen = this.setChosen.bind(this);
@@ -45,7 +46,12 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    setInterval(this.countDown, 1000);
+    const intervalId = setInterval(this.countDown, 1000);
+    this.setState({ intervalId });
+  }
+
+  componentDidUpdate() {
+    this.state.time < 0 && clearInterval(this.state.intervalId);
   }
 
   render() {
