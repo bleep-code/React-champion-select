@@ -14,8 +14,7 @@ class App extends React.Component {
       chosen: {},
       locked: [],
       turn: 1,
-      time: 60,
-      intervalId: undefined,
+      time: 5,
       isCrashed: false,
     };
     this.setChosen = this.setChosen.bind(this);
@@ -29,24 +28,24 @@ class App extends React.Component {
 
   setLocked() {
     const { chosen, locked, turn } = this.state;
-    !_.isEmpty(chosen)
-      ? this.setState({
-          locked: [...locked, chosen],
-          chosen: {},
-          time: 60,
-          turn: turn + 1,
-        })
-      : this.setState({ isCrashed: true });
+    !_.isEmpty(chosen) &&
+      this.setState({
+        locked: [...locked, chosen],
+        chosen: {},
+        time: 60,
+        turn: turn + 1,
+      });
   }
 
   countDown() {
+    if (this.state.time === 0 && _.isEmpty(this.state.chosen)) {
+      this.setState({ isCrashed: !this.state.isCrashed });
+    }
     this.setState({ time: this.state.time - 1 });
   }
 
-  componentDidUpdate() {
-    if (this.state.time === 0) {
-      this.setLocked();
-    }
+  componentDidMount() {
+    setInterval(this.countDown, 1000);
   }
 
   render() {
