@@ -9,6 +9,7 @@ import SummonerSpells from '../SummonerSpells/SumonerSpells';
 import Champion from '../Champion/Champion';
 
 import './ChampionPicker.css';
+import Player from '../Player/Player';
 
 var _ = require('lodash');
 

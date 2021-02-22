@@ -64,6 +64,7 @@ class Player extends React.Component {
             borderColor,
             margin: playerImageMargin,
           }}
+          onClick={() => console.log(chosen)}
         />
         <div className="player__details">
           <span
@@ -73,7 +74,7 @@ class Player extends React.Component {
             {pickingStatus}
           </span>
           <span className="player__details--position">
-            {!enemy ? this.role : 'Summoner 1'}
+            {!enemy ? this.role : `Summoner ${this.props.idx}`}
           </span>
           <span className="player__details--name">
             {!enemy ? name : enemyName}
