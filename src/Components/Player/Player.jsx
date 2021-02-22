@@ -36,6 +36,8 @@ class Player extends React.Component {
     const enemyName = !!enemy ? locked?.innerText : '';
 
     const borderColor = !enemy ? 'gold' : 'red';
+    const backgroundColor = isPicking && 'rgba(215, 255, 0, 0.2)';
+
     const playerImageMargin = !enemy ? '0 5% 0 0' : '0 0 0 5%';
     const summonerSpellsMargin = !enemy ? '0 5% 0 7.5%' : '0 7.5% 0 5%';
 
@@ -44,6 +46,11 @@ class Player extends React.Component {
         className="team__players--player player"
         style={{
           flexDirection: !enemy ? 'row' : 'row-reverse',
+          background: isPicking && backgroundColor,
+          borderTopRightRadius: !enemy && '50px',
+          borderBottomRightRadius: !enemy && '50px',
+          borderTopLeftRadius: enemy && '50px',
+          borderBottomLeftRadius: enemy && '50px',
         }}
       >
         <div
@@ -66,7 +73,12 @@ class Player extends React.Component {
           }}
           onClick={() => console.log(chosen)}
         />
-        <div className="player__details">
+        <div
+          className="player__details"
+          style={{
+            color: isPicking && 'gold',
+          }}
+        >
           <span
             className="player__details--is-picking"
             style={{ left: !enemy ? '0' : 'calc(100-2%)' }}

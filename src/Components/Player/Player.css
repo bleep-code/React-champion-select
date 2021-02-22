@@ -5,6 +5,7 @@
   justify-content: flex-start;
   align-items: center;
   position: relative;
+  font-size: 18px;
 }
 
 .player__picking-sign {
@@ -38,4 +39,9 @@
   align-items: flex-start;
   color: white;
   /* align items should vary on isFriendly or isEnemy Status */
+}
+
+.player__details--position {
+  font-size: 28px;
+  font-weight: 500;
 }
