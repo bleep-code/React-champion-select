@@ -41,13 +41,13 @@ class App extends React.Component {
   }
 
   countDown() {
-    const { chosen, time, turn, isCrashed, isStarted } = this.state;
+    const { chosen, time, turn, isCrashed, isStarted, intervalId } = this.state;
     if (time <= 0 && turn >= 10) {
-      clearInterval(this.state.intervalId);
+      clearInterval(intervalId);
       return this.setState({ isStarted: !isStarted });
     }
     if (time <= 0 && _.isEmpty(chosen)) {
-      clearInterval(this.state.intervalId);
+      clearInterval(intervalId);
       return this.setState({ isCrashed: !isCrashed });
     }
     this.setState({ time: time - 1 });
