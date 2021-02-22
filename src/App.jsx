@@ -3,6 +3,7 @@ import FriendlyTeam from './Components/FriendlyTeam/FriendlyTeam';
 import EnemyTeam from './Components/EnemyTeam/EnemyTeam';
 import ChampionPicker from './Components/ChampionPicker/ChampionPicker';
 import CrashedGame from './Components/CrashedGame/CrashedGame';
+import StartedGame from './Components/StartedGame/StartedGame';
 import './App.css';
 
 var _ = require('lodash');
@@ -17,6 +18,7 @@ class App extends React.Component {
       time: 60,
       intervalId: undefined,
       isCrashed: false,
+      isStarted: false,
     };
     this.setChosen = this.setChosen.bind(this);
     this.setLocked = this.setLocked.bind(this);
@@ -33,16 +35,22 @@ class App extends React.Component {
       this.setState({
         locked: [...locked, chosen],
         chosen: {},
-        time: 60,
+        time: this.state.turn >= 10 ? 10 : 60,
         turn: turn + 1,
       });
   }
 
   countDown() {
-    if (this.state.time === 0 && _.isEmpty(this.state.chosen)) {
-      this.setState({ isCrashed: !this.state.isCrashed });
+    const { chosen, time, turn, isCrashed, isStarted } = this.state;
+    if (time === 0 && turn >= 10) {
+      clearInterval(this.state.intervalId);
+      return this.setState({ isStarted: !isStarted });
     }
-    this.setState({ time: this.state.time - 1 });
+    if (time === 0 && _.isEmpty(chosen)) {
+      clearInterval(this.state.intervalId);
+      return this.setState({ isCrashed: !isCrashed });
+    }
+    this.setState({ time: time - 1 });
   }
 
   componentDidMount() {
@@ -50,14 +58,12 @@ class App extends React.Component {
     this.setState({ intervalId });
   }
 
-  componentDidUpdate() {
-    this.state.time < 0 && clearInterval(this.state.intervalId);
-  }
-
   render() {
-    const { chosen, locked, turn, time, isCrashed } = this.state;
+    const { chosen, locked, turn, time, isCrashed, isStarted } = this.state;
     return !!isCrashed ? (
       <CrashedGame />
+    ) : !!isStarted ? (
+      <StartedGame />
     ) : (
       <div
         className="champion-select"
