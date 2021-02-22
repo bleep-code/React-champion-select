@@ -77,7 +77,6 @@ class App extends React.Component {
           time={time}
           setChosen={this.setChosen}
           setLocked={this.setLocked}
-          countDown={this.countDown}
         />
         <EnemyTeam locked={locked} chosen={chosen} turn={turn} />
       </div>

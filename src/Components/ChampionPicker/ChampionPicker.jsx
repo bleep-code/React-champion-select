@@ -55,12 +55,12 @@ class ChampionPicker extends React.Component {
   }
 
   render() {
-    const { turn, time, chosen, countDown, setLocked } = this.props;
+    const { turn, time, chosen, setLocked } = this.props;
     return (
       <div className="champion-picker">
         <div className="champion-picker__top-section section">
           <Announcement turn={turn} />
-          <Timer time={time} countDown={countDown} />
+          <Timer time={time} />
           <Search />
         </div>
         <div className="champion-picker__mid-section section">
