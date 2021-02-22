@@ -36,7 +36,8 @@ class Player extends React.Component {
     const enemyName = !!enemy ? locked?.innerText : '';
 
     const borderColor = !enemy ? 'gold' : 'red';
-    const margin = !enemy ? '0 5% 0 0' : '0 0 0 5%';
+    const playerImageMargin = !enemy ? '0 5% 0 0' : '0 0 0 5%';
+    const summonerSpellsMargin = !enemy ? '0 5% 0 7.5%' : '0 7.5% 0 5%';
 
     return (
       <div
@@ -51,7 +52,7 @@ class Player extends React.Component {
         />
         <div
           className="player__summoner-spells"
-          style={{ margin: !enemy ? '0 5% 0 7.5%' : '0 7.5% 0 5%' }}
+          style={{ margin: summonerSpellsMargin }}
         >
           <div className="player_summoner-spells--upper" />
           <div className="player_summoner-spells--lower" />
@@ -61,7 +62,7 @@ class Player extends React.Component {
           style={{
             backgroundImage: `url(${bgImage})`,
             borderColor,
-            margin,
+            margin: playerImageMargin,
           }}
         />
         <div className="player__details">
