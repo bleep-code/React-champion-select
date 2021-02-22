@@ -33,7 +33,10 @@ class Player extends React.Component {
       ? locked.innerText
       : (isPicking && chosen?.innerText) || this.name;
 
-    const borderColor = !!enemy ? 'red' : 'gold';
+    const enemyName = !!enemy ? locked?.innerText : '';
+
+    const borderColor = !enemy ? 'gold' : 'red';
+    const margin = !enemy ? '0 5% 0 0' : '0 0 0 5%';
 
     return (
       <div
@@ -58,6 +61,7 @@ class Player extends React.Component {
           style={{
             backgroundImage: `url(${bgImage})`,
             borderColor,
+            margin,
           }}
         />
         <div className="player__details">
@@ -67,8 +71,12 @@ class Player extends React.Component {
           >
             {pickingStatus}
           </span>
-          <span className="player__details--position">{this.role}</span>
-          <span className="player__details--name">{name}</span>
+          <span className="player__details--position">
+            {!enemy ? this.role : 'Summoner 1'}
+          </span>
+          <span className="player__details--name">
+            {!enemy ? name : enemyName}
+          </span>
         </div>
       </div>
     );
