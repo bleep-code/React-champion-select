@@ -15,6 +15,7 @@ class Team extends React.Component {
           }
           chosen={chosen}
           isPicking={!enemy ? turn === 1 : turn === 2}
+          isPickingNext={!enemy ? undefined : turn === 1}
           enemy={enemy}
           idx={1}
         />

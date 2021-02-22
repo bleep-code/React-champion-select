@@ -40,8 +40,3 @@
   color: white;
   /* align items should vary on isFriendly or isEnemy Status */
 }
-
-.player__details--position {
-  font-size: 28px;
-  font-weight: 500;
-}

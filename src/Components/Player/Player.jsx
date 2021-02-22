@@ -36,7 +36,6 @@ class Player extends React.Component {
     const enemyName = !!enemy ? locked?.innerText : '';
 
     const borderColor = !enemy ? 'gold' : 'red';
-    const backgroundColor = isPicking && 'rgba(215, 255, 0, 0.2)';
 
     const playerImageMargin = !enemy ? '0 5% 0 0' : '0 0 0 5%';
     const summonerSpellsMargin = !enemy ? '0 5% 0 7.5%' : '0 7.5% 0 5%';
@@ -46,11 +45,6 @@ class Player extends React.Component {
         className="team__players--player player"
         style={{
           flexDirection: !enemy ? 'row' : 'row-reverse',
-          background: isPicking && backgroundColor,
-          borderTopRightRadius: !enemy && '50px',
-          borderBottomRightRadius: !enemy && '50px',
-          borderTopLeftRadius: enemy && '50px',
-          borderBottomLeftRadius: enemy && '50px',
         }}
       >
         <div
@@ -77,19 +71,36 @@ class Player extends React.Component {
           className="player__details"
           style={{
             color: isPicking && 'gold',
+            alignItems: !!enemy && 'flex-end',
           }}
         >
           <span
             className="player__details--is-picking"
-            style={{ left: !enemy ? '0' : 'calc(100-2%)' }}
+            style={{
+              left: !enemy ? '0' : 'calc(100-2%)',
+              fontSize: !!enemy && '28px',
+              fontWeight: !!enemy && 500,
+            }}
           >
-            {pickingStatus}
+            {pickingStatus || (!!enemy && enemyName)}
           </span>
-          <span className="player__details--position">
+          <span
+            className="player__details--position"
+            style={{
+              fontSize: !enemy && '28px',
+              fontWeight: !enemy && 500,
+            }}
+          >
             {!enemy ? this.role : `Summoner ${this.props.idx}`}
           </span>
-          <span className="player__details--name">
-            {!enemy ? name : enemyName}
+          <span
+            className="player__details--name"
+            style={{
+              fontSize: enemy && '28px',
+              fontWeight: enemy && 500,
+            }}
+          >
+            {!enemy && name}
           </span>
         </div>
       </div>
