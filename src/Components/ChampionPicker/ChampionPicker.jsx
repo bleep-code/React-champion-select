@@ -9,50 +9,58 @@ import SummonerSpells from '../SummonerSpells/SumonerSpells';
 import Champion from '../Champion/Champion';
 
 import './ChampionPicker.css';
-import Player from '../Player/Player';
 
 var _ = require('lodash');
 
 class ChampionPicker extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { champions: [] };
+    this.state = { champions: [], fetchedChampions: [] };
     this.onUpdate = this.onUpdate.bind(this);
   }
 
-  getChampions() {
-    const { chosen, locked, setChosen } = this.props;
+  fetchChampions() {
+    // this should be reworked to save static data, so it won't request every update
     return axios
       .get(
         'http://ddragon.leagueoflegends.com/cdn/11.3.1/data/en_US/champion.json'
       )
-      .then(({ data: { data } }) =>
-        _.flatMap(data).map(({ id, name, title, image, tags, blurb }) => (
-          <Champion
-            id={id}
-            name={name}
-            title={title}
-            image={image.full}
-            tags={tags}
-            blurb={blurb}
-            key={id}
-            chosen={chosen}
-            locked={locked}
-            setChosen={setChosen}
-            onUpdate={this.onUpdate}
-          />
-        ))
-      );
+      .then(({ data: { data } }) => _.flatMap(data))
+      .then((fetchedChampions) => this.setState({ fetchedChampions }));
+  }
+
+  setChampions() {
+    const { chosen, locked, setChosen } = this.props;
+
+    const champions = this.state.fetchedChampions.map(
+      ({ id, name, title, image, tags, blurb }) => (
+        <Champion
+          id={id}
+          name={name}
+          title={title}
+          image={image.full}
+          tags={tags}
+          blurb={blurb}
+          key={id}
+          chosen={chosen}
+          locked={locked}
+          setChosen={setChosen}
+          onUpdate={this.onUpdate}
+        />
+      )
+    );
+
+    this.setState({ champions });
   }
 
   componentDidMount() {
-    this.getChampions().then((champions) => {
-      this.setState({ champions });
-    });
+    this.fetchChampions().then((fetchedChampions) =>
+      this.setChampions(fetchedChampions)
+    );
   }
 
   onUpdate() {
-    this.componentDidMount();
+    this.setChampions();
   }
 
   render() {
