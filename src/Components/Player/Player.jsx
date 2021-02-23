@@ -37,8 +37,9 @@ class Player extends React.Component {
 
     const borderColor = !enemy ? 'gold' : 'red';
 
-    const playerImageMargin = !enemy ? '0 5% 0 0' : '0 0 0 5%';
-    const summonerSpellsMargin = !enemy ? '0 5% 0 7.5%' : '0 7.5% 0 5%';
+    const playerImageMargin = !enemy ? '0 5%' : '0 5%';
+
+    const summonerSpellsDisplay = (!!enemy || !locked) && 'none';
 
     return (
       <div
@@ -53,7 +54,7 @@ class Player extends React.Component {
         />
         <div
           className="player__summoner-spells"
-          style={{ margin: summonerSpellsMargin }}
+          style={{ margin: '0 0 0 3%', display: summonerSpellsDisplay }}
         >
           <div className="player_summoner-spells--upper" />
           <div className="player_summoner-spells--lower" />

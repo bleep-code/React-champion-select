@@ -17,9 +17,17 @@
 
 .player__summoner-spells {
   display: flex;
-  width: 10%;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  width: 15%;
   height: 100%;
-  background-color: #fff;
+}
+
+.player__summoner-spells > * {
+  width: 70%;
+  height: 40%;
+  background-color: #000;
 }
 
 .player__image {

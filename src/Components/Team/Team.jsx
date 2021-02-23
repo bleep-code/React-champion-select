@@ -17,7 +17,7 @@ class Team extends React.Component {
       return (x = isEnemy && (
         <Player
           key={i}
-          idx={i}
+          idx={(i + 1) / 2}
           locked={locked?.length >= i + 1 && locked[i]}
           chosen={chosen}
           isPicking={turn === i + 1}
