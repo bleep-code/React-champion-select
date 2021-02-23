@@ -19,14 +19,12 @@ class ChampionPicker extends React.Component {
     this.onUpdate = this.onUpdate.bind(this);
   }
 
-  fetchChampions() {
-    // this should be reworked to save static data, so it won't request every update
-    return axios
-      .get(
-        'http://ddragon.leagueoflegends.com/cdn/11.3.1/data/en_US/champion.json'
-      )
-      .then(({ data: { data } }) => _.flatMap(data))
-      .then((fetchedChampions) => this.setState({ fetchedChampions }));
+  async fetchChampions() {
+    let { data: fetchedChampions } = await axios.get(
+      'http://ddragon.leagueoflegends.com/cdn/11.3.1/data/en_US/champion.json'
+    );
+    fetchedChampions = _.flatMap(fetchedChampions.data);
+    this.setState({ fetchedChampions });
   }
 
   setChampions() {
