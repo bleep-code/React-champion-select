@@ -1,3 +1,5 @@
 .champion-picker__top-section--announcement {
-  font-size: 28px;
+  margin-top: 2%;
+  font-size: 32px;
+  text-transform: uppercase;
 }
