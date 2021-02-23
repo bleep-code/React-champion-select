@@ -65,7 +65,7 @@ class Player extends React.Component {
             borderColor,
             margin: playerImageMargin,
           }}
-          onClick={() => console.log(chosen)}
+          onClick={() => console.log(this.props)}
         />
         <div
           className="player__details"

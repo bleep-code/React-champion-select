@@ -14,8 +14,6 @@ class Champion extends React.Component {
     return (
       <div
         className={`picker__champion ${
-          //think about the way how to rerender on lock so it can change class immediately
-
           chosen?.innerText === name
             ? 'chosen'
             : '' || (lockedNames?.includes(name) && 'locked')
