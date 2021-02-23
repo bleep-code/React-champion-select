@@ -52,9 +52,7 @@ class ChampionPicker extends React.Component {
   }
 
   componentDidMount() {
-    this.fetchChampions().then((fetchedChampions) =>
-      this.setChampions(fetchedChampions)
-    );
+    this.fetchChampions().then(() => this.setChampions());
   }
 
   onUpdate() {
