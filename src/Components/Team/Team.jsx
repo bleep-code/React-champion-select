@@ -16,6 +16,7 @@ class Team extends React.Component {
       const isEnemy = !enemy ? i % 2 === 0 : i % 2 !== 0;
       return (x = isEnemy && (
         <Player
+          key={i}
           idx={i}
           locked={locked?.length >= i + 1 && locked[i]}
           chosen={chosen}
