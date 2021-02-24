@@ -17,7 +17,7 @@ class Player extends React.Component {
   }
 
   render() {
-    const { chosen, locked, isPicking, isPickingNext, enemy } = this.props;
+    const { idx, chosen, locked, isPicking, isPickingNext, enemy } = this.props;
 
     const pickingStatus = isPicking
       ? 'Picking ..'
@@ -92,7 +92,7 @@ class Player extends React.Component {
               fontWeight: !enemy && 500,
             }}
           >
-            {!enemy ? this.role : `Summoner ${this.props.idx}`}
+            {!enemy ? this.role : `Summoner ${idx}`}
           </span>
           <span
             className="player__details--name"
