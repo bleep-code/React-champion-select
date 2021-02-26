@@ -1,0 +1,30 @@
+.champion-picker {
+  height: 100%;
+  width: 100%;
+  position: relative;
+}
+
+.section {
+  position: absolute;
+}
+
+.champion-picker__top-section {
+  width: 100%;
+  height: var(--top-section-height);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: white;
+}
+
+.champion-picker__mid-section {
+  width: 100%;
+  height: 71.5%;
+  top: var(--top-section-height);
+}
+
+.champion-picker__bottom-section {
+  width: 100%;
+  height: 5%;
+  bottom: 2.5%;
+}

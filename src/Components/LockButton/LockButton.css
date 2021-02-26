@@ -1,0 +1,59 @@
+.disabled {
+  cursor: not-allowed;
+}
+
+.disabled > div,
+.disabled > span {
+  pointer-events: none;
+}
+
+.picker__lock-in--wrapper {
+  width: 50%;
+  height: 8.3%;
+  margin: 1% auto;
+  position: relative;
+}
+
+.picker__lock-in--button:hover {
+  cursor: pointer;
+}
+
+.picker__lock-in--outer {
+  background: none;
+  outline: none;
+  border: none;
+  width: 50%;
+  margin: 0 auto;
+  border-bottom: 6vh solid rgb(6, 162, 173);
+  border-top: 0px solid black;
+  border-left: 30px solid transparent;
+  border-right: 30px solid transparent;
+  border-bottom-left-radius: 50%;
+  border-bottom-right-radius: 50%;
+}
+
+.picker__lock-in--button {
+  width: 50%;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%) scale(0.95);
+  border-bottom: 5.75vh solid rgb(29, 38, 43);
+  border-top: 0px solid black;
+  border-left: 30px solid transparent;
+  border-right: 30px solid transparent;
+  border-bottom-left-radius: 50%;
+  border-bottom-right-radius: 50%;
+}
+
+.picker__lock-in--button--text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -60%);
+  pointer-events: none;
+
+  color: rgb(178, 217, 219);
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 20px;
+}
