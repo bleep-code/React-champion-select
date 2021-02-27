@@ -32,8 +32,10 @@
 }
 
 .player__image {
-  width: 20%;
-  height: 80%;
+  width: 5vw;
+  min-width: 50px;
+  height: 5vw;
+  min-height: 50px;
   margin: 0 5%;
   background-color: #fff;
   border-radius: 50%;
