@@ -13,6 +13,7 @@ const _ = require('lodash');
 class App extends React.Component {
   constructor(props) {
     super(props);
+
     this.state = {
       chosen: {},
       locked: [],
@@ -22,6 +23,7 @@ class App extends React.Component {
       isCrashed: false,
       isStarted: false,
     };
+
     this.setChosen = this.setChosen.bind(this);
     this.setLocked = this.setLocked.bind(this);
     this.countDown = this.countDown.bind(this);

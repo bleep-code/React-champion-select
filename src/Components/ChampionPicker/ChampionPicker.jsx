@@ -16,7 +16,9 @@ const _ = require('lodash');
 class ChampionPicker extends React.Component {
   constructor(props) {
     super(props);
+
     this.state = { champions: [], fetchedChampions: [] };
+
     this.onUpdate = this.onUpdate.bind(this);
   }
 

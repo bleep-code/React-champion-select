@@ -6,6 +6,7 @@ import Team from '../Team/Team';
 class EnemyTeam extends React.Component {
   constructor(props) {
     super(props);
+
     this.state = { enemy: true };
   }
   render() {

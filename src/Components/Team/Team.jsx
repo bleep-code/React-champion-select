@@ -7,11 +7,6 @@ import Player from '../Player/Player';
 const _ = require('lodash');
 
 class Team extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
-
   setPlayers() {
     const { chosen, locked, turn, enemy } = this.props;
     return _.fill(Array(10), undefined).map((x, i) => {

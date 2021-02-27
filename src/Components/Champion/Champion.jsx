@@ -3,11 +3,6 @@ import './Champion.css';
 import React from 'react';
 
 class Champion extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
-
   render() {
     const { chosen, locked, name, setChosen, onUpdate } = this.props;
 

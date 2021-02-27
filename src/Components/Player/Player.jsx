@@ -12,7 +12,9 @@ const _ = require('lodash');
 class Player extends React.Component {
   constructor(props) {
     super(props);
+
     this.state = {};
+
     this.name =
       availableNicknames[Math.floor(Math.random() * availableNicknames.length)];
     this.role =
