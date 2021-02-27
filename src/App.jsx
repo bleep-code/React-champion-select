@@ -30,18 +30,19 @@ class App extends React.Component {
   }
 
   setChosen({target}) {
-    !!target && !_.isEmpty(target) && this.setState({chosen: target});
+    !_.isEmpty(target) && this.setState({chosen: target});
   }
 
   setLocked() {
     const {chosen, locked, turn} = this.state;
-    !_.isEmpty(chosen) &&
+    if (!_.isEmpty(chosen)) {
       this.setState({
         locked: [...locked, chosen],
         chosen: {},
         time: this.state.turn >= 10 ? 10 : 60,
         turn: turn + 1,
       });
+    }
   }
 
   countDown() {

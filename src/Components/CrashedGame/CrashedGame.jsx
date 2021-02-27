@@ -3,12 +3,6 @@ import './CrashedGame.css';
 import React from 'react';
 
 class CrashedGame extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {};
-  }
-
   render() {
     return (
       <div className="crashed-game">

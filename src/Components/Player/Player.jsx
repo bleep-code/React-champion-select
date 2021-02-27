@@ -18,28 +18,48 @@ class Player extends React.Component {
       availableRoles[Math.floor(Math.random() * availableRoles.length)];
   }
 
+  pickingStatus() {
+    const {isPicking, isPickingNext} = this.props;
+
+    if (isPicking) {
+      return 'Picking...';
+    }
+
+    if (isPickingNext) {
+      return 'Picking next...';
+    }
+
+    return '';
+  }
+
+  friendlyName() {
+    const {chosen, locked, isPicking} = this.props;
+
+    if (locked) {
+      return locked.innerText;
+    }
+
+    if (isPicking && !_.isEmpty(chosen)) {
+      return chosen?.innerText;
+    }
+
+    return this.name;
+  }
+
+  playerImage() {
+    const {chosen, locked, isPicking} = this.props;
+
+    if (locked) {
+      return locked.children[0].src;
+    }
+
+    if (isPicking && !_.isEmpty(chosen)) {
+      return chosen.children[0].src;
+    }
+  }
+
   render() {
-    const {idx, chosen, locked, isPicking, isPickingNext, enemy} = this.props;
-
-    const pickingStatus = isPicking
-      ? 'Picking ..'
-      : isPickingNext
-      ? 'Picking next..'
-      : '';
-
-    const bgImage = !!locked
-      ? locked.children[0].src
-      : isPicking && !_.isEmpty(chosen) && chosen?.children[0]?.src;
-
-    const name = !!locked
-      ? locked.innerText
-      : (isPicking && chosen?.innerText) || this.name;
-
-    const enemyName = !!enemy ? locked?.innerText : '';
-
-    const borderColor = !enemy ? 'gold' : 'red';
-
-    const summonerSpellsDisplay = (!!enemy || !locked) && 'none';
+    const {idx, locked, isPicking, enemy} = this.props;
 
     return (
       <div
@@ -54,7 +74,7 @@ class Player extends React.Component {
         />
         <div
           className="player__summoner-spells"
-          style={{marginLeft: '3%', display: summonerSpellsDisplay}}
+          style={{display: (enemy || !locked) && 'none'}}
         >
           <div className="player_summoner-spells--upper" />
           <div className="player_summoner-spells--lower" />
@@ -62,9 +82,8 @@ class Player extends React.Component {
         <div
           className="player__image"
           style={{
-            backgroundImage: `url(${bgImage})`,
-            borderColor,
-            margin: '0 5%',
+            backgroundImage: `url(${this.playerImage()})`,
+            borderColor: !enemy ? 'gold' : 'red',
           }}
         />
         <div
@@ -82,7 +101,7 @@ class Player extends React.Component {
               fontWeight: !!enemy && 500,
             }}
           >
-            {pickingStatus || (!!enemy && enemyName)}
+            {this.pickingStatus() || (enemy && locked?.innerText)}
           </span>
           <span
             className="player__details--position"
@@ -100,7 +119,7 @@ class Player extends React.Component {
               fontWeight: enemy && 500,
             }}
           >
-            {!enemy && name}
+            {!enemy && this.friendlyName()}
           </span>
         </div>
       </div>
