@@ -64,11 +64,13 @@ class App extends React.Component {
 
   render() {
     const { chosen, locked, turn, time, isCrashed, isStarted } = this.state;
-    return !!isCrashed ? (
-      <CrashedGame />
-    ) : !!isStarted ? (
-      <StartedGame />
-    ) : (
+    if (isCrashed) {
+      return <CrashedGame />;
+    }
+    if (isStarted) {
+      return <StartedGame />;
+    }
+    return (
       <div
         className="champion-select"
         style={{ pointerEvents: turn === 11 && 'none' }}
