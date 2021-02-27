@@ -2,10 +2,7 @@ import './Player.css';
 
 import React from 'react';
 
-import {
-  availableNicknames,
-  availableRoles,
-} from '../../Fixtures/fixtures.json';
+import {availableNicknames, availableRoles} from '../../Fixtures/fixtures.json';
 
 const _ = require('lodash');
 
@@ -22,7 +19,7 @@ class Player extends React.Component {
   }
 
   render() {
-    const { idx, chosen, locked, isPicking, isPickingNext, enemy } = this.props;
+    const {idx, chosen, locked, isPicking, isPickingNext, enemy} = this.props;
 
     const pickingStatus = isPicking
       ? 'Picking ..'
@@ -53,11 +50,11 @@ class Player extends React.Component {
       >
         <div
           className="player__picking-sign"
-          style={{ opacity: isPicking ? 1 : 0 }}
+          style={{opacity: isPicking ? 1 : 0}}
         />
         <div
           className="player__summoner-spells"
-          style={{ marginLeft: '3%', display: summonerSpellsDisplay }}
+          style={{marginLeft: '3%', display: summonerSpellsDisplay}}
         >
           <div className="player_summoner-spells--upper" />
           <div className="player_summoner-spells--lower" />

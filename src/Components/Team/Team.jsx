@@ -8,7 +8,7 @@ const _ = require('lodash');
 
 class Team extends React.Component {
   setPlayers() {
-    const { chosen, locked, turn, enemy } = this.props;
+    const {chosen, locked, turn, enemy} = this.props;
     return _.fill(Array(10), undefined).map((x, i) => {
       const isEnemy = !enemy ? i % 2 === 0 : i % 2 !== 0;
       return (x = isEnemy && (

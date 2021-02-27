@@ -4,7 +4,7 @@ import React from 'react';
 
 class Champion extends React.Component {
   render() {
-    const { chosen, locked, name, setChosen, onUpdate } = this.props;
+    const {chosen, locked, name, setChosen, onUpdate} = this.props;
 
     const lockedNames = locked?.map((x) => x.children[1].innerText);
 

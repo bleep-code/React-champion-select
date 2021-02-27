@@ -6,7 +6,7 @@ const _ = require('lodash');
 
 class LockButton extends React.Component {
   render() {
-    const { chosen, setLocked, onUpdate } = this.props;
+    const {chosen, setLocked, onUpdate} = this.props;
 
     return (
       <div className="picker__lock-in--wrapper">

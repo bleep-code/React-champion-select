@@ -7,10 +7,10 @@ class EnemyTeam extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = { enemy: true };
+    this.state = {enemy: true};
   }
   render() {
-    const { turn, chosen, locked } = this.props;
+    const {turn, chosen, locked} = this.props;
     return (
       <div className="enemy-team team">
         <BansList />

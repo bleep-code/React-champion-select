@@ -29,12 +29,12 @@ class App extends React.Component {
     this.countDown = this.countDown.bind(this);
   }
 
-  setChosen({ target }) {
-    !!target && !_.isEmpty(target) && this.setState({ chosen: target });
+  setChosen({target}) {
+    !!target && !_.isEmpty(target) && this.setState({chosen: target});
   }
 
   setLocked() {
-    const { chosen, locked, turn } = this.state;
+    const {chosen, locked, turn} = this.state;
     !_.isEmpty(chosen) &&
       this.setState({
         locked: [...locked, chosen],
@@ -45,25 +45,25 @@ class App extends React.Component {
   }
 
   countDown() {
-    const { chosen, time, turn, isCrashed, isStarted, intervalId } = this.state;
+    const {chosen, time, turn, isCrashed, isStarted, intervalId} = this.state;
     if (time <= 0 && turn >= 10) {
       clearInterval(intervalId);
-      return this.setState({ isStarted: !isStarted });
+      return this.setState({isStarted: !isStarted});
     }
     if (time <= 0 && _.isEmpty(chosen)) {
       clearInterval(intervalId);
-      return this.setState({ isCrashed: !isCrashed });
+      return this.setState({isCrashed: !isCrashed});
     }
-    this.setState({ time: time - 1 });
+    this.setState({time: time - 1});
   }
 
   componentDidMount() {
     const intervalId = setInterval(this.countDown, 1000);
-    this.setState({ intervalId });
+    this.setState({intervalId});
   }
 
   render() {
-    const { chosen, locked, turn, time, isCrashed, isStarted } = this.state;
+    const {chosen, locked, turn, time, isCrashed, isStarted} = this.state;
     if (isCrashed) {
       return <CrashedGame />;
     }
@@ -73,7 +73,7 @@ class App extends React.Component {
     return (
       <div
         className="champion-select"
-        style={{ pointerEvents: turn === 11 && 'none' }}
+        style={{pointerEvents: turn === 11 && 'none'}}
       >
         <FriendlyTeam locked={locked} chosen={chosen} turn={turn} />
         <ChampionPicker

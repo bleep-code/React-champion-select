@@ -17,24 +17,24 @@ class ChampionPicker extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = { champions: [], fetchedChampions: [] };
+    this.state = {champions: [], fetchedChampions: []};
 
     this.onUpdate = this.onUpdate.bind(this);
   }
 
   async fetchChampions() {
-    let { data: fetchedChampions } = await axios.get(
+    let {data: fetchedChampions} = await axios.get(
       'http://ddragon.leagueoflegends.com/cdn/11.3.1/data/en_US/champion.json'
     );
     fetchedChampions = _.flatMap(fetchedChampions.data);
-    this.setState({ fetchedChampions });
+    this.setState({fetchedChampions});
   }
 
   setChampions() {
-    const { chosen, locked, setChosen } = this.props;
+    const {chosen, locked, setChosen} = this.props;
 
     const champions = this.state.fetchedChampions.map(
-      ({ id, name, title, image, tags, blurb }) => (
+      ({id, name, title, image, tags, blurb}) => (
         <Champion
           id={id}
           name={name}
@@ -51,7 +51,7 @@ class ChampionPicker extends React.Component {
       )
     );
 
-    this.setState({ champions });
+    this.setState({champions});
   }
 
   componentDidMount() {
@@ -63,7 +63,7 @@ class ChampionPicker extends React.Component {
   }
 
   render() {
-    const { turn, time, chosen, setLocked } = this.props;
+    const {turn, time, chosen, setLocked} = this.props;
     return (
       <div className="champion-picker">
         <div className="champion-picker__top-section section">
