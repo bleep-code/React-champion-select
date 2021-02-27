@@ -48,3 +48,7 @@
   color: white;
   /* align items should vary on isFriendly or isEnemy Status */
 }
+
+.player__details--position {
+  text-transform: uppercase;
+}

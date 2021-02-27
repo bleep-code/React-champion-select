@@ -23,6 +23,7 @@
   text-align: center;
   background: url('./Assets/Background.jpg') center center;
   background-size: cover;
+  font-family: 'Timeless', 'Grandesign', Arial, Helvetica, sans-serif;
 }
 
 .champion-select::after {
