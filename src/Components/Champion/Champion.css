@@ -29,6 +29,7 @@
   font-size: 16px;
   color: var(--champion-picker-color);
   pointer-events: none;
+  white-space: nowrap;
 }
 
 .chosen img {
