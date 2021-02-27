@@ -1,5 +1,7 @@
-import React from 'react';
 import './SummonerSpells.css';
+
+import React from 'react';
+
 class SummonerSpells extends React.Component {
   render() {
     return (

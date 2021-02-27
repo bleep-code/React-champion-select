@@ -1,5 +1,7 @@
-import React from 'react';
 import './Announcement.css';
+
+import React from 'react';
+
 class Announcement extends React.Component {
   constructor(props) {
     super(props);

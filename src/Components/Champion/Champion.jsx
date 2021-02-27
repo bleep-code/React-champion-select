@@ -1,5 +1,7 @@
-import React from 'react';
 import './Champion.css';
+
+import React from 'react';
+
 class Champion extends React.Component {
   constructor(props) {
     super(props);

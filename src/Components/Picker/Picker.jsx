@@ -1,5 +1,6 @@
-import React from 'react';
 import './Picker.css';
+
+import React from 'react';
 
 class Picker extends React.Component {
   constructor(props) {

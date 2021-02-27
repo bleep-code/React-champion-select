@@ -1,6 +1,8 @@
 import React from 'react';
+
 import BansList from '../BansList/BansList';
 import Team from '../Team/Team';
+
 class EnemyTeam extends React.Component {
   constructor(props) {
     super(props);

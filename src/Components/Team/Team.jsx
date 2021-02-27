@@ -1,6 +1,8 @@
-import React from 'react';
-import Player from '../Player/Player';
 import './Team.css';
+
+import React from 'react';
+
+import Player from '../Player/Player';
 
 var _ = require('lodash');
 

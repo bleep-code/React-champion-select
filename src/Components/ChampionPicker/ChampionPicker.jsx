@@ -1,5 +1,8 @@
+import './ChampionPicker.css';
+
 import React from 'react';
 import axios from 'axios';
+
 import Announcement from '../Announcement/Announcement';
 import Timer from '../Timer/Timer';
 import Search from '../Search/Search';
@@ -7,8 +10,6 @@ import Picker from '../Picker/Picker';
 import LockButton from '../LockButton/LockButton';
 import SummonerSpells from '../SummonerSpells/SumonerSpells';
 import Champion from '../Champion/Champion';
-
-import './ChampionPicker.css';
 
 var _ = require('lodash');
 

@@ -1,6 +1,9 @@
-import React from 'react';
 import './LockButton.css';
+
+import React from 'react';
+
 var _ = require('lodash');
+
 class LockButton extends React.Component {
   render() {
     const { chosen, setLocked, onUpdate } = this.props;

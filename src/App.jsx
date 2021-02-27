@@ -1,10 +1,12 @@
+import './App.css';
+
 import React from 'react';
+
 import FriendlyTeam from './Components/FriendlyTeam/FriendlyTeam';
 import EnemyTeam from './Components/EnemyTeam/EnemyTeam';
 import ChampionPicker from './Components/ChampionPicker/ChampionPicker';
 import CrashedGame from './Components/CrashedGame/CrashedGame';
 import StartedGame from './Components/StartedGame/StartedGame';
-import './App.css';
 
 var _ = require('lodash');
 

@@ -1,5 +1,6 @@
-import React from 'react';
 import './StartedGame.css';
+
+import React from 'react';
 
 class StartedGame extends React.Component {
   constructor(props) {

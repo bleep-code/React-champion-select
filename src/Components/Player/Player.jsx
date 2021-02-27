@@ -1,11 +1,14 @@
-import React from 'react';
 import './Player.css';
+
+import React from 'react';
+
 import {
   availableNicknames,
   availableRoles,
 } from '../../Fixtures/fixtures.json';
 
 import _ from 'lodash';
+
 class Player extends React.Component {
   constructor(props) {
     super(props);

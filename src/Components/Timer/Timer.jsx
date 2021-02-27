@@ -1,5 +1,7 @@
-import React from 'react';
 import './Timer.css';
+
+import React from 'react';
+
 class Timer extends React.Component {
   render() {
     return (
