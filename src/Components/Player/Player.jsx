@@ -7,7 +7,7 @@ import {
   availableRoles,
 } from '../../Fixtures/fixtures.json';
 
-import _ from 'lodash';
+const _ = require('lodash');
 
 class Player extends React.Component {
   constructor(props) {

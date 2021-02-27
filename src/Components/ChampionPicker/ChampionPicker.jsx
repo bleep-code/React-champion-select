@@ -11,7 +11,7 @@ import LockButton from '../LockButton/LockButton';
 import SummonerSpells from '../SummonerSpells/SumonerSpells';
 import Champion from '../Champion/Champion';
 
-var _ = require('lodash');
+const _ = require('lodash');
 
 class ChampionPicker extends React.Component {
   constructor(props) {

@@ -2,7 +2,7 @@ import './LockButton.css';
 
 import React from 'react';
 
-var _ = require('lodash');
+const _ = require('lodash');
 
 class LockButton extends React.Component {
   render() {

@@ -8,7 +8,7 @@ import StartedGame from './Components/StartedGame/StartedGame';
 
 import './App.css';
 
-var _ = require('lodash');
+const _ = require('lodash');
 
 class App extends React.Component {
   constructor(props) {

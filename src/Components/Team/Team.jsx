@@ -4,7 +4,7 @@ import React from 'react';
 
 import Player from '../Player/Player';
 
-var _ = require('lodash');
+const _ = require('lodash');
 
 class Team extends React.Component {
   constructor(props) {
