@@ -45,13 +45,8 @@
   z-index: 1;
 }
 
-.friendly-team {
-}
-
-.enemy-team {
-}
-
 .champion-picker {
+  position: relative;
   width: var(--champion-select-width);
   height: 100%;
   z-index: 1;
