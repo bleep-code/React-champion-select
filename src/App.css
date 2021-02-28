@@ -1,3 +1,19 @@
+@font-face {
+  font-family: 'Timeless';
+  src: url('../src/fonts/timeless-webfont.woff2') format('woff2'),
+    url('../src/fonts/timeless-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Grandesign';
+  src: url('../src/fonts/grandesign_neue_roman-webfont.woff2') format('woff2'),
+    url('../src/fonts/grandesign_neue_roman-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
 :root {
   --champion-select-width: 50%;
   --team-width: calc((100% - var(--champion-select-width)) / 2);
@@ -26,7 +42,7 @@
   text-align: center;
   background: url('./Assets/Background.jpg') center center;
   background-size: cover;
-  font-family: 'Timeless', 'Grandesign', Arial, Helvetica, sans-serif;
+  font-family: 'Grandesign', 'Timeless', Arial, Helvetica, sans-serif;
 }
 
 .champion-select::after {
