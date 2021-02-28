@@ -1,68 +1,47 @@
 @font-face {
-    font-family: 'timelessregular';
-    src: url('timeless-webfont.woff2') format('woff2'),
-         url('timeless-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-
+  font-family: 'timelessregular';
+  src: url('timeless-webfont.woff2') format('woff2'),
+    url('timeless-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
 }
 
-
-
-
 @font-face {
-    font-family: 'timelessbold';
-    src: url('timeless-bold-webfont.woff2') format('woff2'),
-         url('timeless-bold-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-
+  font-family: 'timelessbold';
+  src: url('timeless-bold-webfont.woff2') format('woff2'),
+    url('timeless-bold-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
 }
 
-
-
-
 @font-face {
-    font-family: 'grandesign_neue_romanregular';
-    src: url('grandesign_neue_roman-webfont.woff2') format('woff2'),
-         url('grandesign_neue_roman-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-
+  font-family: 'grandesign_neue_romanregular';
+  src: url('grandesign_neue_roman-webfont.woff2') format('woff2'),
+    url('grandesign_neue_roman-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
 }
 
-
-
-
 @font-face {
-    font-family: 'grandesign_neue_romanBdIt';
-    src: url('grandesign_neue_roman_bold_italic-webfont.woff2') format('woff2'),
-         url('grandesign_neue_roman_bold_italic-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-
+  font-family: 'grandesign_neue_romanBdIt';
+  src: url('grandesign_neue_roman_bold_italic-webfont.woff2') format('woff2'),
+    url('grandesign_neue_roman_bold_italic-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
 }
 
-
-
-
 @font-face {
-    font-family: 'grandesign_neue_romanbold';
-    src: url('grandesign_neue_roman_bold-webfont.woff2') format('woff2'),
-         url('grandesign_neue_roman_bold-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-
+  font-family: 'grandesign_neue_romanbold';
+  src: url('grandesign_neue_roman_bold-webfont.woff2') format('woff2'),
+    url('grandesign_neue_roman_bold-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
 }
 
-
-
-
 @font-face {
-    font-family: 'grandesign_neue_romanitalic';
-    src: url('grandesign_neue_roman_italic-webfont.woff2') format('woff2'),
-         url('grandesign_neue_roman_italic-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-
+  font-family: 'grandesign_neue_romanitalic';
+  src: url('grandesign_neue_roman_italic-webfont.woff2') format('woff2'),
+    url('grandesign_neue_roman_italic-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
 }

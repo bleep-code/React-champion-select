@@ -58,8 +58,25 @@ class Player extends React.Component {
     }
   }
 
+  pickingSign() {
+    const {enemy, isPicking, isPickingNext} = this.props;
+
+    if (isPicking) {
+      return {opacity: 1, backgroundColor: enemy && 'red'};
+    }
+
+    if (isPickingNext) {
+      return {
+        opacity: 1,
+        backgroundColor: enemy ? 'red' : 'var(--picking-color-friendly)',
+      };
+    }
+
+    return {opacity: 0};
+  }
+
   render() {
-    const {idx, locked, isPicking, enemy} = this.props;
+    const {idx, locked, isPicking, isPickingNext, enemy} = this.props;
 
     return (
       <div
@@ -68,10 +85,7 @@ class Player extends React.Component {
           flexDirection: !enemy ? 'row' : 'row-reverse',
         }}
       >
-        <div
-          className="player__picking-sign"
-          style={{opacity: isPicking ? 1 : 0}}
-        />
+        <div className="player__picking-sign" style={this.pickingSign()} />
         <div
           className="player__summoner-spells"
           style={{display: (enemy || !locked) && 'none'}}
@@ -89,16 +103,17 @@ class Player extends React.Component {
         <div
           className="player__details"
           style={{
-            color: isPicking && 'gold',
-            alignItems: !!enemy && 'flex-end',
+            color: isPicking && !enemy && 'gold',
+            alignItems: enemy && 'flex-end',
           }}
         >
           <span
             className="player__details--is-picking"
             style={{
               left: !enemy ? '0' : 'calc(100-2%)',
-              fontSize: !!enemy && '28px',
-              fontWeight: !!enemy && 500,
+              fontSize: enemy && '24px',
+              fontWeight: enemy && 500,
+              color: isPickingNext && 'var(--picking-status-gold)',
             }}
           >
             {this.pickingStatus() || (enemy && locked?.innerText)}
@@ -106,7 +121,7 @@ class Player extends React.Component {
           <span
             className="player__details--position"
             style={{
-              fontSize: !enemy && '28px',
+              fontSize: !enemy && '24px',
               fontWeight: !enemy && 500,
             }}
           >
@@ -115,8 +130,9 @@ class Player extends React.Component {
           <span
             className="player__details--name"
             style={{
-              fontSize: enemy && '28px',
+              fontSize: enemy && '24px',
               fontWeight: enemy && 500,
+              color: isPicking && 'gold',
             }}
           >
             {!enemy && this.friendlyName()}
