@@ -18,7 +18,7 @@ class App extends React.Component {
       chosen: {},
       locked: [],
       turn: 1,
-      time: 60,
+      time: 2,
       intervalId: undefined,
       isCrashed: false,
       isStarted: false,
