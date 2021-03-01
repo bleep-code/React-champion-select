@@ -39,7 +39,7 @@ class App extends React.Component {
       this.setState({
         locked: [...locked, chosen],
         chosen: {},
-        time: this.state.turn >= 10 ? 10 : 60,
+        time: turn >= 10 ? 10 : 60,
         turn: turn + 1,
       });
     }
