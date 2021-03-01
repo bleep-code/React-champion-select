@@ -1,12 +1,14 @@
 .picker__champion {
+  position: relative;
+
+  width: calc(100% / 8);
+  margin: 0.5%;
+  margin-top: 1.75%;
+
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
-  width: calc(100% / 8);
-  margin: 0.5%;
-  margin-top: 1.75%;
-  position: relative;
 }
 
 .picker__champion:hover {
@@ -28,6 +30,7 @@
 .picker__champion--name {
   font-size: 16px;
   color: var(--champion-picker-color);
+
   pointer-events: none;
   white-space: nowrap;
 }
@@ -40,10 +43,12 @@
   content: '';
   position: absolute;
   bottom: 18%;
-  z-index: 1;
-  /* z-index is necessary, so the element can be visible above image */
+
   width: 85%;
   height: 85%;
+
+  z-index: 1;
+  /* z-index is necessary, so the element can be visible above image */
   /* inspired by some guy on stackoverflow, but cannot find the post anymore, will upload as soon as i find it. */
   background: linear-gradient(
         to right,
@@ -102,6 +107,7 @@
   content: '';
   position: absolute;
   bottom: 18%;
+
   width: 78%;
   height: 78%;
 
@@ -120,10 +126,10 @@
 }
 
 .locked i {
-  color: rgb(207, 207, 207);
-  font-weight: 700;
-  position: absolute;
-  font-size: 18px;
   bottom: 16%;
   opacity: 1;
+
+  color: rgb(207, 207, 207);
+  font-weight: 700;
+  font-size: 18px;
 }
