@@ -4,24 +4,24 @@ import React from 'react';
 
 class Champion extends React.Component {
   render() {
-    const {chosen, locked, name, setChosen, onUpdate} = this.props;
+    const {chosen, locked, name, image, setChosen, onUpdate} = this.props;
 
-    const lockedNames = locked?.map((x) => x.children[1].innerText);
+    const lockedNames = locked?.map((x) => x.name);
 
     return (
       <div
         className={`picker__champion ${
-          chosen?.innerText === name
+          chosen?.name === name
             ? 'chosen'
             : '' || (lockedNames?.includes(name) && 'locked')
         }`}
         onClick={(e) => {
-          setChosen(e);
+          setChosen({name, image});
           setTimeout(onUpdate, 0);
         }}
       >
         <img
-          src={`http://ddragon.leagueoflegends.com/cdn/11.3.1/img/champion/${this.props.image}`}
+          src={`http://ddragon.leagueoflegends.com/cdn/11.3.1/img/champion/${image}`}
           alt={name}
           className="picker__champion--image"
         />

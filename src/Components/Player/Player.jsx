@@ -36,11 +36,11 @@ class Player extends React.Component {
     const {chosen, locked, isPicking} = this.props;
 
     if (locked) {
-      return locked.innerText;
+      return locked.name;
     }
 
     if (isPicking && !_.isEmpty(chosen)) {
-      return chosen?.innerText;
+      return chosen?.name;
     }
 
     return this.name;
@@ -50,11 +50,11 @@ class Player extends React.Component {
     const {chosen, locked, isPicking} = this.props;
 
     if (locked) {
-      return locked.children[0].src;
+      return locked.image;
     }
 
     if (isPicking && !_.isEmpty(chosen)) {
-      return chosen.children[0].src;
+      return chosen.image;
     }
   }
 
@@ -96,7 +96,7 @@ class Player extends React.Component {
         <div
           className="player__image"
           style={{
-            backgroundImage: `url(${this.playerImage()})`,
+            backgroundImage: `url(http://ddragon.leagueoflegends.com/cdn/11.3.1/img/champion/${this.playerImage()})`,
             borderColor: !enemy ? 'gold' : 'red',
           }}
         />
@@ -116,7 +116,7 @@ class Player extends React.Component {
               color: isPickingNext && 'var(--picking-status-gold)',
             }}
           >
-            {this.pickingStatus() || (enemy && locked?.innerText)}
+            {this.pickingStatus() || (enemy && locked?.name)}
           </span>
           <span
             className="player__details--position"

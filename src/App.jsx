@@ -18,7 +18,7 @@ class App extends React.Component {
       chosen: {},
       locked: [],
       turn: 1,
-      time: 2,
+      time: 60,
       intervalId: undefined,
       isCrashed: false,
       isStarted: false,
@@ -29,8 +29,9 @@ class App extends React.Component {
     this.countDown = this.countDown.bind(this);
   }
 
-  setChosen({target}) {
-    !_.isEmpty(target) && this.setState({chosen: target});
+  setChosen({name, image}) {
+    this.setState({chosen: {name, image}});
+    console.log(name, image);
   }
 
   setLocked() {
