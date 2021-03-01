@@ -66,12 +66,12 @@ class ChampionPicker extends React.Component {
     const {turn, time, chosen, setLocked} = this.props;
     return (
       <div className="champion-picker">
-        <div className="champion-picker__top-section section">
+        <div className="champion-picker__top-section">
           <Announcement turn={turn} />
           <Timer time={time} />
           <Search />
         </div>
-        <div className="champion-picker__mid-section section">
+        <div className="champion-picker__mid-section">
           <Picker champions={this.state.champions} />
           <LockButton
             setLocked={setLocked}
@@ -79,7 +79,7 @@ class ChampionPicker extends React.Component {
             onUpdate={this.onUpdate}
           />
         </div>
-        <div className="champion-picker__bottom-section section">
+        <div className="champion-picker__bottom-section">
           <SummonerSpells />
         </div>
       </div>
