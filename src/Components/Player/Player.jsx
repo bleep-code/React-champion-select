@@ -68,7 +68,7 @@ class Player extends React.Component {
     if (isPickingNext) {
       return {
         opacity: 1,
-        backgroundColor: enemy ? 'red' : 'var(--picking-color-friendly)',
+        backgroundColor: enemy ? 'red' : 'var(--friendly-blue)',
       };
     }
 

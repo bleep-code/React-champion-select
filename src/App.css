@@ -22,7 +22,7 @@
   --background-gold: rgba(215, 255, 0, 0.4);
   --champion-border-size: 3px;
   --top-section-height: 15%;
-  --picking-color-friendly: rgb(0, 181, 204);
+  --friendly-blue: rgb(0, 181, 204);
   --picking-status-gold: rgba(190, 176, 134, 1);
   --main-font-color: rgb(235, 225, 206);
 }
