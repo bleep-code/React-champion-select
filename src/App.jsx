@@ -31,7 +31,6 @@ class App extends React.Component {
 
   setChosen({name, image}) {
     this.setState({chosen: {name, image}});
-    console.log(name, image);
   }
 
   setLocked() {
