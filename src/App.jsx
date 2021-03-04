@@ -29,8 +29,8 @@ class App extends React.Component {
     this.countDown = this.countDown.bind(this);
   }
 
-  setChosen({name, image}) {
-    this.setState({chosen: {name, image}});
+  setChosen(chosen) {
+    this.setState({chosen});
   }
 
   setLocked() {

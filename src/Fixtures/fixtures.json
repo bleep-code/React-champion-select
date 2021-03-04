@@ -1,4 +1,38 @@
 {
+  "defaultSummoners": {
+    "flash": {
+      "cooldownBurn": "300",
+      "description": "Teleports your champion a short distance toward your cursor's location.",
+      "image": {
+        "full": "SummonerFlash.png",
+        "group": "spell",
+        "h": 48,
+        "sprite": "spell0.png",
+        "w": 48,
+        "x": 192,
+        "y": 0
+      },
+      "name": "Flash"
+    },
+    "heal": {
+      "cooldownBurn": "240",
+      "description": "Restores 90-345 Health (depending on champion level) and grants 30% Movement Speed for 1 second to you and target allied champion. This healing is halved for units recently affected by Summoner Heal.",
+      "image": {
+        "full": "SummonerHeal.png",
+        "group": "spell",
+        "h": 48,
+        "sprite": "spell0.png",
+        "w": 48,
+        "x": 288,
+        "y": 0
+      },
+      "name": "Heal"
+    }
+  },
+  "urls": {
+    "spellImg": "http://ddragon.leagueoflegends.com/cdn/11.5.1/img/spell/"
+  },
+
   "availableRoles": [
     "AD Carry",
     "Mage",

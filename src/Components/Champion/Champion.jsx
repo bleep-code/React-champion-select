@@ -15,7 +15,7 @@ class Champion extends React.Component {
             ? 'chosen'
             : '' || (lockedNames?.includes(name) && 'locked')
         }`}
-        onClick={(e) => {
+        onClick={() => {
           setChosen({name, image});
           setTimeout(onUpdate, 0);
         }}

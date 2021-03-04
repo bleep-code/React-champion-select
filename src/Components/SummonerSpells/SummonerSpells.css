@@ -54,21 +54,6 @@
   border: 0.125vw solid gold;
 }
 
-.summoner-spells--choose-summoners {
-  width: 7vw;
-  height: 2.75vw;
-
-  display: flex;
-  justify-content: space-around;
-}
-
-.summoner-spells--choose-summoners > * {
-  width: 2.75vw;
-  height: 2.75vw;
-
-  background-color: white;
-}
-
 .summoner-spells--delimiter {
   width: 0.125vw;
   height: 80%;
@@ -88,5 +73,5 @@
   width: 2.75vw;
   height: 2.75vw;
 
-  background-color: white;
+  border: 2px solid white;
 }
