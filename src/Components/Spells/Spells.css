@@ -1,4 +1,4 @@
-.summoner-spells--choose-summoners {
+.bottom-section--choose-summoners {
   position: relative;
 
   width: 7vw;
@@ -8,7 +8,7 @@
   justify-content: space-around;
 }
 
-.summoner-spells--choose-summoners > * {
+.bottom-section--choose-summoners > * {
   width: 2.75vw;
   height: 2.75vw;
 

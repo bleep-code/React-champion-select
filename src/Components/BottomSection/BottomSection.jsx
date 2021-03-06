@@ -1,4 +1,4 @@
-import './SummonerSpells.css';
+import './BottomSection.css';
 
 import React from 'react';
 
@@ -7,23 +7,15 @@ import Spells from '../Spells/Spells';
 const _ = require('lodash');
 const {defaultSummoners} = require('../../Fixtures/fixtures.json');
 
-class SummonerSpells extends React.Component {
+class BottomSection extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
       isOpenLeft: false,
-      chosenLeft: {
-        name: defaultSummoners.heal.name,
-        image: defaultSummoners.heal.image,
-        description: defaultSummoners.heal.description,
-      },
+      chosenLeft: defaultSummoners.heal,
       isOpenRight: false,
-      chosenRight: {
-        name: defaultSummoners.flash.name,
-        image: defaultSummoners.flash.image,
-        description: defaultSummoners.flash.description,
-      },
+      chosenRight: defaultSummoners.flash,
     };
 
     this.setChosen = this.setChosen.bind(this);
@@ -75,9 +67,9 @@ class SummonerSpells extends React.Component {
     const isOpen = isOpenLeft || isOpenRight ? true : false;
 
     return (
-      <div className="champion-picker__bottom-section--summoner-spells summoner-spells">
-        <div className="summoner-spells--edit-runes" />
-        <select className="summoner-spells--choose-runes"></select>
+      <div className="champion-picker__bottom-section bottom-section">
+        <div className="bottom-section--edit-runes" />
+        <select className="bottom-section--choose-runes"></select>
 
         {/* Key new Date() is set, so it always gets a new prop and its rendered properly */}
 
@@ -91,14 +83,14 @@ class SummonerSpells extends React.Component {
           setChosen={this.setChosen}
           openPopup={this.openPopup}
         />
-        <span className="summoner-spells--delimiter" />
-        <div className="summoner-spells--choose-extras">
-          <div className="summoner-spells--choose-minion" />
-          <div className="summoner-spells--choose-emote" />
+        <span className="bottom-section--delimiter" />
+        <div className="bottom-section--choose-extras">
+          <div className="bottom-section--choose-minion" />
+          <div className="bottom-section--choose-emote" />
         </div>
       </div>
     );
   }
 }
 
-export default SummonerSpells;
+export default BottomSection;

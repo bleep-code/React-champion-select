@@ -70,7 +70,7 @@ class Spells extends React.Component {
     return (
       <>
         <div
-          className={`summoner-spells--choose-summoners choose-summoners ${
+          className={`bottom-section--choose-summoners choose-summoners ${
             isOpen ? 'open' : ''
           }`}
         >

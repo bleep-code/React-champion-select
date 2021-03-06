@@ -1,4 +1,4 @@
-.summoner-spells {
+.bottom-section {
   position: relative;
 
   width: 70%;
@@ -12,7 +12,7 @@
   background-color: black;
 }
 
-.summoner-spells::before {
+.bottom-section::before {
   content: '';
   position: absolute;
   left: -20%;
@@ -25,7 +25,7 @@
   background-color: var(--background-gold);
 }
 
-.summoner-spells::after {
+.bottom-section::after {
   content: '';
   position: absolute;
   right: -20%;
@@ -39,7 +39,7 @@
   background-color: var(--background-gold);
 }
 
-.summoner-spells--edit-runes {
+.bottom-section--edit-runes {
   width: 2.75vw;
   height: 2.75vw;
 
@@ -47,21 +47,21 @@
   border: 0.125vw solid gold;
 }
 
-.summoner-spells--choose-runes {
+.bottom-section--choose-runes {
   width: 15vw;
   height: 2.75vw;
 
   border: 0.125vw solid gold;
 }
 
-.summoner-spells--delimiter {
+.bottom-section--delimiter {
   width: 0.125vw;
   height: 80%;
 
   background-color: var(--background-gold);
 }
 
-.summoner-spells--choose-extras {
+.bottom-section--choose-extras {
   width: 7vw;
   height: 2.75vw;
 
@@ -69,7 +69,7 @@
   justify-content: space-around;
 }
 
-.summoner-spells--choose-extras > * {
+.bottom-section--choose-extras > * {
   width: 2.75vw;
   height: 2.75vw;
 
