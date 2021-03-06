@@ -3,6 +3,8 @@ import './BottomSection.css';
 import React from 'react';
 
 import Spells from '../Spells/Spells';
+import Runes from '../Runes/Runes';
+import Extras from '../Extras/Extras';
 
 const _ = require('lodash');
 const {defaultSummoners} = require('../../Fixtures/fixtures.json');
@@ -68,11 +70,8 @@ class BottomSection extends React.Component {
 
     return (
       <div className="champion-picker__bottom-section bottom-section">
-        <div className="bottom-section--edit-runes" />
-        <select className="bottom-section--choose-runes"></select>
-
+        <Runes />
         {/* Key new Date() is set, so it always gets a new prop and its rendered properly */}
-
         <Spells
           key={new Date()}
           isOpenLeft={isOpenLeft}
@@ -84,10 +83,7 @@ class BottomSection extends React.Component {
           openPopup={this.openPopup}
         />
         <span className="bottom-section--delimiter" />
-        <div className="bottom-section--choose-extras">
-          <div className="bottom-section--choose-minion" />
-          <div className="bottom-section--choose-emote" />
-        </div>
+        <Extras />
       </div>
     );
   }

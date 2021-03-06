@@ -1,0 +1,24 @@
+.bottom-section--edit-runes {
+  width: 2.75vw;
+  height: 2.75vw;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+  border: 0.125vw solid gold;
+}
+
+.bottom-section--edit-runes > i {
+  font-size: 1vw;
+  color: var(--background-gold);
+  cursor: pointer;
+}
+
+.bottom-section--choose-runes {
+  width: 15vw;
+  height: 2.75vw;
+
+  border: 0.125vw solid gold;
+}
