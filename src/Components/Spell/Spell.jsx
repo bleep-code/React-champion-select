@@ -22,10 +22,10 @@ class Spell extends React.Component {
         alt={name}
         onClick={() => {
           if (isOpenLeft) {
-            setChosen({name, description, cooldownBurn, image}, 'left');
+            setChosen({name, description, cooldownBurn, image}, 'spells-left');
           }
           if (isOpenRight) {
-            setChosen({name, description, cooldownBurn, image}, 'right');
+            setChosen({name, description, cooldownBurn, image}, 'spells-right');
           }
           setTimeout(onUpdate, 0);
         }}

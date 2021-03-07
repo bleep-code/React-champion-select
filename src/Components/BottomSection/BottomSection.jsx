@@ -14,10 +14,11 @@ class BottomSection extends React.Component {
     super(props);
 
     this.state = {
-      isOpenLeft: false,
-      chosenLeft: defaultSummoners.heal,
-      isOpenRight: false,
-      chosenRight: defaultSummoners.flash,
+      spellsChosenLeft: defaultSummoners.heal,
+      spellsChosenRight: defaultSummoners.flash,
+      spellsIsOpenLeft: false,
+      spellsIsOpenRight: false,
+      runesIsOpen: false,
     };
 
     this.setChosen = this.setChosen.bind(this);
@@ -25,60 +26,79 @@ class BottomSection extends React.Component {
   }
 
   setChosen(chosen, side) {
-    if (side === 'left' && !_.isEqual(chosen, this.state.chosenRight)) {
-      this.setState({chosenLeft: chosen});
+    const {spellsChosenLeft, spellsChosenRight} = this.state;
+
+    if (side.includes('spells')) {
+      if (side === 'spells-left' && !_.isEqual(chosen, spellsChosenRight)) {
+        this.setState({spellsChosenLeft: chosen});
+      }
+
+      if (side === 'spells-right' && !_.isEqual(chosen, spellsChosenLeft)) {
+        this.setState({spellsChosenRight: chosen});
+      }
+
+      // ifs below are responsible for changing order of summoners in case
+      // player chooses value that he already chose
+
+      if (_.isEqual(chosen, spellsChosenRight) && side === 'spells-left') {
+        this.setState({spellsChosenRight: spellsChosenLeft});
+        this.setState({spellsChosenLeft: chosen});
+      }
+
+      if (_.isEqual(chosen, spellsChosenLeft) && side === 'spells-right') {
+        this.setState({spellsChosenLeft: spellsChosenRight});
+        this.setState({spellsChosenRight: chosen});
+      }
+
+      this.setState({spellsIsOpenLeft: false, spellsIsOpenRight: false});
     }
-
-    if (side === 'right' && !_.isEqual(chosen, this.state.chosenLeft)) {
-      this.setState({chosenRight: chosen});
-    }
-
-    // ifs below are responsible for changing order of summoners in case
-    // player chooses value that he already chose
-
-    if (_.isEqual(chosen, this.state.chosenRight) && side === 'left') {
-      this.setState({chosenRight: this.state.chosenLeft});
-      this.setState({chosenLeft: chosen});
-    }
-
-    if (_.isEqual(chosen, this.state.chosenLeft) && side === 'right') {
-      this.setState({chosenLeft: this.state.chosenRight});
-      this.setState({chosenRight: chosen});
-    }
-
-    this.setState({isOpenLeft: false, isOpenRight: false});
   }
 
   openPopup(side) {
-    const {isOpenLeft, isOpenRight} = this.state;
+    const {spellsIsOpenLeft, spellsIsOpenRight, runesIsOpen} = this.state;
 
-    if (side === 'left') {
-      isOpenRight && this.setState({isOpenRight: !isOpenRight});
-      this.setState({isOpenLeft: !isOpenLeft});
+    //close all popups on opening new
+    this.setState({
+      spellsIsOpenLeft: false,
+      spellsIsOpenRight: false,
+      runesIsOpen: false,
+    });
+
+    if (side === 'spells-left') {
+      this.setState({spellsIsOpenLeft: !spellsIsOpenLeft});
     }
 
-    if (side === 'right') {
-      isOpenLeft && this.setState({isOpenLeft: !isOpenLeft});
-      this.setState({isOpenRight: !isOpenRight});
+    if (side === 'spells-right') {
+      this.setState({spellsIsOpenRight: !spellsIsOpenRight});
+    }
+
+    if (side === 'runes') {
+      this.setState({runesIsOpen: !runesIsOpen});
     }
   }
 
   render() {
-    const {isOpenLeft, chosenLeft, isOpenRight, chosenRight} = this.state;
+    const {
+      spellsIsOpenLeft,
+      spellsChosenLeft,
+      spellsIsOpenRight,
+      spellsChosenRight,
+      runesIsOpen,
+    } = this.state;
 
-    const isOpen = isOpenLeft || isOpenRight ? true : false;
+    const spellsIsOpen = spellsIsOpenLeft || spellsIsOpenRight ? true : false;
 
     return (
       <div className="champion-picker__bottom-section bottom-section">
-        <Runes />
+        <Runes isOpen={runesIsOpen} openPopup={this.openPopup} />
         {/* Key new Date() is set, so it always gets a new prop and its rendered properly */}
         <Spells
           key={new Date()}
-          isOpenLeft={isOpenLeft}
-          chosenLeft={chosenLeft}
-          isOpenRight={isOpenRight}
-          chosenRight={chosenRight}
-          isOpen={isOpen}
+          isOpen={spellsIsOpen}
+          chosenLeft={spellsChosenLeft}
+          chosenRight={spellsChosenRight}
+          isOpenRight={spellsIsOpenRight}
+          isOpenLeft={spellsIsOpenLeft}
           setChosen={this.setChosen}
           openPopup={this.openPopup}
         />

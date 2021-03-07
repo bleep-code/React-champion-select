@@ -81,7 +81,7 @@ class Spells extends React.Component {
                 fixtures.urls.spellImg + chosenLeft.image.full
               })`,
             }}
-            onClick={() => openPopup('left')}
+            onClick={() => openPopup('spells-left')}
           />
           <div
             className="choose-summoners__summoner-spell--right"
@@ -90,7 +90,7 @@ class Spells extends React.Component {
                 fixtures.urls.spellImg + chosenRight.image.full
               })`,
             }}
-            onClick={() => openPopup('right')}
+            onClick={() => openPopup('spells-right')}
           />
         </div>
         {isOpen && (
