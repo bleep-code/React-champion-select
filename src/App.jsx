@@ -1,4 +1,5 @@
 import React from 'react';
+import _ from 'lodash';
 
 import FriendlyTeam from './Components/FriendlyTeam/FriendlyTeam';
 import EnemyTeam from './Components/EnemyTeam/EnemyTeam';
@@ -7,8 +8,6 @@ import CrashedGame from './Components/CrashedGame/CrashedGame';
 import StartedGame from './Components/StartedGame/StartedGame';
 
 import './App.css';
-
-const _ = require('lodash');
 
 class App extends React.Component {
   constructor(props) {

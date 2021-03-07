@@ -1,10 +1,9 @@
 import './Player.css';
 
 import React from 'react';
+import _ from 'lodash';
 
 import {availableNicknames, availableRoles} from '../../Fixtures/fixtures.json';
-
-const _ = require('lodash');
 
 class Player extends React.Component {
   constructor(props) {

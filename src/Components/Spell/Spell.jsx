@@ -2,7 +2,7 @@ import './Spell.css';
 
 import React from 'react';
 
-const {urls} = require('../../Fixtures/fixtures.json');
+import urls from '../../Fixtures/fixtures.json';
 
 class Spell extends React.Component {
   render() {

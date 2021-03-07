@@ -1,13 +1,13 @@
 import './BottomSection.css';
 
 import React from 'react';
+import _ from 'lodash';
 
 import Spells from '../Spells/Spells';
 import Runes from '../Runes/Runes';
 import Extras from '../Extras/Extras';
 
-const _ = require('lodash');
-const {defaultSummoners} = require('../../Fixtures/fixtures.json');
+import {defaultSummoners} from '../../Fixtures/fixtures.json';
 
 class BottomSection extends React.Component {
   constructor(props) {

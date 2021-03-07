@@ -1,10 +1,9 @@
 import './Team.css';
 
 import React from 'react';
+import _ from 'lodash';
 
 import Player from '../Player/Player';
-
-const _ = require('lodash');
 
 class Team extends React.Component {
   setPlayers() {

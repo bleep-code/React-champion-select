@@ -2,6 +2,7 @@ import './ChampionPicker.css';
 
 import React from 'react';
 import axios from 'axios';
+import _ from 'lodash';
 
 import Announcement from '../Announcement/Announcement';
 import Timer from '../Timer/Timer';
@@ -10,8 +11,6 @@ import Picker from '../Picker/Picker';
 import LockButton from '../LockButton/LockButton';
 import BottomSection from '../BottomSection/BottomSection';
 import Champion from '../Champion/Champion';
-
-const _ = require('lodash');
 
 class ChampionPicker extends React.Component {
   constructor(props) {

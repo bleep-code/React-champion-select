@@ -1,14 +1,14 @@
 import './Spells.css';
 
 import React from 'react';
+import _ from 'lodash';
 
 import SpellsPopup from '../SpellsPopup/SpellsPopup';
 import Spell from '../Spell/Spell';
 
 import axios from 'axios';
 
-const _ = require('lodash');
-const fixtures = require('../../Fixtures/fixtures.json');
+import {urls} from '../../Fixtures/fixtures.json';
 
 class Spells extends React.Component {
   constructor(props) {
@@ -77,18 +77,14 @@ class Spells extends React.Component {
           <div
             className="choose-summoners__summoner-spell--left"
             style={{
-              backgroundImage: `url(${
-                fixtures.urls.spellImg + chosenLeft.image.full
-              })`,
+              backgroundImage: `url(${urls.spellImg + chosenLeft.image.full})`,
             }}
             onClick={() => openPopup('spells-left')}
           />
           <div
             className="choose-summoners__summoner-spell--right"
             style={{
-              backgroundImage: `url(${
-                fixtures.urls.spellImg + chosenRight.image.full
-              })`,
+              backgroundImage: `url(${urls.spellImg + chosenRight.image.full})`,
             }}
             onClick={() => openPopup('spells-right')}
           />
