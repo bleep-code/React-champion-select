@@ -28,7 +28,7 @@ class Spells extends React.Component {
     this.setState({fetchedSpells});
   }
 
-  setSpells() {
+  renderSpells() {
     const spells = this.state.fetchedSpells.map(
       ({id, name, description, cooldownBurn, image, modes}) => {
         if (modes.includes('CLASSIC')) {
@@ -54,7 +54,7 @@ class Spells extends React.Component {
   }
 
   componentDidMount() {
-    this.fetchSpells().then(() => this.setSpells());
+    this.fetchSpells().then(() => this.renderSpells());
   }
 
   render() {

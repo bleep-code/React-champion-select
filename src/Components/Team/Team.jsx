@@ -6,7 +6,7 @@ import _ from 'lodash';
 import Player from '../Player/Player';
 
 class Team extends React.Component {
-  setPlayers() {
+  renderPlayers() {
     const {chosen, locked, turn, enemy} = this.props;
     return _.fill(Array(10), undefined).map((x, i) => {
       const isEnemy = !enemy ? i % 2 === 0 : i % 2 !== 0;
@@ -24,7 +24,7 @@ class Team extends React.Component {
     });
   }
   render() {
-    return <div className="team__players">{this.setPlayers()}</div>;
+    return <div className="team__players">{this.renderPlayers()}</div>;
   }
 }
 

@@ -29,7 +29,7 @@ class ChampionPicker extends React.Component {
     this.setState({fetchedChampions});
   }
 
-  setChampions() {
+  renderChampions() {
     const {chosen, locked, setChosen} = this.props;
 
     const champions = this.state.fetchedChampions.map(
@@ -54,11 +54,11 @@ class ChampionPicker extends React.Component {
   }
 
   componentDidMount() {
-    this.fetchChampions().then(() => this.setChampions());
+    this.fetchChampions().then(() => this.renderChampions());
   }
 
   onUpdate() {
-    this.setChampions();
+    this.renderChampions();
   }
 
   render() {
