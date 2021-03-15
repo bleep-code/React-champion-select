@@ -79,7 +79,7 @@ class Player extends React.Component {
 
     return (
       <div
-        className="team__players--player player"
+        className="team__players__player player"
         style={{
           flexDirection: !enemy ? 'row' : 'row-reverse',
         }}

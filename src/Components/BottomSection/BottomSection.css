@@ -37,7 +37,7 @@
   background-color: var(--background-gold);
 }
 
-.bottom-section--delimiter {
+.bottom-section__delimiter {
   width: 0.125vw;
   height: 80%;
 

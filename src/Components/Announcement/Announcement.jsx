@@ -16,9 +16,10 @@ class Announcement extends React.Component {
 
     return 'Choose your champion!';
   }
+
   render() {
     return (
-      <span className="champion-picker__top-section--announcement">
+      <span className="champion-picker__top-section__announcement">
         {this.announcmentMessage()}
       </span>
     );

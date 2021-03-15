@@ -102,7 +102,7 @@ class BottomSection extends React.Component {
           setChosen={this.setChosen}
           openPopup={this.openPopup}
         />
-        <span className="bottom-section--delimiter" />
+        <span className="bottom-section__delimiter" />
         <Extras />
       </div>
     );
