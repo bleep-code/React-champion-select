@@ -6,23 +6,41 @@ import _ from 'lodash';
 import Player from '../Player/Player';
 
 class Team extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
+
   renderPlayers() {
     const {chosen, locked, turn, enemy} = this.props;
-    return _.fill(Array(10), undefined).map((x, i) => {
-      const isEnemy = !enemy ? i % 2 === 0 : i % 2 !== 0;
-      return (x = isEnemy && (
+
+    return _.fill(Array(10)).map((player, index) => {
+      // isEnemy method limits team component to certain indexes,
+      // so each team can be counted from 1 method, there's no need to use two that looks the same.
+      const isEnemy = () => {
+        if (!enemy) {
+          return index % 2 === 0;
+        }
+
+        return index % 2 !== 0;
+      };
+
+      player = isEnemy() && (
         <Player
-          key={i}
-          idx={(i + 1) / 2}
-          locked={locked?.length >= i + 1 && locked[i]}
+          key={index}
+          idx={(index + 1) / 2}
+          locked={locked?.length >= index + 1 && locked[index]}
           chosen={chosen}
-          isPicking={turn === i + 1}
-          isPickingNext={turn === i}
+          isPicking={turn === index + 1}
+          isPickingNext={turn === index}
           enemy={enemy}
         />
-      ));
+      );
+
+      return player;
     });
   }
+
   render() {
     return <div className="team__players">{this.renderPlayers()}</div>;
   }
