@@ -16,6 +16,7 @@ class Spell extends React.Component {
       setChosen,
       onUpdate,
     } = this.props;
+
     return (
       <img
         src={`${urls.spellImg + image.full}`}
@@ -24,9 +25,11 @@ class Spell extends React.Component {
           if (isOpenLeft) {
             setChosen({name, description, cooldownBurn, image}, 'spells-left');
           }
+
           if (isOpenRight) {
             setChosen({name, description, cooldownBurn, image}, 'spells-right');
           }
+
           setTimeout(onUpdate, 0);
         }}
       />

@@ -8,18 +8,11 @@ class Runes extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = {chosen: undefined};
-
-    this.setChosen = this.setChosen.bind(this);
-  }
-
-  setChosen(chosen) {
-    this.setState({chosen});
+    this.state = {};
   }
 
   render() {
-    const {isOpen} = this.props;
-    const {chosen} = this.state;
+    const {isOpen, openPopup, chosen, setChosen} = this.props;
 
     return (
       <>
@@ -28,16 +21,12 @@ class Runes extends React.Component {
         </div>
         <div
           className="bottom-section--choose-runes"
-          onClick={() => this.props.openPopup('runes')}
+          onClick={() => openPopup('runes')}
         >
           {chosen?.innerText || 'Default 1'}
           {/* Code above is temporary, just to model out behavior */}
           {isOpen && (
-            <RunesPopup
-              chosen={chosen}
-              isOpen={isOpen}
-              setChosen={this.setChosen}
-            />
+            <RunesPopup chosen={chosen} isOpen={isOpen} setChosen={setChosen} />
           )}
         </div>
       </>

@@ -19,6 +19,7 @@ class BottomSection extends React.Component {
       spellsIsOpenLeft: false,
       spellsIsOpenRight: false,
       runesIsOpen: false,
+      runesChosen: undefined,
     };
 
     this.setChosen = this.setChosen.bind(this);
@@ -52,6 +53,12 @@ class BottomSection extends React.Component {
 
       this.setState({spellsIsOpenLeft: false, spellsIsOpenRight: false});
     }
+
+    if (side.includes('runes')) {
+      this.setState({runesChosen: chosen});
+
+      this.setState({runesIsOpen: false});
+    }
   }
 
   openPopup(side) {
@@ -84,16 +91,20 @@ class BottomSection extends React.Component {
       spellsIsOpenRight,
       spellsChosenRight,
       runesIsOpen,
+      runesChosen,
     } = this.state;
 
     const spellsIsOpen = spellsIsOpenLeft || spellsIsOpenRight ? true : false;
 
     return (
       <div className="champion-picker__bottom-section bottom-section">
-        <Runes isOpen={runesIsOpen} openPopup={this.openPopup} />
-        {/* Key new Date() is set, so it always gets a new prop and its rendered properly */}
+        <Runes
+          isOpen={runesIsOpen}
+          openPopup={this.openPopup}
+          chosen={runesChosen}
+          setChosen={this.setChosen}
+        />
         <Spells
-          key={new Date()}
           isOpen={spellsIsOpen}
           chosenLeft={spellsChosenLeft}
           chosenRight={spellsChosenRight}

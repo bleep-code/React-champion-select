@@ -57,10 +57,10 @@ class App extends React.Component {
     this.setState({time: time - 1});
   }
 
-  componentDidMount() {
-    const intervalId = setInterval(this.countDown, 1000);
-    this.setState({intervalId});
-  }
+  // componentDidMount() {
+  //   const intervalId = setInterval(this.countDown, 1000);
+  //   this.setState({intervalId});
+  // }
 
   render() {
     const {chosen, locked, turn, time, isCrashed, isStarted} = this.state;

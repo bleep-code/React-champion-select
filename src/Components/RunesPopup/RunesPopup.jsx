@@ -12,8 +12,7 @@ class RunesPopup extends React.Component {
         className="choose-runes__popup"
         style={{display: !isOpen && 'none'}}
         onClick={(e) => {
-          setChosen(e.target);
-          console.log(e.target.name);
+          setChosen(e.target, 'runes');
         }}
       >
         <RuneSet name="Default 1" />

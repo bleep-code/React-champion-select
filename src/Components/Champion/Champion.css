@@ -47,7 +47,7 @@
   width: 85%;
   height: 85%;
 
-  z-index: 1;
+  /* z-index: 1; */
   /* z-index is necessary, so the element can be visible above image */
   /* inspired by some guy on stackoverflow, but cannot find the post anymore, will upload as soon as i find it. */
   background: linear-gradient(

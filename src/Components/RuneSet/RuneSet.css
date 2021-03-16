@@ -1,5 +1,6 @@
 .bottom-section--choose-runes__rune-set {
   height: 4vw;
+  width: 100%;
 
   display: flex;
   align-items: center;
