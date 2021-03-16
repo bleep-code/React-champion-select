@@ -107,30 +107,30 @@ class Player extends React.Component {
           }}
         >
           <span
-            className="player__details--is-picking"
+            className={`${
+              enemy
+                ? 'player__details--enemy-name'
+                : 'player__details--is-picking'
+            }`}
             style={{
               left: !enemy ? '0' : 'calc(100-2%)',
-              fontSize: enemy && '24px',
-              fontWeight: enemy && 500,
               color: isPickingNext && 'var(--picking-status-gold)',
             }}
           >
             {this.pickingStatus() || (enemy && locked?.name)}
           </span>
           <span
-            className="player__details--position"
-            style={{
-              fontSize: !enemy && '24px',
-              fontWeight: !enemy && 500,
-            }}
+            className={`${
+              enemy
+                ? 'player__details--enemy-summoner'
+                : 'player__details--position'
+            }`}
           >
             {!enemy ? this.role : `Summoner ${idx}`}
           </span>
           <span
             className="player__details--name"
             style={{
-              fontSize: enemy && '24px',
-              fontWeight: enemy && 500,
               color: isPicking && 'gold',
             }}
           >
