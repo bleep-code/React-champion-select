@@ -71,7 +71,7 @@ class App extends React.Component {
       return <StartedGame />;
     }
     return (
-      <div className={`champion-select ${turn === 11 && 'locked-app'}`}>
+      <div className={`champion-select ${turn === 11 ? 'locked-app' : ''}`}>
         <FriendlyTeam locked={locked} chosen={chosen} turn={turn} />
         <ChampionPicker
           locked={locked}

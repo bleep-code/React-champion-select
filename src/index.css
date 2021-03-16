@@ -1,13 +1,27 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@font-face {
+  font-family: 'Timeless';
+  src: url('../src/fonts/timeless-webfont.woff2') format('woff2'),
+    url('../src/fonts/timeless-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+@font-face {
+  font-family: 'Average-Sans';
+  src: url('../src/fonts/Average-Sans.ttf.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+:root {
+  --champion-select-width: 50%;
+  --team-width: calc((100% - var(--champion-select-width)) / 2);
+  --team-height: 60%;
+  --champion-picker-color: rgb(136, 136, 125);
+  --background-gold: rgba(215, 255, 0, 0.4);
+  --champion-border-size: 3px;
+  --top-section-height: 15%;
+  --friendly-blue: rgb(0, 181, 204);
+  --picking-status-gold: rgba(190, 176, 134, 1);
+  --main-font-color: rgb(235, 225, 206);
 }
