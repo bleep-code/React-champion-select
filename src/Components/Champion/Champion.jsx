@@ -13,7 +13,7 @@ class Champion extends React.Component {
         className={`picker__champion ${
           chosen?.name === name
             ? 'chosen'
-            : '' || (lockedNames?.includes(name) && 'locked')
+            : (lockedNames?.includes(name) && 'locked') || ''
         }`}
         onClick={() => {
           setChosen({name, image});
