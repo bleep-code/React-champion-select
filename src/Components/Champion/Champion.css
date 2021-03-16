@@ -1,8 +1,7 @@
 .picker__champion {
   position: relative;
 
-  width: calc(100% / 8);
-  height: 20%;
+  width: calc(100% / 8.5);
   margin: 0.5%;
   margin-top: 1.75%;
 
