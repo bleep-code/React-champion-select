@@ -16,9 +16,14 @@ class ChampionPicker extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = {champions: [], fetchedChampions: []};
+    this.state = {
+      champions: [],
+      fetchedChampions: [],
+      filteredChampions: null,
+    };
 
     this.onUpdate = this.onUpdate.bind(this);
+    this.filterChampions = this.filterChampions.bind(this);
   }
 
   async fetchChampions() {
@@ -53,6 +58,20 @@ class ChampionPicker extends React.Component {
     this.setState({champions});
   }
 
+  filterChampions(filterCriteria) {
+    const {champions} = this.state;
+
+    if (!filterCriteria) {
+      return this.setState({filteredChampions: null});
+    }
+
+    const filteredChampions = champions.filter((x) =>
+      x.props.name.toLowerCase().includes(filterCriteria.toLowerCase())
+    );
+
+    this.setState({filteredChampions});
+  }
+
   componentDidMount() {
     this.fetchChampions().then(() => this.renderChampions());
   }
@@ -63,15 +82,18 @@ class ChampionPicker extends React.Component {
 
   render() {
     const {turn, time, chosen, setLocked} = this.props;
+
+    const {champions, filteredChampions} = this.state;
+
     return (
       <div className="champion-picker">
         <div className="champion-picker__top-section">
           <Announcement turn={turn} />
           <Timer time={time} />
-          <Search />
+          <Search filterChampions={this.filterChampions} />
         </div>
         <div className="champion-picker__mid-section">
-          <Picker champions={this.state.champions} />
+          <Picker champions={filteredChampions ?? champions} />
           <LockButton
             setLocked={setLocked}
             chosen={chosen}

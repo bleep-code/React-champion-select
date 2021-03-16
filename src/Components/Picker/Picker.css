@@ -4,13 +4,17 @@
 
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
-  align-items: center;
+  justify-content: space-between;
 
   border-top: 2px solid var(--background-gold);
   border-bottom: 2px solid var(--background-gold);
   overflow-y: scroll;
   overflow-x: hidden;
+}
+
+.picker::after {
+  content: '';
+  flex: auto;
 }
 
 .picker::-webkit-scrollbar {
