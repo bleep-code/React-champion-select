@@ -1,7 +1,9 @@
 .picker__champion {
   position: relative;
 
-  width: calc(100% / 8.5);
+  width: 6vw;
+  height: 6vw;
+
   margin: 0.5%;
   margin-top: 1.75%;
 
@@ -20,7 +22,9 @@
 }
 
 .picker__champion--image {
-  width: 80%;
+  width: 5vw;
+  height: 5vw;
+
   margin-bottom: 5%;
 
   border: 2px solid var(--champion-picker-color);
@@ -42,10 +46,10 @@
 .chosen::before {
   content: '';
   position: absolute;
-  bottom: 18%;
+  bottom: 17%;
 
-  width: 85%;
-  height: 85%;
+  width: 5.3vw;
+  height: 5.3vw;
 
   /* z-index: 1; */
   /* z-index is necessary, so the element can be visible above image */
@@ -106,10 +110,10 @@
 .chosen::after {
   content: '';
   position: absolute;
-  bottom: 18%;
+  bottom: 17%;
 
-  width: 78%;
-  height: 78%;
+  width: 5vw;
+  height: 5vw;
 
   border: var(--champion-border-size) solid gold;
   border-radius: 50%;
@@ -126,7 +130,7 @@
 }
 
 .locked i {
-  bottom: 16%;
+  bottom: 15%;
   opacity: 1;
 
   color: rgb(207, 207, 207);

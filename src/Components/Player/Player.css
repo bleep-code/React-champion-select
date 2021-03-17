@@ -46,6 +46,7 @@
   min-width: 50px;
   height: 4.5vw;
   min-height: 50px;
+  /* viewports used so circles cannot become elipses */
 
   margin: 0 5%;
 
@@ -53,7 +54,6 @@
   border-radius: 50%;
   border: 2px solid transparent;
   background-size: cover;
-  background-position-y: 100%;
   background-color: black;
 }
 
@@ -64,7 +64,7 @@
 
   color: var(--main-font-color);
   line-height: 1.25;
-  font-size: 16px;
+  font-size: 18px;
 }
 
 .player__details--enemy-name,
@@ -83,5 +83,6 @@
 }
 
 .player__details--enemy-summoner {
-  font-size: 20px;
+  font-size: 28px;
+  font-weight: bold;
 }
