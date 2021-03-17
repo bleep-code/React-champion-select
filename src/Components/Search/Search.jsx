@@ -14,7 +14,7 @@ class Search extends React.Component {
         <input
           className="champion-picker__top-section--search__input"
           onChange={(e) => {
-            this.props.filterChampions(e.target.value);
+            setTimeout(() => this.props.onChange(e.target.value), 0);
           }}
         />
       </div>

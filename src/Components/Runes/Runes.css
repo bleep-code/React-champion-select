@@ -8,12 +8,13 @@
 
   border-radius: 50%;
   border: 0.125vw solid gold;
+
+  cursor: pointer;
 }
 
 .bottom-section--edit-runes > i {
   font-size: 1vw;
   color: var(--background-gold);
-  cursor: pointer;
 }
 
 .bottom-section--choose-runes {
@@ -28,4 +29,6 @@
   font-size: 24px;
 
   border: 0.125vw solid gold;
+
+  cursor: pointer;
 }

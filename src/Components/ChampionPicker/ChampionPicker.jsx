@@ -18,12 +18,13 @@ class ChampionPicker extends React.Component {
 
     this.state = {
       champions: [],
+      searchPhrase: '',
       fetchedChampions: [],
-      filteredChampions: null,
     };
 
     this.onUpdate = this.onUpdate.bind(this);
-    this.filterChampions = this.filterChampions.bind(this);
+    this.searchFor = this.searchFor.bind(this);
+    this.renderChampions = this.renderChampions.bind(this);
   }
 
   async fetchChampions() {
@@ -34,11 +35,11 @@ class ChampionPicker extends React.Component {
     this.setState({fetchedChampions});
   }
 
-  renderChampions() {
+  renderChampions(filterCriteria) {
     const {chosen, locked, setChosen} = this.props;
 
-    const champions = this.state.fetchedChampions.map(
-      ({id, name, title, image, tags, blurb}) => (
+    let champions = this.state.fetchedChampions
+      .map(({id, name, title, image, tags, blurb}) => (
         <Champion
           id={id}
           name={name}
@@ -50,50 +51,52 @@ class ChampionPicker extends React.Component {
           chosen={chosen}
           locked={locked}
           setChosen={setChosen}
+          searchPhrase={this.state.searchPhrase}
           onUpdate={this.onUpdate}
         />
-      )
-    );
+      ))
+      .filter((x) => {
+        if (filterCriteria) {
+          x = x.props.name.toLowerCase().includes(filterCriteria.toLowerCase());
+          return x;
+        }
+
+        return x;
+      });
 
     this.setState({champions});
   }
 
-  filterChampions(filterCriteria) {
-    const {champions} = this.state;
+  searchFor(searchPhrase) {
+    this.setState({searchPhrase});
+    this.renderChampions(searchPhrase);
+  }
 
-    if (!filterCriteria) {
-      return this.setState({filteredChampions: null});
-    }
-
-    const filteredChampions = champions.filter((x) =>
-      x.props.name.toLowerCase().includes(filterCriteria.toLowerCase())
-    );
-
-    this.setState({filteredChampions});
+  onUpdate(filterCriteria) {
+    this.renderChampions(filterCriteria);
   }
 
   componentDidMount() {
     this.fetchChampions().then(() => this.renderChampions());
   }
 
-  onUpdate() {
-    this.renderChampions();
-  }
-
   render() {
     const {turn, time, chosen, setLocked} = this.props;
 
-    const {champions, filteredChampions} = this.state;
+    const {champions} = this.state;
 
     return (
       <div className="champion-picker">
         <div className="champion-picker__top-section">
           <Announcement turn={turn} />
           <Timer time={time} />
-          <Search filterChampions={this.filterChampions} />
+          <Search
+            renderChampions={this.renderChampions}
+            onChange={this.searchFor}
+          />
         </div>
         <div className="champion-picker__mid-section">
-          <Picker champions={filteredChampions ?? champions} />
+          <Picker champions={champions} />
           <LockButton
             setLocked={setLocked}
             chosen={chosen}

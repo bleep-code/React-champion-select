@@ -4,7 +4,15 @@ import React from 'react';
 
 class Champion extends React.Component {
   render() {
-    const {chosen, locked, name, image, setChosen, onUpdate} = this.props;
+    const {
+      chosen,
+      locked,
+      name,
+      image,
+      setChosen,
+      searchPhrase,
+      onUpdate,
+    } = this.props;
 
     const lockedNames = locked?.map((x) => x.name);
 
@@ -17,7 +25,7 @@ class Champion extends React.Component {
         }`}
         onClick={() => {
           setChosen({name, image});
-          setTimeout(onUpdate, 0);
+          setTimeout(() => onUpdate(searchPhrase), 0);
         }}
       >
         <img
