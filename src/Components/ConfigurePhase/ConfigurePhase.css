@@ -8,28 +8,38 @@
 
   font-family: 'Average-Sans', 'arial', 'sans-serif';
 
-  background-color: #555;
+  background: url('../../Assets/stars.jpg');
 }
+
 .start-view__classic-mode,
 .start-view__custom-mode {
   width: 20vw;
   height: 20vw;
 
-  margin: 0 3vw;
-
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
+  margin: 0 3vw;
+
   font-size: 4vw;
 
   cursor: pointer;
+
+  border: 2px solid rgb(197, 126, 34);
+  color: rgb(197, 126, 34);
+  background-color: rgba(128, 128, 128, 0.2);
+  opacity: 0.6;
+}
+
+.start-view__classic-mode:hover,
+.start-view__custom-mode:hover {
+  opacity: 1;
 }
 
 .start-view__classic-mode {
-  background-color: pink;
 }
 
 .start-view__custom-mode {
-  background-color: yellow;
 }

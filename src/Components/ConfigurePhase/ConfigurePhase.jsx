@@ -15,6 +15,14 @@ class ConfigurePhase extends React.Component {
     };
   }
 
+  renderClassic() {
+    this.setState({classicMode: !this.state.classicMode});
+  }
+
+  renderCustom() {
+    this.setState({customMode: !this.state.customMode});
+  }
+
   render() {
     const {classicMode, customMode} = this.state;
 
@@ -30,18 +38,14 @@ class ConfigurePhase extends React.Component {
       <div className="start-view">
         <div
           className="start-view__classic-mode"
-          onClick={() => {
-            this.setState({classicMode: !classicMode});
-          }}
+          onClick={() => this.renderClassic()}
         >
           <i class="far fa-compass" />
           <span>Explore</span>
         </div>
         <div
           className="start-view__custom-mode"
-          onClick={() => {
-            this.setState({customMode: !customMode});
-          }}
+          onClick={() => this.renderCustom()}
         >
           <i class="far fa-folder" />
           <span>Customize</span>
