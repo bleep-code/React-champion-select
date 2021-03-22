@@ -12,7 +12,14 @@ class Team extends React.Component {
   }
 
   renderPlayers() {
-    const {chosen, locked, turn, enemy} = this.props;
+    const {
+      chosen,
+      locked,
+      turn,
+      enemy,
+      banningPhase,
+      bannedChamps,
+    } = this.props;
 
     return _.fill(Array(10)).map((player, index) => {
       // isEnemy method limits team component to certain indexes,
@@ -29,8 +36,10 @@ class Team extends React.Component {
         <Player
           key={index}
           idx={(index + 1) / 2}
-          locked={locked?.length >= index + 1 && locked[index]}
+          banningPhase={banningPhase}
+          bannedChamp={bannedChamps?.length >= index + 1 && bannedChamps[index]}
           chosen={chosen}
+          locked={locked?.length >= index + 1 && locked[index]}
           isPicking={turn === index + 1}
           isPickingNext={turn === index}
           enemy={enemy}

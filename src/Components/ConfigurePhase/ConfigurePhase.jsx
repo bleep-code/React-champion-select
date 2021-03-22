@@ -3,7 +3,7 @@ import './ConfigurePhase.css';
 import React from 'react';
 
 import Configurator from '../Configurator/Configurator';
-import ChoosingPhase from '../ChoosingPhase/ChoosingPhase';
+import ChampionSelect from '../ChampionSelect/ChampionSelect';
 
 class ConfigurePhase extends React.Component {
   constructor(props) {
@@ -27,7 +27,7 @@ class ConfigurePhase extends React.Component {
     const {classicMode, customMode} = this.state;
 
     if (classicMode) {
-      return <ChoosingPhase />;
+      return <ChampionSelect />;
     }
 
     if (customMode) {

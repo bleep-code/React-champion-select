@@ -36,7 +36,7 @@ class ChampionPicker extends React.Component {
   }
 
   renderChampions(filterCriteria) {
-    const {chosen, locked, setChosen} = this.props;
+    const {chosen, locked, setChosen, bannedChamps, banningPhase} = this.props;
 
     let champions = this.state.fetchedChampions
       .map(({id, name, title, image, tags, blurb}) => (
@@ -48,6 +48,8 @@ class ChampionPicker extends React.Component {
           tags={tags}
           blurb={blurb}
           key={id}
+          banningPhase={banningPhase}
+          bannedChamps={bannedChamps}
           chosen={chosen}
           locked={locked}
           setChosen={setChosen}
@@ -58,6 +60,7 @@ class ChampionPicker extends React.Component {
       .filter((x) => {
         if (filterCriteria) {
           x = x.props.name.toLowerCase().includes(filterCriteria.toLowerCase());
+
           return x;
         }
 

@@ -18,13 +18,19 @@ class Player extends React.Component {
   }
 
   pickingStatus() {
-    const {isPicking, isPickingNext} = this.props;
+    const {banningPhase, isPicking, isPickingNext} = this.props;
 
     if (isPicking) {
+      if (banningPhase) {
+        return 'Banning...';
+      }
       return 'Picking...';
     }
 
     if (isPickingNext) {
+      if (banningPhase) {
+        return 'Banning next...';
+      }
       return 'Picking next...';
     }
 
@@ -32,7 +38,11 @@ class Player extends React.Component {
   }
 
   friendlyName() {
-    const {chosen, locked, isPicking} = this.props;
+    const {banningPhase, bannedChamp, chosen, locked, isPicking} = this.props;
+
+    if (banningPhase && bannedChamp) {
+      return bannedChamp.name;
+    }
 
     if (locked) {
       return locked.name;
@@ -46,7 +56,11 @@ class Player extends React.Component {
   }
 
   playerImage() {
-    const {chosen, locked, isPicking} = this.props;
+    const {banningPhase, bannedChamp, chosen, locked, isPicking} = this.props;
+
+    if (banningPhase && bannedChamp) {
+      return bannedChamp.image;
+    }
 
     if (locked) {
       return locked.image;
