@@ -1,11 +1,11 @@
-import './ConfigurePhase.css';
+import './LandingPage.css';
 
 import React from 'react';
 
 import Configurator from '../Configurator/Configurator';
 import ChampionSelect from '../ChampionSelect/ChampionSelect';
 
-class ConfigurePhase extends React.Component {
+class LandingPage extends React.Component {
   constructor(props) {
     super(props);
 
@@ -55,4 +55,4 @@ class ConfigurePhase extends React.Component {
   }
 }
 
-export default ConfigurePhase;
+export default LandingPage;

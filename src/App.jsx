@@ -1,6 +1,6 @@
 import React from 'react';
 
-import ConfigurePhase from './Components/ConfigurePhase/ConfigurePhase';
+import LandingPage from './Components/LandingPage/LandingPage';
 
 import './App.css';
 
@@ -12,7 +12,7 @@ class App extends React.Component {
   }
 
   render() {
-    return <ConfigurePhase />;
+    return <LandingPage />;
   }
 }
 
