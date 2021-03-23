@@ -4,7 +4,6 @@
 
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
   align-content: baseline;
 
   border-top: 2px solid var(--background-gold);

@@ -1,7 +1,6 @@
 @font-face {
   font-family: 'Timeless';
-  src: url('../src/fonts/timeless-webfont.woff2') format('woff2'),
-    url('../src/fonts/timeless-webfont.woff') format('woff');
+  src: url('../src/fonts/timeless-webfont.woff2') format('woff2'), url('../src/fonts/timeless-webfont.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 }
@@ -14,7 +13,7 @@
 }
 
 :root {
-  --champion-select-width: 50%;
+  --champion-select-width: 53%;
   --team-width: calc((100% - var(--champion-select-width)) / 2);
   --team-height: 60%;
   --champion-picker-color: rgb(136, 136, 125);
