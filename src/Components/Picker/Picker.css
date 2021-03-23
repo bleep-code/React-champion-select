@@ -10,8 +10,6 @@
   border-bottom: 2px solid var(--background-gold);
   overflow-y: scroll;
   overflow-x: hidden;
-
-  justify-content: center;
 }
 
 .picker::-webkit-scrollbar {
