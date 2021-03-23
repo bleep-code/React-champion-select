@@ -30,7 +30,8 @@
 
 .team {
   position: relative;
-
+  display: flex;
+  flex-direction: column;
   width: var(--team-width);
   height: 100%;
 

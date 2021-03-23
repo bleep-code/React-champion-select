@@ -1,3 +1,5 @@
+import './EnemyTeam.css';
+
 import React from 'react';
 
 import BansList from '../BansList/BansList';
@@ -9,15 +11,8 @@ class EnemyTeam extends React.Component {
 
     return (
       <div className="enemy-team team">
-        <BansList />
-        <Team
-          banningPhase={banningPhase}
-          bannedChamps={bannedChamps}
-          locked={locked}
-          chosen={chosen}
-          turn={turn}
-          enemy={true}
-        />
+        <BansList banningPhase={banningPhase} bannedChamps={bannedChamps} enemy={true} />
+        <Team banningPhase={banningPhase} bannedChamps={bannedChamps} locked={locked} chosen={chosen} turn={turn} enemy={true} />
       </div>
     );
   }

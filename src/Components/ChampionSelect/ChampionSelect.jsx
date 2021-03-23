@@ -71,15 +71,7 @@ class ChampionSelect extends React.Component {
   }
 
   countDown() {
-    const {
-      chosen,
-      time,
-      turn,
-      isCrashed,
-      isStarted,
-      intervalId,
-      banningPhase,
-    } = this.state;
+    const {chosen, time, turn, isCrashed, isStarted, intervalId, banningPhase} = this.state;
 
     if (time <= 0 && turn >= 10) {
       clearInterval(intervalId);
@@ -106,16 +98,7 @@ class ChampionSelect extends React.Component {
   }
 
   render() {
-    const {
-      banningPhase,
-      bannedChamps,
-      chosen,
-      locked,
-      turn,
-      time,
-      isCrashed,
-      isStarted,
-    } = this.state;
+    const {banningPhase, bannedChamps, chosen, locked, turn, time, isCrashed, isStarted} = this.state;
 
     if (isCrashed) {
       return <CrashedGame />;
@@ -127,13 +110,7 @@ class ChampionSelect extends React.Component {
 
     return (
       <div className={`champion-select ${turn === 11 ? 'locked-app' : ''}`}>
-        <FriendlyTeam
-          locked={locked}
-          chosen={chosen}
-          turn={turn}
-          banningPhase={banningPhase}
-          bannedChamps={bannedChamps}
-        />
+        <FriendlyTeam locked={locked} chosen={chosen} turn={turn} banningPhase={banningPhase} bannedChamps={bannedChamps} />
         <ChampionPicker
           banningPhase={banningPhase}
           bannedChamps={bannedChamps}
@@ -144,13 +121,7 @@ class ChampionSelect extends React.Component {
           setChosen={this.setChosen}
           setLocked={this.setLocked}
         />
-        <EnemyTeam
-          locked={locked}
-          chosen={chosen}
-          turn={turn}
-          banningPhase={banningPhase}
-          bannedChamps={bannedChamps}
-        />
+        <EnemyTeam locked={locked} chosen={chosen} turn={turn} banningPhase={banningPhase} bannedChamps={bannedChamps} />
       </div>
     );
   }

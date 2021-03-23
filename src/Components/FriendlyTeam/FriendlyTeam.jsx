@@ -9,15 +9,8 @@ class FriendlyTeam extends React.Component {
 
     return (
       <div className="friendly-team team">
-        <BansList />
-        <Team
-          banningPhase={banningPhase}
-          bannedChamps={bannedChamps}
-          locked={locked}
-          chosen={chosen}
-          turn={turn}
-          enemy={false}
-        />
+        <BansList banningPhase={banningPhase} bannedChamps={bannedChamps} enemy={false} />
+        <Team banningPhase={banningPhase} bannedChamps={bannedChamps} locked={locked} chosen={chosen} turn={turn} enemy={false} />
       </div>
     );
   }
