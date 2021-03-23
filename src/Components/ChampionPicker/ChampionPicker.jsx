@@ -84,14 +84,14 @@ class ChampionPicker extends React.Component {
   }
 
   render() {
-    const {turn, time, chosen, setLocked} = this.props;
+    const {turn, time, chosen, setLocked, banningPhase} = this.props;
 
     const {champions} = this.state;
 
     return (
       <div className="champion-picker">
         <div className="champion-picker__top-section">
-          <Announcement turn={turn} />
+          <Announcement turn={turn} banningPhase={banningPhase} />
           <Timer time={time} />
           <Search
             renderChampions={this.renderChampions}
