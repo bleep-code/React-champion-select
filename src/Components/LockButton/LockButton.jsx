@@ -5,7 +5,7 @@ import _ from 'lodash';
 
 class LockButton extends React.Component {
   render() {
-    const {chosen, setLocked, onUpdate, searchFor} = this.props;
+    const {chosen, setLocked, onUpdate} = this.props;
 
     return (
       <div className="picker__lock-in--wrapper">
@@ -14,7 +14,6 @@ class LockButton extends React.Component {
             className={`picker__lock-in--button`}
             onClick={() => {
               setLocked();
-              searchFor('');
               setTimeout(onUpdate, 0);
             }}
           />
