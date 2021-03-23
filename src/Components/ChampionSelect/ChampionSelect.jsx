@@ -63,7 +63,7 @@ class ChampionSelect extends React.Component {
 
     this.setState({
       banningPhase: !banningPhase,
-      turn: 0,
+      turn: 1,
       time: 60,
     });
 
