@@ -1,0 +1,26 @@
+{
+  "hello": "This is the place where you can customize your experience with league's client!",
+  "description": "All of the fields are optional, so if you want to explore - press the start and enjoy choosing and banning champions from this legendary game",
+  "allPlayers": {
+    "q": "Do you want to choose for all of the players or just one?",
+    "labels": ["One", "All"]
+  },
+  "move": {
+    "q": "By default you have 60s for a move, do you want to change this number?",
+    "labels": ["No", "Yes"],
+    "followUp": "How much time do you need for a move?"
+  },
+  "banningPhase": {
+    "q": "Do you want to have banning phase?",
+    "labels": ["No", "Yes"],
+    "followUp": "How much champions do you want to be banned for each team? (0-5)"
+  },
+  "playersCount": {
+    "q": "By default there is 10 players - do you want to customize this number?",
+    "labels": ["No", "Yes"],
+    "followUp": [
+      "How much friendly players do you want to have? (0-5)",
+      "How much enemy players do you want to have? (0-5)"
+    ]
+  }
+}

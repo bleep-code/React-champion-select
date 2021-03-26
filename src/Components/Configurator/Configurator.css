@@ -1,9 +1,17 @@
-.center {
-  position: absolute;
+.configurator-outer {
+  background: #222;
+  width: 100vw;
+  height: 100vh;
+}
 
+.configurator {
+  width: 80%;
+  height: 80%;
+
+  position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
 
-  font-size: 50px;
+  border: 2px solid white;
 }
