@@ -1,0 +1,76 @@
+[1mdiff --git a/src/Components/ChampionPicker/ChampionPicker.jsx b/src/Components/ChampionPicker/ChampionPicker.jsx[m
+[1mindex adae665..e566991 100644[m
+[1m--- a/src/Components/ChampionPicker/ChampionPicker.jsx[m
+[1m+++ b/src/Components/ChampionPicker/ChampionPicker.jsx[m
+[36m@@ -39,12 +39,12 @@[m [mclass ChampionPicker extends React.Component {[m
+     const {chosen, locked, setChosen, bannedChamps, banningPhase} = this.props;[m
+ [m
+     let champions = this.state.fetchedChampions[m
+[31m-      .map(({id, name, title, image, tags, blurb}) => ([m
+[32m+[m[32m      .map(({id, name, image, tags}) => ([m
+         <Champion[m
+[32m+[m[32m          key={id}[m
+           name={name}[m
+           image={image.full}[m
+           tags={tags}[m
+[31m-          key={id}[m
+           banningPhase={banningPhase}[m
+           bannedChamps={bannedChamps}[m
+           chosen={chosen}[m
+[1mdiff --git a/src/Components/Player/Player.jsx b/src/Components/Player/Player.jsx[m
+[1mindex 4afe0e9..12999e0 100644[m
+[1m--- a/src/Components/Player/Player.jsx[m
+[1m+++ b/src/Components/Player/Player.jsx[m
+[36m@@ -11,8 +11,10 @@[m [mclass Player extends React.Component {[m
+ [m
+     this.state = {};[m
+ [m
+[31m-    this.name = availableNicknames[Math.floor(Math.random() * availableNicknames.length)];[m
+[31m-    this.role = availableRoles[Math.floor(Math.random() * availableRoles.length)];[m
+[32m+[m[32m    this.name =[m
+[32m+[m[32m      availableNicknames[Math.floor(Math.random() * availableNicknames.length)];[m
+[32m+[m[32m    this.role =[m
+[32m+[m[32m      availableRoles[Math.floor(Math.random() * availableRoles.length)];[m
+   }[m
+ [m
+   pickingStatus() {[m
+[36m@@ -97,7 +99,10 @@[m [mclass Player extends React.Component {[m
+         }}[m
+       >[m
+         <div className="player__picking-sign" style={this.pickingSign()} />[m
+[31m-        <div className="player__summoner-spells" style={{display: (enemy || !locked) && 'none'}}>[m
+[32m+[m[32m        <div[m
+[32m+[m[32m          className="player__summoner-spells"[m
+[32m+[m[32m          style={{display: (enemy || !locked) && 'none'}}[m
+[32m+[m[32m        >[m
+           <div className="player_summoner-spells--upper" />[m
+           <div className="player_summoner-spells--lower" />[m
+         </div>[m
+[36m@@ -116,7 +121,11 @@[m [mclass Player extends React.Component {[m
+           }}[m
+         >[m
+           <span[m
+[31m-            className={`${enemy ? 'player__details--enemy-name' : 'player__details--is-picking'}`}[m
+[32m+[m[32m            className={`${[m
+[32m+[m[32m              enemy[m
+[32m+[m[32m                ? 'player__details--enemy-name'[m
+[32m+[m[32m                : 'player__details--is-picking'[m
+[32m+[m[32m            }`}[m
+             style={{[m
+               left: !enemy ? '0' : 'calc(100-2%)',[m
+               color: isPickingNext && 'var(--picking-status-gold)',[m
+[36m@@ -124,7 +133,13 @@[m [mclass Player extends React.Component {[m
+           >[m
+             {this.pickingStatus() || (enemy && locked?.name)}[m
+           </span>[m
+[31m-          <span className={`${enemy ? 'player__details--enemy-summoner' : 'player__details--position'}`}>[m
+[32m+[m[32m          <span[m
+[32m+[m[32m            className={`${[m
+[32m+[m[32m              enemy[m
+[32m+[m[32m                ? 'player__details--enemy-summoner'[m
+[32m+[m[32m                : 'player__details--position'[m
+[32m+[m[32m            }`}[m
+[32m+[m[32m          >[m
+             {!enemy ? this.role : `Summoner ${idx}`}[m
+           </span>[m
+           <span[m

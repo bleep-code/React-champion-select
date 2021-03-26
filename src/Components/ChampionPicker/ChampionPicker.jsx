@@ -39,12 +39,12 @@ class ChampionPicker extends React.Component {
     const {chosen, locked, setChosen, bannedChamps, banningPhase} = this.props;
 
     let champions = this.state.fetchedChampions
-      .map(({id, name, title, image, tags, blurb}) => (
+      .map(({id, name, image, tags}) => (
         <Champion
+          key={id}
           name={name}
           image={image.full}
           tags={tags}
-          key={id}
           banningPhase={banningPhase}
           bannedChamps={bannedChamps}
           chosen={chosen}
