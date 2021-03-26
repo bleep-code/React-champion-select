@@ -103,6 +103,7 @@ class ChampionPicker extends React.Component {
           <LockButton
             setLocked={setLocked}
             chosen={chosen}
+            banningPhase={banningPhase}
             onUpdate={this.onUpdate}
           />
         </div>
