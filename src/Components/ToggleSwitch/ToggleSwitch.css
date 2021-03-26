@@ -1,19 +1,23 @@
 .toggle-switch {
   position: relative;
-  display: inline-block;
+
   width: 60px;
   height: 34px;
+
+  display: inline-block;
+
+  margin: 1vw;
 }
 
 .toggle-switch input {
-  opacity: 0;
   width: 0;
   height: 0;
+
+  opacity: 0;
 }
 
 .toggle-switch__slider {
   position: absolute;
-  cursor: pointer;
 
   top: 0;
   left: 0;
@@ -21,17 +25,25 @@
   bottom: 0;
 
   background-color: #ccc;
+
   border-radius: 50px;
+
+  cursor: pointer;
 }
 
 .toggle-switch__slider::before {
-  position: absolute;
   content: '';
-  height: 26px;
-  width: 26px;
+
+  position: absolute;
+
   left: 4px;
   bottom: 4px;
+
+  height: 26px;
+  width: 26px;
+
   background-color: red;
+
   border-radius: 50px;
 
   transition: 0.3s;
