@@ -11,11 +11,15 @@ class Configurator extends React.Component {
     super(props);
     this.state = {
       chooseAllPlayers: true,
+
       customizePlayersCount: false,
+      playersCount: 10,
+
       banningPhase: true,
+      bansCount: 10,
+
       customizeMove: false,
       moveTime: 60,
-      playersCount: 10,
     };
   }
 
@@ -23,6 +27,7 @@ class Configurator extends React.Component {
     const {
       chooseAllPlayers,
       banningPhase,
+      bansCount,
       customizeMove,
       moveTime,
       customizePlayersCount,
@@ -30,7 +35,10 @@ class Configurator extends React.Component {
     } = this.state;
 
     return (
-      <div className="configurator-outer">
+      <div
+        className="configurator-outer"
+        onClick={() => console.log(bansCount)}
+      >
         <div
           className="configurator"
           style={{color: 'white', fontSize: '24px'}}
@@ -48,7 +56,7 @@ class Configurator extends React.Component {
             leftLabel={fixtures.allPlayers.labels[0]}
             rightLabel={fixtures.allPlayers.labels[1]}
             isToggled={chooseAllPlayers}
-            onToggle={() =>
+            onChange={() =>
               this.setState({chooseAllPlayers: !chooseAllPlayers})
             }
           />
@@ -57,23 +65,58 @@ class Configurator extends React.Component {
             leftLabel={fixtures.banningPhase.labels[0]}
             rightLabel={fixtures.banningPhase.labels[1]}
             isToggled={banningPhase}
-            onToggle={() => this.setState({banningPhase: !banningPhase})}
+            onChange={() => this.setState({banningPhase: !banningPhase})}
+            child={
+              banningPhase && (
+                <FormField
+                  question={fixtures.banningPhase.followUp}
+                  type="input"
+                  onChange={(e) => {
+                    this.setState({bansCount: e.target.value});
+                  }}
+                />
+              )
+            }
           />
+
           <FormField
             question={fixtures.playersCount.q}
             leftLabel={fixtures.playersCount.labels[0]}
             rightLabel={fixtures.playersCount.labels[1]}
             isToggled={customizePlayersCount}
-            onToggle={() =>
+            onChange={() =>
               this.setState({customizePlayersCount: !customizePlayersCount})
             }
+            child={
+              customizePlayersCount && (
+                <FormField
+                  question={fixtures.playersCount.followUp}
+                  type="input"
+                  onChange={(e) => {
+                    this.setState({bansCount: e.target.value});
+                  }}
+                />
+              )
+            }
           />
+
           <FormField
             question={fixtures.move.q}
             leftLabel={fixtures.move.labels[0]}
             rightLabel={fixtures.move.labels[1]}
             isToggled={customizeMove}
-            onToggle={() => this.setState({customizeMove: !customizeMove})}
+            onChange={() => this.setState({customizeMove: !customizeMove})}
+            child={
+              customizeMove && (
+                <FormField
+                  question={fixtures.move.followUp}
+                  type="input"
+                  onChange={(e) => {
+                    this.setState({moveTime: e.target.value});
+                  }}
+                />
+              )
+            }
           />
         </div>
       </div>

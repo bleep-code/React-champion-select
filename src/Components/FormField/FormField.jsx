@@ -4,24 +4,53 @@ import React from 'react';
 
 import ToggleSwitch from '../ToggleSwitch/ToggleSwitch';
 class FormField extends React.Component {
+  inputValueCheck(value) {
+    if (value < 0 || value > 5) {
+      alert('These are not allowed values!');
+      // #TODO
+    }
+  }
+
   render() {
     const {
       leftLabel,
       rightLabel,
       question,
+      type,
       isToggled = false,
-      onToggle,
+      onChange,
+      child,
     } = this.props;
+
+    if (type === 'input') {
+      return (
+        <div className="form-field">
+          <span className="form-field--question">{question}</span>
+
+          <input
+            className="form-field--input"
+            onChange={onChange}
+            type="number"
+            onInput={(e) => this.inputValueCheck(e.target.value)}
+          />
+
+          {child}
+        </div>
+      );
+    }
 
     return (
       <div className="form-field">
         <span className="form-field--question">{question}</span>
+
         <ToggleSwitch
           leftLabel={leftLabel}
           rightLabel={rightLabel}
           isToggled={isToggled}
-          onToggle={onToggle}
+          onChange={onChange}
         />
+
+        {child}
       </div>
     );
   }
