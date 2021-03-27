@@ -10,7 +10,7 @@ class Configurator extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      chooseAllPlayers: true,
+      chooseAllPlayers: false,
 
       customizePlayersCount: false,
       playersCount: 10,
@@ -51,15 +51,7 @@ class Configurator extends React.Component {
               {fixtures.description}
             </span>
           </div>
-          <FormField
-            question={fixtures.allPlayers.q}
-            leftLabel={fixtures.allPlayers.labels[0]}
-            rightLabel={fixtures.allPlayers.labels[1]}
-            isToggled={chooseAllPlayers}
-            onChange={() =>
-              this.setState({chooseAllPlayers: !chooseAllPlayers})
-            }
-          />
+
           <FormField
             question={fixtures.banningPhase.q}
             leftLabel={fixtures.banningPhase.labels[0]}
@@ -74,6 +66,7 @@ class Configurator extends React.Component {
                   onChange={(e) => {
                     this.setState({bansCount: e.target.value});
                   }}
+                  placeholder={60}
                 />
               )
             }
@@ -95,6 +88,7 @@ class Configurator extends React.Component {
                   onChange={(e) => {
                     this.setState({bansCount: e.target.value});
                   }}
+                  placeholder={'0-5'}
                 />
               )
             }
@@ -114,10 +108,23 @@ class Configurator extends React.Component {
                   onChange={(e) => {
                     this.setState({moveTime: e.target.value});
                   }}
+                  placeholder={'0-5'}
                 />
               )
             }
           />
+          <FormField
+            question={fixtures.allPlayers.q}
+            leftLabel={fixtures.allPlayers.labels[1]}
+            rightLabel={fixtures.allPlayers.labels[0]}
+            isToggled={chooseAllPlayers}
+            onChange={() =>
+              this.setState({chooseAllPlayers: !chooseAllPlayers})
+            }
+          />
+          <div id="start-button">
+            <i class="fas fa-play" />
+          </div>
         </div>
       </div>
     );

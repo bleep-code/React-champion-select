@@ -1,12 +1,12 @@
 .toggle-switch {
   position: relative;
 
-  width: 60px;
-  height: 34px;
+  width: 2.5vw;
+  height: 1.4vw;
 
   display: inline-block;
 
-  margin: 1vw;
+  margin: 0.25vw 0.75vw;
 }
 
 .toggle-switch input {
@@ -36,11 +36,11 @@
 
   position: absolute;
 
-  left: 4px;
-  bottom: 4px;
+  left: 0.17vw;
+  bottom: 0.17vw;
 
-  height: 26px;
-  width: 26px;
+  height: 1.08vw;
+  width: 1.08vw;
 
   background-color: red;
 
@@ -52,6 +52,6 @@
 }
 
 input:checked + .toggle-switch__slider::before {
-  transform: translate(26px);
+  transform: translate(1.08vw);
   background: green;
 }

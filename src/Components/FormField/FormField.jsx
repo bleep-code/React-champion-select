@@ -20,6 +20,7 @@ class FormField extends React.Component {
       isToggled = false,
       onChange,
       child,
+      placeholder,
     } = this.props;
 
     if (type === 'input') {
@@ -32,6 +33,7 @@ class FormField extends React.Component {
             onChange={onChange}
             type="number"
             onInput={(e) => this.inputValueCheck(e.target.value)}
+            placeholder={placeholder}
           />
 
           {child}

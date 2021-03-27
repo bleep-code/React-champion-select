@@ -13,14 +13,11 @@
   "banningPhase": {
     "q": "Do you want to have banning phase?",
     "labels": ["No", "Yes"],
-    "followUp": "How much champions do you want to be banned for each team? (0-5)"
+    "followUp": "How much champions do you want to be banned for each team?"
   },
   "playersCount": {
     "q": "By default there is 10 players - do you want to customize this number?",
     "labels": ["No", "Yes"],
-    "followUp": [
-      "How much friendly players do you want to have? (0-5)",
-      "How much enemy players do you want to have? (0-5)"
-    ]
+    "followUp": "How much players do you want to have in each team?"
   }
 }

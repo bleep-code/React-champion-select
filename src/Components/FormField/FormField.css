@@ -13,10 +13,19 @@
 }
 
 .form-field--input {
+  height: 1.4vw;
+  width: 2.5vw;
+
   margin-top: 0.5vw;
-  height: 30px;
-  width: 50px;
-  font-size: 24;
+
+  font-size: 20px;
+  text-align: center;
+}
+
+.form-field--input::-webkit-outer-spin-button,
+.form-field--input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 
 .form-field > .toggle-switch-wrapper {
@@ -28,7 +37,10 @@
 .form-field > .form-field {
   position: absolute;
   top: 0;
-  left: 50%;
+  right: 0;
 
-  margin-right: 4vw;
+  align-items: flex-end;
+
+  margin-right: 2vw;
+  text-align: right;
 }
