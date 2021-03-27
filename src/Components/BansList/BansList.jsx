@@ -8,9 +8,9 @@ import Ban from '../Ban/Ban';
 
 class BansList extends React.Component {
   renderBans() {
-    const {enemy, banningPhase, bannedChamps} = this.props;
+    const {enemy, bansCount, banningPhase, bannedChamps} = this.props;
 
-    return _.fill(Array(10)).map((ban, index) => {
+    return _.fill(Array(bansCount)).map((ban, index) => {
       // isEnemy method limits team component to certain indexes,
       // so each team can be counted from 1 method, there's no need to use two that looks the same.
       const isEnemy = () => {
@@ -38,7 +38,14 @@ class BansList extends React.Component {
     const {enemy} = this.props;
 
     return (
-      <div className="team__bans-list bans" style={{flexDirection: !enemy ? 'row' : 'row-reverse'}}>
+      <div
+        className="team__bans-list bans"
+        onClick={() => console.log(this.props.bansCount)}
+        style={{
+          flexDirection: !enemy ? 'row' : 'row-reverse',
+          visibility: !this.props.bansCount && 'hidden',
+        }}
+      >
         {this.renderBans()}
       </div>
     );

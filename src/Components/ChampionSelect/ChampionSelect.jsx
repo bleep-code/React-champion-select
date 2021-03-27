@@ -14,16 +14,20 @@ class ChampionSelect extends React.Component {
     super(props);
 
     this.state = {
-      banningPhase: true,
+      chooseAllPlayers: this.props.chooseAllPlayers ?? true,
+      banningPhase: this.props.banningPhase ?? true,
+
       isCrashed: false,
       isStarted: false,
 
       chosen: {},
       locked: [],
       bannedChamps: [],
+      playersCount: this.props.playersCount ?? 10,
+      bansCount: this.props.bansCount ?? 10,
 
       turn: 1,
-      time: 60,
+      time: this.props.moveTime ?? 60,
       intervalId: undefined,
     };
 
@@ -39,12 +43,14 @@ class ChampionSelect extends React.Component {
   setLocked() {
     const {chosen, locked, turn, banningPhase, bannedChamps} = this.state;
 
+    const {moveTime} = this.props ?? 60;
+
     if (!_.isEmpty(chosen)) {
       if (banningPhase) {
         return this.setState({
           bannedChamps: [...bannedChamps, chosen],
           chosen: {},
-          time: turn >= 10 ? 10 : 60,
+          time: turn >= 10 ? 10 : moveTime,
           turn: turn + 1,
         });
       }
@@ -52,7 +58,7 @@ class ChampionSelect extends React.Component {
       return this.setState({
         locked: [...locked, chosen],
         chosen: {},
-        time: turn >= 10 ? 10 : 60,
+        time: turn >= 10 ? 10 : moveTime,
         turn: turn + 1,
       });
     }
@@ -61,10 +67,12 @@ class ChampionSelect extends React.Component {
   setBanned() {
     const {banningPhase} = this.state;
 
+    const {moveTime} = this.props ?? 60;
+
     this.setState({
       banningPhase: !banningPhase,
       turn: 1,
-      time: 60,
+      time: moveTime,
     });
 
     this.componentDidMount();
@@ -107,6 +115,8 @@ class ChampionSelect extends React.Component {
 
   render() {
     const {
+      playersCount,
+      bansCount,
       banningPhase,
       bannedChamps,
       chosen,
@@ -128,9 +138,11 @@ class ChampionSelect extends React.Component {
     return (
       <div
         className={`champion-select ${turn === 11 ? 'locked-app' : ''}`}
-        onClick={console.log(this.props)}
+        onClick={console.log(this.props, playersCount)}
       >
         <FriendlyTeam
+          playersCount={playersCount}
+          bansCount={bansCount}
           locked={locked}
           chosen={chosen}
           turn={turn}
@@ -148,6 +160,8 @@ class ChampionSelect extends React.Component {
           setLocked={this.setLocked}
         />
         <EnemyTeam
+          playersCount={playersCount}
+          bansCount={bansCount}
           locked={locked}
           chosen={chosen}
           turn={turn}

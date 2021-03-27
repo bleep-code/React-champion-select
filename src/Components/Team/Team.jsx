@@ -13,6 +13,7 @@ class Team extends React.Component {
 
   renderPlayers() {
     const {
+      playersCount,
       chosen,
       locked,
       turn,
@@ -21,7 +22,7 @@ class Team extends React.Component {
       bannedChamps,
     } = this.props;
 
-    return _.fill(Array(10)).map((player, index) => {
+    return _.fill(Array(playersCount)).map((player, index) => {
       // isEnemy method limits team component to certain indexes,
       // so each team can be counted from 1 method, there's no need to use two that looks the same.
       const isEnemy = () => {

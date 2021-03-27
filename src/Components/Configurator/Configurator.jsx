@@ -44,7 +44,7 @@ class Configurator extends React.Component {
           chooseAllPlayers={chooseAllPlayers}
           playersCount={playersCount}
           banningPhase={banningPhase}
-          bansCount={bansCount}
+          bansCount={banningPhase ? bansCount : 0}
           moveTime={moveTime}
         />
       );
