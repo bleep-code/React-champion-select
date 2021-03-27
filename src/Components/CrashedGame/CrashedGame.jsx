@@ -30,10 +30,10 @@ class CrashedGame extends React.Component {
   render() {
     return (
       <div className="crashed-game">
-        <span class="crashed-game--message">
+        <span className="crashed-game--message">
           I am sorry, you did not choose a champion!
         </span>
-        <span class="crashed-game--refresh">
+        <span className="crashed-game--refresh">
           Please refresh the page, or wait {this.state.time}s.
         </span>
       </div>

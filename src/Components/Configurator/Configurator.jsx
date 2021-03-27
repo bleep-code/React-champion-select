@@ -133,7 +133,7 @@ class Configurator extends React.Component {
             id="start-button"
             onClick={() => this.setState({shouldStart: !shouldStart})}
           >
-            <i class="fas fa-play" />
+            <i className="fas fa-play" />
           </div>
         </div>
       </div>

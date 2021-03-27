@@ -40,14 +40,14 @@ class LandingPage extends React.Component {
           className="start-view__classic-mode"
           onClick={() => this.renderClassic()}
         >
-          <i class="far fa-compass" />
+          <i className="far fa-compass" />
           <span>Explore</span>
         </div>
         <div
           className="start-view__custom-mode"
           onClick={() => this.renderCustom()}
         >
-          <i class="far fa-folder" />
+          <i className="far fa-folder" />
           <span>Customize</span>
         </div>
       </div>
