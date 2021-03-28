@@ -33,7 +33,7 @@ class Champion extends React.Component {
 
     return (
       <div
-        className={`picker__champion ${this.championState()}`}
+        className={this.championState()}
         onClick={() => {
           setChosen({name, image});
           setTimeout(() => onUpdate(searchPhrase), 0);

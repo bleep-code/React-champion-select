@@ -7,7 +7,7 @@ class FormField extends React.Component {
   inputValueCheck(value) {
     if (value < 0 || value > 5) {
       alert('These are not allowed values!');
-      // #TODO
+      // #TODO handle OOR values
     }
   }
 

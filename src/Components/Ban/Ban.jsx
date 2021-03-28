@@ -13,7 +13,7 @@ class Ban extends React.Component {
       <div
         className="bans__single-ban"
         style={{
-          backgroundImage: `url(http://ddragon.leagueoflegends.com/cdn/11.3.1/img/champion/${this.props.bannedChamp.image})`,
+          backgroundImage: `url(http://ddragon.leagueoflegends.com/cdn/11.3.1/img/champion/${this.props.bannedChamp?.image})`,
         }}
       ></div>
     );

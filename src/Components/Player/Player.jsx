@@ -11,8 +11,10 @@ class Player extends React.Component {
 
     this.state = {};
 
-    this.name = availableNicknames[Math.floor(Math.random() * availableNicknames.length)];
-    this.role = availableRoles[Math.floor(Math.random() * availableRoles.length)];
+    this.name =
+      availableNicknames[Math.floor(Math.random() * availableNicknames.length)];
+    this.role =
+      availableRoles[Math.floor(Math.random() * availableRoles.length)];
   }
 
   pickingStatus() {
@@ -89,6 +91,8 @@ class Player extends React.Component {
   render() {
     const {idx, locked, isPicking, isPickingNext, enemy} = this.props;
 
+    //TODO move inline styles to styles file
+
     return (
       <div
         className="team__players__player player"
@@ -97,7 +101,10 @@ class Player extends React.Component {
         }}
       >
         <div className="player__picking-sign" style={this.pickingSign()} />
-        <div className="player__summoner-spells" style={{display: (enemy || !locked) && 'none'}}>
+        <div
+          className="player__summoner-spells"
+          style={{display: (enemy || !locked) && 'none'}}
+        >
           <div className="player_summoner-spells--upper" />
           <div className="player_summoner-spells--lower" />
         </div>
@@ -116,7 +123,11 @@ class Player extends React.Component {
           }}
         >
           <span
-            className={`${enemy ? 'player__details--enemy-name' : 'player__details--is-picking'}`}
+            className={`${
+              enemy
+                ? 'player__details--enemy-name'
+                : 'player__details--is-picking'
+            }`}
             style={{
               left: !enemy ? '0' : 'calc(100-2%)',
               color: isPickingNext && 'var(--picking-status-gold)',
@@ -124,7 +135,13 @@ class Player extends React.Component {
           >
             {this.pickingStatus() || (enemy && locked?.name)}
           </span>
-          <span className={`${enemy ? 'player__details--enemy-summoner' : 'player__details--position'}`}>
+          <span
+            className={`${
+              enemy
+                ? 'player__details--enemy-summoner'
+                : 'player__details--position'
+            }`}
+          >
             {!enemy ? this.role : `Summoner ${idx}`}
           </span>
           <span

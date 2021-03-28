@@ -19,6 +19,7 @@ class Runes extends React.Component {
         <div
           className="bottom-section--edit-runes"
           onClick={() => alert('TODO')}
+          //#TODO handle edit runes
         >
           <i className="fas fa-pencil-alt" />
         </div>
