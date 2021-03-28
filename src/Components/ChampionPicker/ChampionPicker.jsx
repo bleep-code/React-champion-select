@@ -36,8 +36,6 @@ class ChampionPicker extends React.Component {
   }
 
   renderChampions(filterCriteria) {
-    const {chosen, locked, setChosen, bannedChamps, banningPhase} = this.props;
-
     let champions = this.state.fetchedChampions
       .map(({id, name, image, tags}) => (
         <Champion
@@ -45,13 +43,9 @@ class ChampionPicker extends React.Component {
           name={name}
           image={image.full}
           tags={tags}
-          banningPhase={banningPhase}
-          bannedChamps={bannedChamps}
-          chosen={chosen}
-          locked={locked}
-          setChosen={setChosen}
           searchPhrase={this.state.searchPhrase}
           onUpdate={this.onUpdate}
+          {...this.props}
         />
       ))
       .filter((x) => {
