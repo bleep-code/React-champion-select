@@ -7,15 +7,7 @@ import Team from '../Team/Team';
 
 class EnemyTeam extends React.Component {
   render() {
-    const {
-      playersCount,
-      bansCount,
-      banningPhase,
-      bannedChamps,
-      turn,
-      chosen,
-      locked,
-    } = this.props;
+    const {bansCount, banningPhase, bannedChamps} = this.props;
 
     return (
       <div className="enemy-team team">
@@ -25,15 +17,7 @@ class EnemyTeam extends React.Component {
           bannedChamps={bannedChamps}
           enemy={true}
         />
-        <Team
-          playersCount={playersCount}
-          banningPhase={banningPhase}
-          bannedChamps={bannedChamps}
-          locked={locked}
-          chosen={chosen}
-          turn={turn}
-          enemy={true}
-        />
+        <Team enemy={true} {...this.props} />
       </div>
     );
   }
