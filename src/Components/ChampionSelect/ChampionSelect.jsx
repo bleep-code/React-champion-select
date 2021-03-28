@@ -8,6 +8,7 @@ import EnemyTeam from '../EnemyTeam/EnemyTeam';
 import ChampionPicker from '../ChampionPicker/ChampionPicker';
 import CrashedGame from '../CrashedGame/CrashedGame';
 import StartedGame from '../StartedGame/StartedGame';
+//# TODO - obsłużyc 1 zamiast wszystkich
 
 class ChampionSelect extends React.Component {
   constructor(props) {
@@ -43,14 +44,14 @@ class ChampionSelect extends React.Component {
   setLocked() {
     const {chosen, locked, turn, banningPhase, bannedChamps} = this.state;
 
-    const {moveTime} = this.props ?? 60;
+    const {moveTime} = this.props;
 
     if (!_.isEmpty(chosen)) {
       if (banningPhase) {
         return this.setState({
           bannedChamps: [...bannedChamps, chosen],
           chosen: {},
-          time: turn >= 10 ? 10 : moveTime,
+          time: turn >= 10 ? 10 : moveTime ?? 60,
           turn: turn + 1,
         });
       }
@@ -67,12 +68,12 @@ class ChampionSelect extends React.Component {
   setBanned() {
     const {banningPhase} = this.state;
 
-    const {moveTime} = this.props ?? 60;
+    const {moveTime} = this.props;
 
     this.setState({
       banningPhase: !banningPhase,
       turn: 1,
-      time: moveTime,
+      time: moveTime ?? 60,
     });
 
     this.componentDidMount();
@@ -136,10 +137,7 @@ class ChampionSelect extends React.Component {
     }
 
     return (
-      <div
-        className={`champion-select ${turn === 11 ? 'locked-app' : ''}`}
-        onClick={console.log(this.props, playersCount)}
-      >
+      <div className={`champion-select ${turn === 11 ? 'locked-app' : ''}`}>
         <FriendlyTeam
           playersCount={playersCount}
           bansCount={bansCount}
