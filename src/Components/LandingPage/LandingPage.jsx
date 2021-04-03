@@ -11,45 +11,51 @@ class LandingPage extends React.Component {
 
     this.state = {
       classicMode: false,
-      customMode: false,
+
+      configuratorOpen: false,
     };
+
+    this.toggleConfigurator = this.toggleConfigurator.bind(this);
   }
 
   renderClassic() {
-    this.setState({classicMode: !this.state.classicMode});
+    this.setState({ classicMode: !this.state.classicMode });
   }
 
-  renderCustom() {
-    this.setState({customMode: !this.state.customMode});
+  toggleConfigurator() {
+    this.setState({ configuratorOpen: !this.state.configuratorOpen });
   }
 
   render() {
-    const {classicMode, customMode} = this.state;
+    const { classicMode, configuratorOpen } = this.state;
 
     if (classicMode) {
       return <ChampionSelect />;
     }
 
-    if (customMode) {
-      return <Configurator />;
-    }
-
     return (
       <div className="start-view">
-        <div
-          className="start-view__classic-mode"
-          onClick={() => this.renderClassic()}
-        >
-          <i className="far fa-compass" />
-          <span>Explore</span>
-        </div>
-        <div
-          className="start-view__custom-mode"
-          onClick={() => this.renderCustom()}
-        >
-          <i className="far fa-folder" />
-          <span>Customize</span>
-        </div>
+        {configuratorOpen && (
+          <Configurator toggleConfigurator={this.toggleConfigurator} />
+        )}
+        {!configuratorOpen && (
+          <>
+            <div
+              className="start-view__classic-mode"
+              onClick={() => this.renderClassic()}
+            >
+              <i className="far fa-compass" />
+              <span>Explore</span>
+            </div>
+            <div
+              className="start-view__custom-mode"
+              onClick={this.toggleConfigurator}
+            >
+              <i className="far fa-folder" />
+              <span>Customize</span>
+            </div>
+          </>
+        )}
       </div>
     );
   }
