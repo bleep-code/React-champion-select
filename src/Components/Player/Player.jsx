@@ -3,7 +3,10 @@ import './Player.css';
 import React from 'react';
 import _ from 'lodash';
 
-import {availableNicknames, availableRoles} from '../../Fixtures/fixtures.json';
+import {
+  availableNicknames,
+  availableRoles,
+} from '../../Fixtures/fixtures.json';
 
 class Player extends React.Component {
   constructor(props) {
@@ -18,7 +21,7 @@ class Player extends React.Component {
   }
 
   pickingStatus() {
-    const {banningPhase, isPicking, isPickingNext} = this.props;
+    const { banningPhase, isPicking, isPickingNext } = this.props;
 
     if (isPicking) {
       if (banningPhase) {
@@ -38,7 +41,7 @@ class Player extends React.Component {
   }
 
   friendlyName() {
-    const {banningPhase, bannedChamp, chosen, locked, isPicking} = this.props;
+    const { banningPhase, bannedChamp, chosen, locked, isPicking } = this.props;
 
     if (banningPhase && bannedChamp) {
       return bannedChamp.name;
@@ -56,7 +59,7 @@ class Player extends React.Component {
   }
 
   playerImage() {
-    const {banningPhase, bannedChamp, chosen, locked, isPicking} = this.props;
+    const { banningPhase, bannedChamp, chosen, locked, isPicking } = this.props;
 
     if (banningPhase && bannedChamp) {
       return bannedChamp.image;
@@ -72,10 +75,10 @@ class Player extends React.Component {
   }
 
   pickingSign() {
-    const {enemy, isPicking, isPickingNext} = this.props;
+    const { enemy, isPicking, isPickingNext } = this.props;
 
     if (isPicking) {
-      return {opacity: 1, backgroundColor: enemy && 'red'};
+      return { opacity: 1, backgroundColor: enemy && 'red' };
     }
 
     if (isPickingNext) {
@@ -85,51 +88,45 @@ class Player extends React.Component {
       };
     }
 
-    return {opacity: 0};
+    return { opacity: 0 };
   }
 
   render() {
-    const {idx, locked, isPicking, isPickingNext, enemy} = this.props;
-
-    //TODO move inline styles to styles file
+    const { idx, locked, isPicking, isPickingNext, enemy } = this.props;
 
     return (
       <div
-        className="team__players__player player"
-        style={{
-          flexDirection: !enemy ? 'row' : 'row-reverse',
-        }}
+        className={`team__players__player player ${
+          !enemy ? 'player' : 'enemy-player'
+        }`}
       >
         <div className="player__picking-sign" style={this.pickingSign()} />
         <div
           className="player__summoner-spells"
-          style={{display: (enemy || !locked) && 'none'}}
+          style={{ display: (enemy || !locked) && 'none' }}
         >
           <div className="player_summoner-spells--upper" />
           <div className="player_summoner-spells--lower" />
         </div>
         <div
-          className="player__image"
+          className={`${!enemy ? 'player__image' : 'enemy-player__image'} `}
           style={{
             backgroundImage: `url(http://ddragon.leagueoflegends.com/cdn/11.3.1/img/champion/${this.playerImage()})`,
-            borderColor: !enemy ? 'gold' : 'red',
           }}
         />
         <div
-          className="player__details"
+          className={`${!enemy ? `player__details` : 'enemy-player__details'}`}
           style={{
             color: isPicking && !enemy && 'gold',
-            alignItems: enemy && 'flex-end',
           }}
         >
           <span
             className={`${
-              enemy
-                ? 'player__details--enemy-name'
-                : 'player__details--is-picking'
+              !enemy
+                ? 'player__details--is-picking'
+                : 'enemy-player__details--name'
             }`}
             style={{
-              left: !enemy ? '0' : 'calc(100-2%)',
               color: isPickingNext && 'var(--picking-status-gold)',
             }}
           >
@@ -137,9 +134,9 @@ class Player extends React.Component {
           </span>
           <span
             className={`${
-              enemy
-                ? 'player__details--enemy-summoner'
-                : 'player__details--position'
+              !enemy
+                ? 'player__details--position'
+                : 'enemy-player__details--summoner-text'
             }`}
           >
             {!enemy ? this.role : `Summoner ${idx}`}

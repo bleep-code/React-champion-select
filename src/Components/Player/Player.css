@@ -1,4 +1,5 @@
-.player {
+.player,
+.enemy-player {
   position: relative;
 
   height: 20%;
@@ -9,6 +10,10 @@
   align-items: center;
 
   font-size: 18px;
+}
+
+.enemy-player {
+  flex-direction: row-reverse;
 }
 
 .player__picking-sign {
@@ -41,7 +46,8 @@
   background-color: #000;
 }
 
-.player__image {
+.player__image,
+.enemy-player__image {
   width: 4.5vw;
   min-width: 50px;
   height: 4.5vw;
@@ -50,14 +56,20 @@
 
   margin: 0 5%;
 
-  background-color: #fff;
   border-radius: 50%;
   border: 2px solid transparent;
+  border-color: gold;
+
   background-size: cover;
   background-color: black;
 }
 
-.player__details {
+.enemy-player__image {
+  border-color: red;
+}
+
+.player__details,
+.enemy-player__details {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -67,7 +79,13 @@
   font-size: 18px;
 }
 
-.player__details--enemy-name,
+.enemy-player__details {
+  align-items: flex-end;
+}
+
+.player__details--is-picking {
+}
+.enemy-player__details--name,
 .player__details--position {
   font-size: 24px;
   font-weight: bold;
@@ -78,11 +96,11 @@
 }
 
 .player__details--name,
-.player__details--enemy-summoner {
+.enemy-player__details--summoner-text {
   color: var(--champion-picker-color);
 }
 
-.player__details--enemy-summoner {
+.enemy-player__details--summoner-text {
   font-size: 28px;
   font-weight: bold;
 }
