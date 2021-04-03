@@ -9,7 +9,7 @@ import ChampionPicker from '../ChampionPicker/ChampionPicker';
 import CrashedGame from '../CrashedGame/CrashedGame';
 import StartedGame from '../StartedGame/StartedGame';
 //# TODO - obsłużyc 1 zamiast wszystkich
-//# TODO CAP banned champs to bansCountProps
+//# TODO CAP Announcement and picking status to bansCount
 
 class ChampionSelect extends React.Component {
   constructor(props) {
@@ -43,7 +43,7 @@ class ChampionSelect extends React.Component {
   }
 
   setLocked() {
-    const { chosen, locked, turn, banningPhase, bannedChamps } = this.state;
+    const { chosen, locked, turn, banningPhase, bannedChamps, bansCount, playersCount } = this.state;
 
     const { moveTime } = this.props;
 
@@ -52,7 +52,7 @@ class ChampionSelect extends React.Component {
         return this.setState({
           bannedChamps: [...bannedChamps, chosen],
           chosen: {},
-          time: turn >= 10 ? 10 : moveTime,
+          time: turn >= bansCount ? 10 : moveTime,
           turn: turn + 1,
         });
       }
@@ -60,7 +60,7 @@ class ChampionSelect extends React.Component {
       return this.setState({
         locked: [...locked, chosen],
         chosen: {},
-        time: turn >= 10 ? 10 : moveTime,
+        time: turn >= playersCount ? 10 : moveTime,
         turn: turn + 1,
       });
     }
@@ -80,10 +80,20 @@ class ChampionSelect extends React.Component {
     this.componentDidMount();
   }
 
-  countDown() {
-    const { chosen, time, turn, isCrashed, isStarted, intervalId, banningPhase } = this.state;
+  lockApp() {
+    const { bansCount, playersCount, turn } = this.state;
 
-    if (time <= 0 && turn >= 10) {
+    if (turn >= bansCount + 1 || turn >= playersCount + 1) {
+      return 'locked-app';
+    }
+
+    return '';
+  }
+
+  countDown() {
+    const { chosen, time, turn, isCrashed, isStarted, intervalId, banningPhase, bansCount } = this.state;
+
+    if (time <= 0 && turn >= bansCount) {
       clearInterval(intervalId);
 
       if (banningPhase) {
@@ -130,7 +140,7 @@ class ChampionSelect extends React.Component {
     }
 
     return (
-      <div className={`champion-select ${turn === 11 ? 'locked-app' : ''}`}>
+      <div className={`champion-select ${this.lockApp()}`}>
         <FriendlyTeam
           playersCount={playersCount}
           bansCount={bansCount}
