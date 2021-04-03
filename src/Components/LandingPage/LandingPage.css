@@ -8,7 +8,7 @@
 
   font-family: 'Average-Sans', 'arial', 'sans-serif';
 
-  background: url('../../Assets/stars.jpg');
+  background: url('../../Assets/threshforest.jpg');
 }
 
 .start-view__classic-mode,
@@ -27,19 +27,23 @@
 
   cursor: pointer;
 
-  border: 2px solid rgb(197, 126, 34);
-  color: rgb(197, 126, 34);
-  background-color: rgba(128, 128, 128, 0.2);
+  border: 2px solid rgb(48, 43, 36);
+  border-radius: 10%;
+  background-color: rgba(26, 21, 21, 0.4);
+
   opacity: 0.6;
+
+  color: rgb(163, 153, 140);
+
+  transition: 0.3s;
+  will-change: opacity, color, transform;
 }
 
 .start-view__classic-mode:hover,
 .start-view__custom-mode:hover {
   opacity: 1;
-}
 
-.start-view__classic-mode {
-}
+  color: rgba(201, 179, 179, 0.794);
 
-.start-view__custom-mode {
+  transform: scale(1.05);
 }
