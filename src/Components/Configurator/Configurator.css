@@ -1,5 +1,5 @@
 .configurator-outer {
-  background-image: url('../../Assets/stars.jpg');
+  background-image: url('../../Assets/porosnowman.jpg');
   width: 100vw;
   height: 100vh;
 }
@@ -19,10 +19,10 @@
 
   padding-bottom: 2vw;
 
-  background: #222;
+  background: rgba(174, 190, 204, 0.74);
   border: 2px solid white;
 
-  color: white;
+  color: black;
   font-size: 24px;
 
   font-family: 'Cambria';
@@ -47,7 +47,7 @@
   margin-bottom: 20px;
 }
 .configurator__welcome-message > span:nth-last-of-type(1) {
-  color: grey;
+  color: rgb(31, 25, 25);
   font-size: 18px;
 }
 
@@ -71,11 +71,11 @@
 }
 
 #start-button:hover {
-  background-color: honeydew;
   color: black;
+  transform: scale(1.05);
 }
 
 #start-button:active {
   transition: 0.15s;
-  transform: translate(10px, 20px);
+  transform: translate(5px, 10px);
 }
