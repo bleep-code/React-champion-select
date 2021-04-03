@@ -9,14 +9,15 @@ import ChampionPicker from '../ChampionPicker/ChampionPicker';
 import CrashedGame from '../CrashedGame/CrashedGame';
 import StartedGame from '../StartedGame/StartedGame';
 //# TODO - obsłużyc 1 zamiast wszystkich
+//# TODO CAP banned champs to bansCountProps
 
 class ChampionSelect extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      chooseAllPlayers: this.props.chooseAllPlayers ?? true,
-      banningPhase: this.props.banningPhase ?? true,
+      chooseAllPlayers: this.props.chooseAllPlayers,
+      banningPhase: this.props.banningPhase,
 
       isCrashed: false,
       isStarted: false,
@@ -24,11 +25,11 @@ class ChampionSelect extends React.Component {
       chosen: {},
       locked: [],
       bannedChamps: [],
-      playersCount: this.props.playersCount ?? 10,
-      bansCount: this.props.bansCount ?? 10,
+      playersCount: this.props.playersCount,
+      bansCount: this.props.bansCount,
 
       turn: 1,
-      time: this.props.moveTime ?? 60,
+      time: this.props.moveTime,
       intervalId: undefined,
     };
 
@@ -51,7 +52,7 @@ class ChampionSelect extends React.Component {
         return this.setState({
           bannedChamps: [...bannedChamps, chosen],
           chosen: {},
-          time: turn >= 10 ? 10 : moveTime ?? 60,
+          time: turn >= 10 ? 10 : moveTime,
           turn: turn + 1,
         });
       }
@@ -59,7 +60,7 @@ class ChampionSelect extends React.Component {
       return this.setState({
         locked: [...locked, chosen],
         chosen: {},
-        time: turn >= 10 ? 10 : moveTime ?? 60,
+        time: turn >= 10 ? 10 : moveTime,
         turn: turn + 1,
       });
     }
@@ -73,22 +74,14 @@ class ChampionSelect extends React.Component {
     this.setState({
       banningPhase: !banningPhase,
       turn: 1,
-      time: moveTime ?? 60,
+      time: moveTime,
     });
 
     this.componentDidMount();
   }
 
   countDown() {
-    const {
-      chosen,
-      time,
-      turn,
-      isCrashed,
-      isStarted,
-      intervalId,
-      banningPhase,
-    } = this.state;
+    const { chosen, time, turn, isCrashed, isStarted, intervalId, banningPhase } = this.state;
 
     if (time <= 0 && turn >= 10) {
       clearInterval(intervalId);
