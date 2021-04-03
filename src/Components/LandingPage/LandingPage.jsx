@@ -131,11 +131,19 @@ class LandingPage extends React.Component {
           <>
             <div className="start-view__classic-mode" onClick={() => this.renderClassic()}>
               <i className="far fa-compass" />
-              <span>Explore</span>
+              <span className="start-view__classic-mode--name">Explore</span>
+              <span className="start-view__classic-mode--desc">
+                Use the basic configuration, play around with league's champion select, by banning and
+                choosing for every single player!
+              </span>
             </div>
             <div className="start-view__custom-mode" onClick={this.toggleConfigurator}>
               <i className="far fa-folder" />
-              <span>Customize</span>
+              <span className="start-view__custom-mode--name">Customize</span>
+              <span className="start-view__custom-mode--desc">
+                Advance your experience with league's client by customized number of players, bans, set a time
+                for a move or turn off a banning phase!
+              </span>
             </div>
           </>
         )}
