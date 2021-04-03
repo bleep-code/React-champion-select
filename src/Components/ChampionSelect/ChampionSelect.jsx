@@ -38,13 +38,13 @@ class ChampionSelect extends React.Component {
   }
 
   setChosen(chosen) {
-    this.setState({chosen});
+    this.setState({ chosen });
   }
 
   setLocked() {
-    const {chosen, locked, turn, banningPhase, bannedChamps} = this.state;
+    const { chosen, locked, turn, banningPhase, bannedChamps } = this.state;
 
-    const {moveTime} = this.props;
+    const { moveTime } = this.props;
 
     if (!_.isEmpty(chosen)) {
       if (banningPhase) {
@@ -59,16 +59,16 @@ class ChampionSelect extends React.Component {
       return this.setState({
         locked: [...locked, chosen],
         chosen: {},
-        time: turn >= 10 ? 10 : moveTime,
+        time: turn >= 10 ? 10 : moveTime ?? 60,
         turn: turn + 1,
       });
     }
   }
 
   setBanned() {
-    const {banningPhase} = this.state;
+    const { banningPhase } = this.state;
 
-    const {moveTime} = this.props;
+    const { moveTime } = this.props;
 
     this.setState({
       banningPhase: !banningPhase,
@@ -97,21 +97,21 @@ class ChampionSelect extends React.Component {
         return this.setBanned();
       }
 
-      return this.setState({isStarted: !isStarted});
+      return this.setState({ isStarted: !isStarted });
     }
 
     if (time <= 0 && _.isEmpty(chosen)) {
       clearInterval(intervalId);
 
-      return this.setState({isCrashed: !isCrashed});
+      return this.setState({ isCrashed: !isCrashed });
     }
 
-    this.setState({time: time - 1});
+    this.setState({ time: time - 1 });
   }
 
   componentDidMount() {
     const intervalId = setInterval(this.countDown, 1000);
-    this.setState({intervalId});
+    this.setState({ intervalId });
   }
 
   render() {
