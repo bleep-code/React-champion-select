@@ -13,13 +13,14 @@
 
   padding-bottom: 2vw;
 
-  background: rgba(174, 190, 204, 0.74);
+  background-color: rgba(26, 21, 21, 0.8);
+
   border: 2px solid white;
 
-  color: black;
-  font-size: 24px;
+  color: rgba(201, 179, 179, 0.8);
+  font-size: 1.25vw;
 
-  font-family: 'Cambria';
+  font-family: 'Timeless', 'Average-Sans', 'Cambria';
 }
 
 .configurator__close-icon {
@@ -49,8 +50,7 @@
   margin-bottom: 20px;
 }
 .configurator__welcome-message > span:nth-last-of-type(1) {
-  color: rgb(31, 25, 25);
-  font-size: 18px;
+  font-size: 1vw;
 }
 
 #start-button {
@@ -69,15 +69,16 @@
 
   cursor: pointer;
 
-  transition: 0.3s ease;
+  transition: border 0.5s ease;
+}
+
+#start-button i {
+  transition: transform 0.5s ease;
 }
 
 #start-button:hover {
-  color: black;
-  transform: scale(1.05);
+  border-color: transparent;
 }
-
-#start-button:active {
-  transition: 0.15s;
-  transform: translate(5px, 10px);
+#start-button:hover i {
+  transform: scale(2);
 }
