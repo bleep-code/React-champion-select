@@ -28,16 +28,16 @@ class ChampionPicker extends React.Component {
   }
 
   async fetchChampions() {
-    let {data: fetchedChampions} = await axios.get(
+    let { data: fetchedChampions } = await axios.get(
       'http://ddragon.leagueoflegends.com/cdn/11.3.1/data/en_US/champion.json'
     );
     fetchedChampions = _.flatMap(fetchedChampions.data);
-    this.setState({fetchedChampions});
+    this.setState({ fetchedChampions });
   }
 
   renderChampions(filterCriteria) {
     let champions = this.state.fetchedChampions
-      .map(({id, name, image, tags}) => (
+      .map(({ id, name, image, tags }) => (
         <Champion
           key={id}
           name={name}
@@ -58,11 +58,11 @@ class ChampionPicker extends React.Component {
         return x;
       });
 
-    this.setState({champions});
+    this.setState({ champions });
   }
 
   searchFor(searchPhrase) {
-    this.setState({searchPhrase});
+    this.setState({ searchPhrase });
     this.renderChampions(searchPhrase);
   }
 
@@ -75,19 +75,16 @@ class ChampionPicker extends React.Component {
   }
 
   render() {
-    const {turn, time, chosen, setLocked, banningPhase} = this.props;
+    const { turn, time, chosen, setLocked, banningPhase, bansCount } = this.props;
 
-    const {champions} = this.state;
+    const { champions } = this.state;
 
     return (
       <div className="champion-picker">
         <div className="champion-picker__top-section">
-          <Announcement turn={turn} banningPhase={banningPhase} />
+          <Announcement turn={turn} banningPhase={banningPhase} bansCount={bansCount} />
           <Timer time={time} />
-          <Search
-            renderChampions={this.renderChampions}
-            onChange={this.searchFor}
-          />
+          <Search renderChampions={this.renderChampions} onChange={this.searchFor} />
         </div>
         <div className="champion-picker__mid-section">
           <Picker champions={champions} />

@@ -9,7 +9,7 @@ import ChampionPicker from '../ChampionPicker/ChampionPicker';
 import CrashedGame from '../CrashedGame/CrashedGame';
 import StartedGame from '../StartedGame/StartedGame';
 //# TODO - obsłużyc 1 zamiast wszystkich
-//# TODO CAP Announcement and picking status to bansCount
+//# TODO CAP picking status to bansCount
 
 class ChampionSelect extends React.Component {
   constructor(props) {
@@ -153,6 +153,7 @@ class ChampionSelect extends React.Component {
         <ChampionPicker
           banningPhase={banningPhase}
           bannedChamps={bannedChamps}
+          bansCount={bansCount}
           locked={locked}
           chosen={chosen}
           turn={turn}

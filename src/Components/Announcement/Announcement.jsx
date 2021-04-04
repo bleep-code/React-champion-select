@@ -4,9 +4,9 @@ import React from 'react';
 
 class Announcement extends React.Component {
   announcmentMessage() {
-    const {turn, banningPhase} = this.props;
+    const { turn, banningPhase, bansCount, playersCount } = this.props;
 
-    if (turn === 11) {
+    if (turn === bansCount + 1 || turn === playersCount + 1) {
       if (banningPhase) {
         return 'Choosing phase will start in:';
       }
@@ -30,11 +30,7 @@ class Announcement extends React.Component {
   }
 
   render() {
-    return (
-      <span className="champion-picker__top-section__announcement">
-        {this.announcmentMessage()}
-      </span>
-    );
+    return <span className="champion-picker__top-section__announcement">{this.announcmentMessage()}</span>;
   }
 }
 
