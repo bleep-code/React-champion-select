@@ -6,7 +6,16 @@ import { urls } from '../../Fixtures/fixtures.json';
 
 class Spell extends React.Component {
   render() {
-    const { name, image, description, cooldownBurn, isOpenLeft, isOpenRight, setChosen } = this.props;
+    const {
+      name,
+      image,
+      description,
+      cooldownBurn,
+      isOpenLeft,
+      isOpenRight,
+      setChosen,
+      setHovered,
+    } = this.props;
 
     return (
       <img
@@ -21,6 +30,7 @@ class Spell extends React.Component {
             await setChosen({ name, description, cooldownBurn, image }, 'spells-right');
           }
         }}
+        onMouseEnter={() => setHovered(name, description, cooldownBurn)}
       />
     );
   }
