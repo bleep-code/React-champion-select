@@ -2,35 +2,24 @@ import './Spell.css';
 
 import React from 'react';
 
-import {urls} from '../../Fixtures/fixtures.json';
+import { urls } from '../../Fixtures/fixtures.json';
 
 class Spell extends React.Component {
   render() {
-    const {
-      name,
-      image,
-      description,
-      cooldownBurn,
-      isOpenLeft,
-      isOpenRight,
-      setChosen,
-      onUpdate,
-    } = this.props;
+    const { name, image, description, cooldownBurn, isOpenLeft, isOpenRight, setChosen } = this.props;
 
     return (
       <img
         src={`${urls.spellImg + image.full}`}
         alt={name}
-        onClick={() => {
+        onClick={async () => {
           if (isOpenLeft) {
-            setChosen({name, description, cooldownBurn, image}, 'spells-left');
+            await setChosen({ name, description, cooldownBurn, image }, 'spells-left');
           }
 
           if (isOpenRight) {
-            setChosen({name, description, cooldownBurn, image}, 'spells-right');
+            await setChosen({ name, description, cooldownBurn, image }, 'spells-right');
           }
-
-          setTimeout(onUpdate, 0);
         }}
       />
     );

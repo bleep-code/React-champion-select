@@ -4,7 +4,7 @@ import React from 'react';
 
 class Champion extends React.Component {
   championState() {
-    const {banningPhase, bannedChamps, chosen, locked, name} = this.props;
+    const { banningPhase, bannedChamps, chosen, locked, name } = this.props;
 
     const lockedChampionsNames = locked?.map((x) => x.name);
     const bannedChampionsNames = bannedChamps?.map((x) => x.name);
@@ -29,14 +29,14 @@ class Champion extends React.Component {
   }
 
   render() {
-    const {name, image, setChosen, searchPhrase, onUpdate} = this.props;
+    const { name, image, setChosen, searchPhrase, onUpdate } = this.props;
 
     return (
       <div
         className={this.championState()}
-        onClick={() => {
-          setChosen({name, image});
-          setTimeout(() => onUpdate(searchPhrase), 0);
+        onClick={async () => {
+          await setChosen({ name, image });
+          await onUpdate(searchPhrase);
         }}
       >
         <img

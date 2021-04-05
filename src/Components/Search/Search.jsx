@@ -13,8 +13,8 @@ class Search extends React.Component {
       <div className="champion-picker__top-section--search">
         <input
           className="champion-picker__top-section--search__input"
-          onChange={(e) => {
-            setTimeout(() => this.props.onChange(e.target.value), 0);
+          onChange={async (e) => {
+            await this.props.onChange(e.target.value);
           }}
         />
       </div>
