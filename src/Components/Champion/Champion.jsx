@@ -4,22 +4,19 @@ import React from 'react';
 
 class Champion extends React.Component {
   championState() {
-    const { banningPhase, bannedChamps, chosen, locked, name } = this.props;
-
-    const lockedChampionsNames = locked?.map((x) => x.name);
-    const bannedChampionsNames = bannedChamps?.map((x) => x.name);
+    const { status, banningPhase } = this.props;
 
     const classNames = ['picker__champion'];
 
-    if (bannedChampionsNames.includes(name)) {
+    if (status.banned) {
       classNames.push('banned');
     }
 
-    if (lockedChampionsNames.includes(name)) {
+    if (status.locked) {
       classNames.push('locked');
     }
 
-    if (chosen?.name === name) {
+    if (status.chosen) {
       if (banningPhase) {
         classNames.push('chosen--banning');
       } else classNames.push('chosen');

@@ -37,17 +37,28 @@ class ChampionPicker extends React.Component {
 
   renderChampions(filterCriteria) {
     let champions = this.state.fetchedChampions
-      .map(({ id, name, image, tags }) => (
-        <Champion
-          key={id}
-          name={name}
-          image={image.full}
-          tags={tags}
-          searchPhrase={this.state.searchPhrase}
-          onUpdate={this.onUpdate}
-          {...this.props}
-        />
-      ))
+      .map(({ id, name, image, tags }) => {
+        const { chosen, locked, bannedChamps: banned } = this.props;
+
+        const status = {
+          chosen: chosen.name === name,
+          locked: locked?.find((x) => x.name === name) ? true : false,
+          banned: banned?.find((x) => x.name === name) ? true : false,
+        };
+
+        return (
+          <Champion
+            key={id}
+            name={name}
+            image={image.full}
+            tags={tags}
+            searchPhrase={this.state.searchPhrase}
+            onUpdate={this.onUpdate}
+            status={status}
+            {...this.props}
+          />
+        );
+      })
       .filter((x) => {
         if (filterCriteria) {
           x = x.props.name.toLowerCase().includes(filterCriteria.toLowerCase());
@@ -71,20 +82,34 @@ class ChampionPicker extends React.Component {
   }
 
   componentDidMount() {
-    this.fetchChampions().then(() => this.renderChampions());
+    this.fetchChampions().then(this.renderChampions);
   }
 
   render() {
-    const { turn, time, chosen, setLocked, banningPhase, bansCount } = this.props;
+    const {
+      turn,
+      time,
+      chosen,
+      setLocked,
+      banningPhase,
+      bansCount,
+    } = this.props;
 
     const { champions } = this.state;
 
     return (
       <div className="champion-picker">
         <div className="champion-picker__top-section">
-          <Announcement turn={turn} banningPhase={banningPhase} bansCount={bansCount} />
+          <Announcement
+            turn={turn}
+            banningPhase={banningPhase}
+            bansCount={bansCount}
+          />
           <Timer time={time} />
-          <Search renderChampions={this.renderChampions} onChange={this.searchFor} />
+          <Search
+            renderChampions={this.renderChampions}
+            onChange={this.searchFor}
+          />
         </div>
         <div className="champion-picker__mid-section">
           <Picker champions={champions} />
