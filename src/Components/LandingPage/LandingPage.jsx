@@ -26,6 +26,18 @@ class LandingPage extends React.Component {
       customizeMove: false,
       moveTime: 60,
     };
+
+    this.toggleConfigurator = this.toggleConfigurator.bind(this);
+    this.toggleBanningPhase = this.toggleBanningPhase.bind(this);
+    this.toggleChooseAllPlayers = this.toggleChooseAllPlayers.bind(this);
+    this.toggleCustomizeMove = this.toggleCustomizeMove.bind(this);
+    this.toggleCustomizePlayersCount = this.toggleCustomizePlayersCount.bind(
+      this
+    );
+    this.toggleShouldStart = this.toggleShouldStart.bind(this);
+    this.setBansCount = this.setBansCount.bind(this);
+    this.setMoveTime = this.setMoveTime.bind(this);
+    this.setPlayersCount = this.setPlayersCount.bind(this);
   }
 
   renderClassic() {
@@ -98,25 +110,23 @@ class LandingPage extends React.Component {
       <div className="start-view">
         {isConfiguratorOpened && (
           <Configurator
-            toggleConfigurator={this.toggleConfigurator.bind(this)}
+            toggleConfigurator={this.toggleConfigurator}
             shouldStart={shouldStart}
-            toggleShouldStart={this.toggleShouldStart.bind(this)}
+            toggleShouldStart={this.toggleShouldStart}
             chooseAllPlayers={chooseAllPlayers}
-            toggleChooseAllPlayers={this.toggleChooseAllPlayers.bind(this)}
+            toggleChooseAllPlayers={this.toggleChooseAllPlayers}
             banningPhase={banningPhase}
-            toggleBanningPhase={this.toggleBanningPhase.bind(this)}
+            toggleBanningPhase={this.toggleBanningPhase}
             bansCount={bansCount}
-            setBansCount={this.setBansCount.bind(this)}
+            setBansCount={this.setBansCount}
             customizeMove={customizeMove}
-            toggleCustomizeMove={this.toggleCustomizeMove.bind(this)}
+            toggleCustomizeMove={this.toggleCustomizeMove}
             moveTime={moveTime}
             setMoveTime={this.setMoveTime}
             customizePlayersCount={customizePlayersCount}
-            toggleCustomizePlayersCount={this.toggleCustomizePlayersCount.bind(
-              this
-            )}
+            toggleCustomizePlayersCount={this.toggleCustomizePlayersCount}
             playersCount={playersCount}
-            setPlayersCount={this.setPlayersCount.bind(this)}
+            setPlayersCount={this.setPlayersCount}
           />
         )}
         {!isConfiguratorOpened && (
