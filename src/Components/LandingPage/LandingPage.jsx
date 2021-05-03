@@ -26,16 +26,6 @@ class LandingPage extends React.Component {
       customizeMove: false,
       moveTime: 60,
     };
-
-    this.toggleConfigurator = this.toggleConfigurator.bind(this);
-    this.toggleBanningPhase = this.toggleBanningPhase.bind(this);
-    this.toggleChooseAllPlayers = this.toggleChooseAllPlayers.bind(this);
-    this.toggleCustomizeMove = this.toggleCustomizeMove.bind(this);
-    this.toggleCustomizePlayersCount = this.toggleCustomizePlayersCount.bind(this);
-    this.toggleShouldStart = this.toggleShouldStart.bind(this);
-    this.setBansCount = this.setBansCount.bind(this);
-    this.setMoveTime = this.setMoveTime.bind(this);
-    this.setPlayersCount = this.setPlayersCount.bind(this);
   }
 
   renderClassic() {
@@ -108,41 +98,50 @@ class LandingPage extends React.Component {
       <div className="start-view">
         {isConfiguratorOpened && (
           <Configurator
-            toggleConfigurator={this.toggleConfigurator}
+            toggleConfigurator={this.toggleConfigurator.bind(this)}
             shouldStart={shouldStart}
-            toggleShouldStart={this.toggleShouldStart}
+            toggleShouldStart={this.toggleShouldStart.bind(this)}
             chooseAllPlayers={chooseAllPlayers}
-            toggleChooseAllPlayers={this.toggleChooseAllPlayers}
+            toggleChooseAllPlayers={this.toggleChooseAllPlayers.bind(this)}
             banningPhase={banningPhase}
-            toggleBanningPhase={this.toggleBanningPhase}
+            toggleBanningPhase={this.toggleBanningPhase.bind(this)}
             bansCount={bansCount}
-            setBansCount={this.setBansCount}
+            setBansCount={this.setBansCount.bind(this)}
             customizeMove={customizeMove}
-            toggleCustomizeMove={this.toggleCustomizeMove}
+            toggleCustomizeMove={this.toggleCustomizeMove.bind(this)}
             moveTime={moveTime}
             setMoveTime={this.setMoveTime}
             customizePlayersCount={customizePlayersCount}
-            toggleCustomizePlayersCount={this.toggleCustomizePlayersCount}
+            toggleCustomizePlayersCount={this.toggleCustomizePlayersCount.bind(
+              this
+            )}
             playersCount={playersCount}
-            setPlayersCount={this.setPlayersCount}
+            setPlayersCount={this.setPlayersCount.bind(this)}
           />
         )}
         {!isConfiguratorOpened && (
           <>
-            <div className="start-view__classic-mode" onClick={() => this.renderClassic()}>
+            <div
+              className="start-view__classic-mode"
+              onClick={() => this.renderClassic()}
+            >
               <i className="far fa-compass" />
               <span className="start-view__classic-mode--name">Explore</span>
               <span className="start-view__classic-mode--desc">
-                Use the basic configuration, play around with league's champion select, by banning and
-                choosing for every single player!
+                Use the basic configuration, play around with league's champion
+                select, by banning and choosing for every single player!
               </span>
             </div>
-            <div className="start-view__custom-mode" onClick={this.toggleConfigurator}>
+            <div
+              className="start-view__custom-mode"
+              onClick={this.toggleConfigurator}
+            >
               <i className="far fa-folder" />
               <span className="start-view__custom-mode--name">Customize</span>
               <span className="start-view__custom-mode--desc">
-                Advance your experience with league's client by customized number of players, bans, set a time
-                for a move or turn off a banning phase!
+                Advance your experience with league's client by customized
+                number of players, bans, set a time for a move or turn off a
+                banning phase!
               </span>
             </div>
           </>
