@@ -43,7 +43,15 @@ class ChampionSelect extends React.Component {
   }
 
   setLocked() {
-    const { chosen, locked, turn, banningPhase, bannedChamps, bansCount, playersCount } = this.state;
+    const {
+      chosen,
+      locked,
+      turn,
+      banningPhase,
+      bannedChamps,
+      bansCount,
+      playersCount,
+    } = this.state;
 
     const { moveTime } = this.props;
 
@@ -83,7 +91,11 @@ class ChampionSelect extends React.Component {
   lockApp() {
     const { bansCount, playersCount, turn } = this.state;
 
-    if (turn >= bansCount + 1 || turn >= playersCount + 1) {
+    if (bansCount && turn >= bansCount + 1) {
+      return 'locked-app';
+    }
+
+    if (turn >= playersCount + 1) {
       return 'locked-app';
     }
 
@@ -91,7 +103,16 @@ class ChampionSelect extends React.Component {
   }
 
   countDown() {
-    const { chosen, time, turn, isCrashed, isStarted, intervalId, banningPhase, bansCount } = this.state;
+    const {
+      chosen,
+      time,
+      turn,
+      isCrashed,
+      isStarted,
+      intervalId,
+      banningPhase,
+      bansCount,
+    } = this.state;
 
     if (time <= 0 && turn >= bansCount) {
       clearInterval(intervalId);

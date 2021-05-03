@@ -6,11 +6,10 @@ class Announcement extends React.Component {
   announcmentMessage() {
     const { turn, banningPhase, bansCount, playersCount } = this.props;
 
-    if (turn === bansCount + 1 || turn === playersCount + 1) {
-      if (banningPhase) {
-        return 'Choosing phase will start in:';
-      }
-
+    if (bansCount && turn === bansCount + 1) {
+      return 'Choosing phase will start in:';
+    }
+    if (turn === playersCount + 1) {
       return 'Game will start in:';
     }
 
@@ -30,7 +29,11 @@ class Announcement extends React.Component {
   }
 
   render() {
-    return <span className="champion-picker__top-section__announcement">{this.announcmentMessage()}</span>;
+    return (
+      <span className="champion-picker__top-section__announcement">
+        {this.announcmentMessage()}
+      </span>
+    );
   }
 }
 
