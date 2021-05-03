@@ -5,19 +5,33 @@ import _ from 'lodash';
 
 class LockButton extends React.Component {
   render() {
-    const { chosen, banningPhase, setLocked, onUpdate } = this.props;
+    const {
+      chosen,
+      banningPhase,
+      setLocked,
+      onUpdate,
+      searchPhrase,
+      lockButton,
+    } = this.props;
 
     return (
       <div className="picker__lock-in--wrapper">
-        <div className={`picker__lock-in--outer ${_.isEmpty(chosen) && 'disabled'}`}>
+        <div
+          className={`picker__lock-in--outer ${
+            _.isEmpty(chosen) && 'disabled'
+          }`}
+        >
           <div
             className={`picker__lock-in--button`}
+            ref={lockButton}
             onClick={async () => {
               await setLocked();
-              await onUpdate();
+              await onUpdate(searchPhrase);
             }}
           />
-          <span className="picker__lock-in--button--text">{banningPhase ? 'Ban' : 'Lock in'}</span>
+          <span className="picker__lock-in--button--text">
+            {banningPhase ? 'Ban' : 'Lock in'}
+          </span>
         </div>
       </div>
     );

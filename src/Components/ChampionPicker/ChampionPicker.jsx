@@ -22,9 +22,14 @@ class ChampionPicker extends React.Component {
       fetchedChampions: [],
     };
 
+    this.lockButton = React.createRef();
+
     this.onUpdate = this.onUpdate.bind(this);
     this.searchFor = this.searchFor.bind(this);
     this.renderChampions = this.renderChampions.bind(this);
+    this.automaticallyChooseChampions = this.automaticallyChooseChampions.bind(
+      this
+    );
   }
 
   async fetchChampions() {
@@ -70,11 +75,50 @@ class ChampionPicker extends React.Component {
       });
 
     this.setState({ champions });
+    return champions;
   }
 
   searchFor(searchPhrase) {
     this.setState({ searchPhrase });
     this.renderChampions(searchPhrase);
+  }
+
+  async automaticallyChooseChampions() {
+    const { searchPhrase } = this.state;
+    const { playersCount, bansCount, banningPhase, setChosen } = this.props;
+
+    const filterChampions = () => {
+      let champions = this.renderChampions()
+        .map((x) => {
+          if (x.props.status.locked || x.props.status.banned) {
+            return undefined;
+          }
+
+          return x;
+        })
+        .filter((x) => x);
+
+      return champions;
+    };
+
+    const chooseRandomChampion = () => {
+      const champions = filterChampions();
+      const rng = Math.floor(Math.random() * champions.length);
+
+      return {
+        name: champions[rng].props.name,
+        image: champions[rng].props.image,
+      };
+    };
+
+    await setChosen(chooseRandomChampion());
+
+    await this.onUpdate(searchPhrase);
+
+    // if (banningPhase) {
+    //   for (let i = 0; i < bansCount; i++) {
+    //   }
+    // }
   }
 
   onUpdate(filterCriteria) {
@@ -98,7 +142,13 @@ class ChampionPicker extends React.Component {
     const { champions } = this.state;
 
     return (
-      <div className="champion-picker">
+      <div
+        className="champion-picker"
+        onClick={() => {
+          this.automaticallyChooseChampions();
+          this.lockButton.current.click();
+        }}
+      >
         <div className="champion-picker__top-section">
           <Announcement
             turn={turn}
@@ -118,6 +168,8 @@ class ChampionPicker extends React.Component {
             chosen={chosen}
             banningPhase={banningPhase}
             onUpdate={this.onUpdate}
+            searchPhrase={this.state.searchPhrase}
+            lockButton={this.lockButton}
           />
         </div>
         <div className="champion-picker__bottom-section">
