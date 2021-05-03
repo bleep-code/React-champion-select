@@ -10,7 +10,7 @@ class ToggleSwitch extends React.Component {
   }
 
   render() {
-    const {leftLabel, rightLabel, isToggled = false, onChange} = this.props;
+    const { leftLabel, rightLabel, isToggled = false, onChange } = this.props;
 
     return (
       <div className="toggle-switch-wrapper">

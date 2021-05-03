@@ -2,7 +2,7 @@ import './FormField.css';
 
 import React from 'react';
 
-import ToggleSwitch from '../ToggleSwitch/ToggleSwitch';
+import ToggleSwitch from '../../Common/ToggleSwitch/ToggleSwitch';
 class FormField extends React.Component {
   inputValueCheck(value) {
     if (value < 0 || value > 5) {

@@ -24,7 +24,7 @@
   right: 0;
   bottom: 0;
 
-  background-color: #ccc;
+  background-color: rgb(235, 180, 180);
 
   border-radius: 50px;
 
@@ -54,4 +54,8 @@
 input:checked + .toggle-switch__slider::before {
   transform: translate(1.08vw);
   background: green;
+}
+
+input:checked + .toggle-switch__slider {
+  background-color: rgb(160, 238, 160);
 }
