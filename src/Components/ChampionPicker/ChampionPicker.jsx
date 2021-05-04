@@ -83,9 +83,9 @@ class ChampionPicker extends React.Component {
     this.renderChampions(searchPhrase);
   }
 
-  async automaticallyChooseChampions() {
+  async automaticallyChooseChampion() {
     const { searchPhrase } = this.state;
-    const { playersCount, bansCount, banningPhase, setChosen } = this.props;
+    const { setChosen } = this.props;
 
     const filterChampions = () => {
       let champions = this.renderChampions()
@@ -114,19 +114,50 @@ class ChampionPicker extends React.Component {
     await setChosen(chooseRandomChampion());
 
     await this.onUpdate(searchPhrase);
+  }
 
-    // if (banningPhase) {
-    //   for (let i = 0; i < bansCount; i++) {
-    //   }
-    // }
+  async automaticallyChooseChampions() {
+    const {
+      playersCount,
+      bansCount,
+      banningPhase,
+      bannedChamps,
+      locked,
+      setLocked,
+    } = this.props;
+
+    if (banningPhase) {
+      if (bannedChamps.length === 1) {
+        // i is equal to 1 because one champion is already picked
+        for (let i = 1; i < bansCount; i++) {
+          setTimeout(async () => {
+            await this.automaticallyChooseChampion();
+            await setLocked();
+            await this.onUpdate();
+          }, 500 * i);
+        }
+      }
+      return;
+    }
+    if (locked.length === 1) {
+      for (let i = 1; i < playersCount; i++) {
+        setTimeout(async () => {
+          await this.automaticallyChooseChampion();
+          await setLocked();
+          await this.onUpdate();
+        }, 500 * i);
+      }
+    }
   }
 
   onUpdate(filterCriteria) {
     this.renderChampions(filterCriteria);
   }
 
-  componentDidMount() {
-    this.fetchChampions().then(this.renderChampions);
+  async componentDidMount() {
+    await this.fetchChampions();
+
+    this.renderChampions();
   }
 
   render() {
@@ -144,10 +175,10 @@ class ChampionPicker extends React.Component {
     return (
       <div
         className="champion-picker"
-        onClick={() => {
-          this.automaticallyChooseChampions();
-          this.lockButton.current.click();
-        }}
+        // onClick={() => {
+        //   this.automaticallyChooseChampion();
+        //   this.lockButton.current.click();
+        // }}
       >
         <div className="champion-picker__top-section">
           <Announcement
@@ -170,6 +201,7 @@ class ChampionPicker extends React.Component {
             onUpdate={this.onUpdate}
             searchPhrase={this.state.searchPhrase}
             lockButton={this.lockButton}
+            automaticallyChooseChampions={this.automaticallyChooseChampions}
           />
         </div>
         <div className="champion-picker__bottom-section">

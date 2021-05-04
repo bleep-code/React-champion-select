@@ -12,6 +12,7 @@ class LockButton extends React.Component {
       onUpdate,
       searchPhrase,
       lockButton,
+      automaticallyChooseChampions,
     } = this.props;
 
     return (
@@ -27,6 +28,7 @@ class LockButton extends React.Component {
             onClick={async () => {
               await setLocked();
               await onUpdate(searchPhrase);
+              await automaticallyChooseChampions();
             }}
           />
           <span className="picker__lock-in--button--text">

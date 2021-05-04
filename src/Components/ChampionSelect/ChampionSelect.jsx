@@ -175,6 +175,7 @@ class ChampionSelect extends React.Component {
           banningPhase={banningPhase}
           bannedChamps={bannedChamps}
           bansCount={bansCount}
+          playersCount={playersCount}
           locked={locked}
           chosen={chosen}
           turn={turn}
