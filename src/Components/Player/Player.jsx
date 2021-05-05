@@ -3,10 +3,7 @@ import './Player.css';
 import React from 'react';
 import _ from 'lodash';
 
-import {
-  availableNicknames,
-  availableRoles,
-} from '../../Fixtures/fixtures.json';
+import { nicknames, roles, urls } from '../../Fixtures/fixtures.json';
 
 class Player extends React.Component {
   constructor(props) {
@@ -14,27 +11,19 @@ class Player extends React.Component {
 
     this.state = {};
 
-    this.name =
-      availableNicknames[Math.floor(Math.random() * availableNicknames.length)];
-    this.role =
-      availableRoles[Math.floor(Math.random() * availableRoles.length)];
+    this.name = nicknames[Math.floor(Math.random() * nicknames.length)];
+    this.role = roles[Math.floor(Math.random() * roles.length)];
   }
 
   pickingStatus() {
     const { banningPhase, isPicking, isPickingNext } = this.props;
 
     if (isPicking) {
-      if (banningPhase) {
-        return 'Banning...';
-      }
-      return 'Picking...';
+      return banningPhase ? 'Banning..' : 'Picking..';
     }
 
     if (isPickingNext) {
-      if (banningPhase) {
-        return 'Banning next...';
-      }
-      return 'Picking next...';
+      return banningPhase ? 'Banning next..' : 'Picking next';
     }
 
     return '';
@@ -108,7 +97,7 @@ class Player extends React.Component {
 
     return (
       <div
-        className={`team__players__player player ${
+        className={`team__players__player ${
           !enemy ? 'player' : 'enemy-player'
         }`}
       >
@@ -123,7 +112,7 @@ class Player extends React.Component {
         <div
           className={`${!enemy ? 'player__image' : 'enemy-player__image'} `}
           style={{
-            backgroundImage: `url(http://ddragon.leagueoflegends.com/cdn/11.3.1/img/champion/${this.playerImage()})`,
+            backgroundImage: `url(${urls.championImg + this.playerImage()})`,
           }}
         />
         <div

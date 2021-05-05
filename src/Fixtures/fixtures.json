@@ -34,7 +34,7 @@
     "championImg": "http://ddragon.leagueoflegends.com/cdn/11.3.1/img/champion/"
   },
 
-  "availableRoles": [
+  "roles": [
     "AD Carry",
     "Mage",
     "Support",
@@ -66,7 +66,7 @@
     "Latina",
     "Zord"
   ],
-  "availableNicknames": [
+  "nicknames": [
     "2Chainz",
     "Big Poppa",
     "Biggie",
