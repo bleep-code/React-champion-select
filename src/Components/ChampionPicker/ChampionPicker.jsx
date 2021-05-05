@@ -22,8 +22,6 @@ class ChampionPicker extends React.Component {
       fetchedChampions: [],
     };
 
-    this.lockButton = React.createRef();
-
     this.onUpdate = this.onUpdate.bind(this);
     this.searchFor = this.searchFor.bind(this);
     this.renderChampions = this.renderChampions.bind(this);
@@ -112,7 +110,6 @@ class ChampionPicker extends React.Component {
     };
 
     await setChosen(chooseRandomChampion());
-
     await this.onUpdate(searchPhrase);
   }
 
@@ -124,7 +121,12 @@ class ChampionPicker extends React.Component {
       bannedChamps,
       locked,
       setLocked,
+      chooseAllPlayers,
     } = this.props;
+
+    if (!chooseAllPlayers) {
+      return;
+    }
 
     if (banningPhase) {
       if (bannedChamps.length === 1) {
@@ -139,6 +141,7 @@ class ChampionPicker extends React.Component {
       }
       return;
     }
+
     if (locked.length === 1) {
       for (let i = 1; i < playersCount; i++) {
         setTimeout(async () => {
@@ -156,7 +159,6 @@ class ChampionPicker extends React.Component {
 
   async componentDidMount() {
     await this.fetchChampions();
-
     this.renderChampions();
   }
 
@@ -173,13 +175,7 @@ class ChampionPicker extends React.Component {
     const { champions } = this.state;
 
     return (
-      <div
-        className="champion-picker"
-        // onClick={() => {
-        //   this.automaticallyChooseChampion();
-        //   this.lockButton.current.click();
-        // }}
-      >
+      <div className="champion-picker">
         <div className="champion-picker__top-section">
           <Announcement
             turn={turn}

@@ -43,10 +43,17 @@ class Configurator extends React.Component {
 
     return (
       <div className="configurator">
-        <i class="fas fa-times configurator__close-icon" onClick={toggleConfigurator} />
+        <i
+          class="fas fa-times configurator__close-icon"
+          onClick={toggleConfigurator}
+        />
         <div className="configurator__welcome-message">
-          <span className="configurator__welcome-message--hello">{fixtures.hello}</span>
-          <span className="configurator__welcome-message--desc">{fixtures.description}</span>
+          <span className="configurator__welcome-message--hello">
+            {fixtures.hello}
+          </span>
+          <span className="configurator__welcome-message--desc">
+            {fixtures.description}
+          </span>
         </div>
         <FormField
           question={fixtures.banningPhase.q}

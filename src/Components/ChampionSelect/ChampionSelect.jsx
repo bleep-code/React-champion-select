@@ -150,6 +150,7 @@ class ChampionSelect extends React.Component {
       time,
       isCrashed,
       isStarted,
+      chooseAllPlayers,
     } = this.state;
 
     if (isCrashed) {
@@ -176,6 +177,7 @@ class ChampionSelect extends React.Component {
           bannedChamps={bannedChamps}
           bansCount={bansCount}
           playersCount={playersCount}
+          chooseAllPlayers={chooseAllPlayers}
           locked={locked}
           chosen={chosen}
           turn={turn}

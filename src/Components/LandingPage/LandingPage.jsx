@@ -27,6 +27,7 @@ class LandingPage extends React.Component {
       moveTime: 60,
     };
 
+    this.renderClassic = this.renderClassic.bind(this);
     this.toggleConfigurator = this.toggleConfigurator.bind(this);
     this.toggleBanningPhase = this.toggleBanningPhase.bind(this);
     this.toggleChooseAllPlayers = this.toggleChooseAllPlayers.bind(this);
@@ -101,7 +102,7 @@ class LandingPage extends React.Component {
           bansCount={10}
           playersCount={10}
           moveTime={60}
-          chooseAllPlayers={true}
+          chooseAllPlayers={false}
         />
       );
     }
@@ -133,7 +134,7 @@ class LandingPage extends React.Component {
           <>
             <div
               className="start-view__classic-mode"
-              onClick={() => this.renderClassic()}
+              onClick={this.renderClassic}
             >
               <i className="far fa-compass" />
               <span className="start-view__classic-mode--name">Explore</span>
