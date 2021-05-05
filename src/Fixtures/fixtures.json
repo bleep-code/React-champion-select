@@ -1,7 +1,4 @@
 {
-<<<<<<< HEAD
-  "availableRoles": [
-=======
   "defaultSummoners": {
     "flash": {
       "cooldownBurn": "300",
@@ -40,7 +37,6 @@
   },
 
   "roles": [
->>>>>>> origin/master
     "AD Carry",
     "Mage",
     "Support",
@@ -72,11 +68,7 @@
     "Latina",
     "Zord"
   ],
-<<<<<<< HEAD
-  "availableNicknames": [
-=======
   "nicknames": [
->>>>>>> origin/master
     "2Chainz",
     "Big Poppa",
     "Biggie",
