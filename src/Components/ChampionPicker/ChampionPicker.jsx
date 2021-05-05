@@ -124,7 +124,7 @@ class ChampionPicker extends React.Component {
       chooseAllPlayers,
     } = this.props;
 
-    if (!chooseAllPlayers) {
+    if (chooseAllPlayers) {
       return;
     }
 
@@ -170,6 +170,7 @@ class ChampionPicker extends React.Component {
       setLocked,
       banningPhase,
       bansCount,
+      playersCount,
     } = this.props;
 
     const { champions } = this.state;
@@ -181,6 +182,7 @@ class ChampionPicker extends React.Component {
             turn={turn}
             banningPhase={banningPhase}
             bansCount={bansCount}
+            playersCount={playersCount}
           />
           <Timer time={time} />
           <Search
