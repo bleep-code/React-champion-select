@@ -8,8 +8,6 @@ import EnemyTeam from '../EnemyTeam/EnemyTeam';
 import ChampionPicker from '../ChampionPicker/ChampionPicker';
 import CrashedGame from '../CrashedGame/CrashedGame';
 import StartedGame from '../StartedGame/StartedGame';
-//# TODO - obsłużyc 1 zamiast wszystkich
-//# TODO CAP picking status to bansCount
 
 class ChampionSelect extends React.Component {
   constructor(props) {
@@ -23,7 +21,7 @@ class ChampionSelect extends React.Component {
       isStarted: false,
 
       chosen: {},
-      locked: [],
+      lockedChamps: [],
       bannedChamps: [],
       playersCount: this.props.playersCount,
       bansCount: this.props.bansCount,
@@ -45,7 +43,7 @@ class ChampionSelect extends React.Component {
   setLocked() {
     const {
       chosen,
-      locked,
+      lockedChamps,
       turn,
       banningPhase,
       bannedChamps,
@@ -66,7 +64,7 @@ class ChampionSelect extends React.Component {
       }
 
       return this.setState({
-        locked: [...locked, chosen],
+        lockedChamps: [...lockedChamps, chosen],
         chosen: {},
         time: turn >= playersCount ? 10 : moveTime,
         turn: turn + 1,
@@ -145,7 +143,7 @@ class ChampionSelect extends React.Component {
       banningPhase,
       bannedChamps,
       chosen,
-      locked,
+      lockedChamps,
       turn,
       time,
       isCrashed,
@@ -166,7 +164,7 @@ class ChampionSelect extends React.Component {
         <FriendlyTeam
           playersCount={playersCount}
           bansCount={bansCount}
-          locked={locked}
+          lockedChamps={lockedChamps}
           chosen={chosen}
           turn={turn}
           banningPhase={banningPhase}
@@ -178,7 +176,7 @@ class ChampionSelect extends React.Component {
           bansCount={bansCount}
           playersCount={playersCount}
           chooseAllPlayers={chooseAllPlayers}
-          locked={locked}
+          lockedChamps={lockedChamps}
           chosen={chosen}
           turn={turn}
           time={time}
@@ -188,7 +186,7 @@ class ChampionSelect extends React.Component {
         <EnemyTeam
           playersCount={playersCount}
           bansCount={bansCount}
-          locked={locked}
+          lockedChamps={lockedChamps}
           chosen={chosen}
           turn={turn}
           banningPhase={banningPhase}

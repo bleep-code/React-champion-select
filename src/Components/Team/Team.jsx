@@ -15,7 +15,7 @@ class Team extends React.Component {
     const {
       playersCount,
       chosen,
-      locked,
+      lockedChamps,
       turn,
       enemy,
       banningPhase,
@@ -38,9 +38,11 @@ class Team extends React.Component {
           key={index}
           idx={(index + 1) / 2}
           banningPhase={banningPhase}
-          bannedChamp={bannedChamps?.length >= index + 1 && bannedChamps[index]}
+          bannedChamp={bannedChamps?.length - 1 >= index && bannedChamps[index]}
           chosen={chosen}
-          locked={locked?.length >= index + 1 && locked[index]}
+          lockedChamps={
+            lockedChamps?.length - 1 >= index && lockedChamps[index]
+          }
           isPicking={turn === index + 1}
           isPickingNext={turn === index}
           enemy={enemy}

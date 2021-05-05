@@ -44,12 +44,12 @@ class ChampionPicker extends React.Component {
 
     let champions = this.state.fetchedChampions
       .map(({ id, name, image }) => {
-        const { chosen, locked, bannedChamps: banned } = this.props;
+        const { chosen, lockedChamps, bannedChamps } = this.props;
 
         const status = {
           chosen: chosen.name === name,
-          locked: locked?.find((x) => x.name === name) ? true : false,
-          banned: banned?.find((x) => x.name === name) ? true : false,
+          locked: lockedChamps?.find((x) => x.name === name) ? true : false,
+          banned: bannedChamps?.find((x) => x.name === name) ? true : false,
         };
 
         return (
@@ -122,7 +122,7 @@ class ChampionPicker extends React.Component {
       bansCount,
       banningPhase,
       bannedChamps,
-      locked,
+      lockedChamps,
       setLocked,
       chooseAllPlayers,
     } = this.props;
@@ -145,7 +145,7 @@ class ChampionPicker extends React.Component {
       return;
     }
 
-    if (locked.length === 1) {
+    if (lockedChamps.length === 1) {
       for (let i = 1; i < playersCount; i++) {
         setTimeout(async () => {
           await this.automaticallyChooseChampion();

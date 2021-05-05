@@ -41,14 +41,20 @@ class Player extends React.Component {
   }
 
   friendlyName() {
-    const { banningPhase, bannedChamp, chosen, locked, isPicking } = this.props;
+    const {
+      banningPhase,
+      bannedChamp,
+      chosen,
+      lockedChamps,
+      isPicking,
+    } = this.props;
 
     if (banningPhase && bannedChamp) {
       return bannedChamp.name;
     }
 
-    if (locked) {
-      return locked.name;
+    if (lockedChamps) {
+      return lockedChamps.name;
     }
 
     if (isPicking && !_.isEmpty(chosen)) {
@@ -59,14 +65,20 @@ class Player extends React.Component {
   }
 
   playerImage() {
-    const { banningPhase, bannedChamp, chosen, locked, isPicking } = this.props;
+    const {
+      banningPhase,
+      bannedChamp,
+      chosen,
+      lockedChamps,
+      isPicking,
+    } = this.props;
 
     if (banningPhase && bannedChamp) {
       return bannedChamp.image;
     }
 
-    if (locked) {
-      return locked.image;
+    if (lockedChamps) {
+      return lockedChamps.image;
     }
 
     if (isPicking && !_.isEmpty(chosen)) {
@@ -92,7 +104,7 @@ class Player extends React.Component {
   }
 
   render() {
-    const { idx, locked, isPicking, isPickingNext, enemy } = this.props;
+    const { idx, lockedChamps, isPicking, isPickingNext, enemy } = this.props;
 
     return (
       <div
@@ -103,7 +115,7 @@ class Player extends React.Component {
         <div className="player__picking-sign" style={this.pickingSign()} />
         <div
           className="player__summoner-spells"
-          style={{ display: (enemy || !locked) && 'none' }}
+          style={{ display: (enemy || !lockedChamps) && 'none' }}
         >
           <div className="player_summoner-spells--upper" />
           <div className="player_summoner-spells--lower" />
@@ -130,7 +142,7 @@ class Player extends React.Component {
               color: isPickingNext && 'var(--picking-status-gold)',
             }}
           >
-            {this.pickingStatus() || (enemy && locked?.name)}
+            {this.pickingStatus() || (enemy && lockedChamps?.name)}
           </span>
           <span
             className={`${
