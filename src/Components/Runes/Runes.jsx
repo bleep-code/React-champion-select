@@ -5,14 +5,8 @@ import React from 'react';
 import RunesPopup from '../RunesPopup/RunesPopup';
 
 class Runes extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {};
-  }
-
   render() {
-    const {isOpen, openPopup, chosen, setChosen} = this.props;
+    const { isOpen, openPopup, chosen, setChosen } = this.props;
 
     return (
       <>

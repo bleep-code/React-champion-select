@@ -5,12 +5,11 @@ import RuneSet from '../RuneSet/RuneSet';
 
 class RunesPopup extends React.Component {
   render() {
-    const {isOpen, setChosen} = this.props;
+    const { setChosen } = this.props;
 
     return (
       <div
         className="choose-runes__popup"
-        style={{display: !isOpen && 'none'}}
         onClick={(e) => {
           setChosen(e.target, 'runes');
         }}
