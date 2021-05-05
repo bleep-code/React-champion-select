@@ -2,6 +2,8 @@ import './Champion.css';
 
 import React from 'react';
 
+import { urls } from '../../Fixtures/fixtures.json';
+
 class Champion extends React.Component {
   championState() {
     const { status, banningPhase } = this.props;
@@ -37,7 +39,7 @@ class Champion extends React.Component {
         }}
       >
         <img
-          src={`http://ddragon.leagueoflegends.com/cdn/11.3.1/img/champion/${image}`}
+          src={`${urls.championImg + image}`}
           alt={name}
           className="picker__champion--image"
         />
