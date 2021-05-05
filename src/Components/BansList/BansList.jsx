@@ -15,7 +15,7 @@ class BansList extends React.Component {
     const bansArray = _.fill(Array(bansCount));
 
     return bansArray.map((ban, index) => {
-      // isEnemy method limits team component to certain indexes,
+      // method below limits banslist component to certain indexes,
       // so each team can be counted from 1 method, there's no need to use two that looks the same.
       const shouldBeFriendlyOrEnemy = () => {
         if (!enemy) {

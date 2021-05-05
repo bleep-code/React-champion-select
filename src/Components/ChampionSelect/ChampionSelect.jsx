@@ -9,6 +9,8 @@ import ChampionPicker from '../ChampionPicker/ChampionPicker';
 import CrashedGame from '../CrashedGame/CrashedGame';
 import StartedGame from '../StartedGame/StartedGame';
 
+// TODO take a look at this component after refactoring everything
+
 class ChampionSelect extends React.Component {
   constructor(props) {
     super(props);

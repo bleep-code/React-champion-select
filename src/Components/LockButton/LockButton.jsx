@@ -1,6 +1,7 @@
 import './LockButton.css';
 
 import React from 'react';
+
 import _ from 'lodash';
 
 class LockButton extends React.Component {

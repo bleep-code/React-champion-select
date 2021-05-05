@@ -6,11 +6,6 @@ import _ from 'lodash';
 import Player from '../Player/Player';
 
 class Team extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
-
   renderPlayers() {
     const {
       playersCount,
@@ -22,10 +17,12 @@ class Team extends React.Component {
       bannedChamps,
     } = this.props;
 
-    return _.fill(Array(playersCount)).map((player, index) => {
-      // isEnemy method limits team component to certain indexes,
+    const teamMembers = _.fill(Array(playersCount));
+
+    return teamMembers.map((player, index) => {
+      // method below limits team component to certain indexes,
       // so each team can be counted from 1 method, there's no need to use two that looks the same.
-      const isEnemy = () => {
+      const shouldBeFriendlyOrEnemy = () => {
         if (!enemy) {
           return index % 2 === 0;
         }
@@ -33,7 +30,7 @@ class Team extends React.Component {
         return index % 2 !== 0;
       };
 
-      player = isEnemy() && (
+      player = shouldBeFriendlyOrEnemy() && (
         <Player
           key={index}
           idx={(index + 1) / 2}

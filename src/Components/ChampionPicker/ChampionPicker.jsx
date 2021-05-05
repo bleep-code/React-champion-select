@@ -176,7 +176,7 @@ class ChampionPicker extends React.Component {
       playersCount,
     } = this.props;
 
-    const { champions } = this.state;
+    const { champions, searchPhrase } = this.state;
 
     return (
       <div className="champion-picker">
@@ -196,12 +196,11 @@ class ChampionPicker extends React.Component {
         <div className="champion-picker__mid-section">
           <Picker champions={champions} />
           <LockButton
-            setLocked={setLocked}
             chosen={chosen}
+            setLocked={setLocked}
             banningPhase={banningPhase}
+            searchPhrase={searchPhrase}
             onUpdate={this.onUpdate}
-            searchPhrase={this.state.searchPhrase}
-            lockButton={this.lockButton}
             automaticallyChooseChampions={this.automaticallyChooseChampions}
           />
         </div>
