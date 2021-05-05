@@ -23,11 +23,17 @@ class Spell extends React.Component {
         alt={name}
         onClick={async () => {
           if (isOpenLeft) {
-            await setChosen({ name, description, cooldownBurn, image }, 'spells-left');
+            await setChosen(
+              { name, description, cooldownBurn, image },
+              'spells-left'
+            );
           }
 
           if (isOpenRight) {
-            await setChosen({ name, description, cooldownBurn, image }, 'spells-right');
+            await setChosen(
+              { name, description, cooldownBurn, image },
+              'spells-right'
+            );
           }
         }}
         onMouseEnter={() => setHovered(name, description, cooldownBurn)}

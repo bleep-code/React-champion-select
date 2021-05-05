@@ -14,7 +14,11 @@ class SpellsPopup extends React.Component {
     this.state = {
       fetchedSpells: [],
       spells: [],
-      hovered: { name: undefined, description: undefined, cooldownBurn: undefined },
+      hovered: {
+        name: undefined,
+        description: undefined,
+        cooldownBurn: undefined,
+      },
     };
 
     this.setHovered = this.setHovered.bind(this);
@@ -29,30 +33,35 @@ class SpellsPopup extends React.Component {
   }
 
   renderSpells() {
-    const spells = this.state.fetchedSpells.map(({ id, name, description, cooldownBurn, image, modes }) => {
-      let spell;
+    const { isOpenLeft, isOpenRight, setChosen } = this.props;
 
-      if (modes.includes('CLASSIC')) {
-        spell = (
-          <Spell
-            id={id}
-            key={id}
-            name={name}
-            image={image}
-            description={description}
-            cooldownBurn={cooldownBurn}
-            isOpenLeft={this.props.isOpenLeft}
-            isOpenRight={this.props.isOpenRight}
-            setChosen={this.props.setChosen}
-            setHovered={this.setHovered}
-          />
-        );
+    const spells = this.state.fetchedSpells.map(
+      ({ id, name, description, cooldownBurn, image, modes }) => {
+        let spell;
+
+        if (modes.includes('CLASSIC')) {
+          spell = (
+            <Spell
+              id={id}
+              key={id}
+              name={name}
+              image={image}
+              description={description}
+              cooldownBurn={cooldownBurn}
+              isOpenLeft={isOpenLeft}
+              isOpenRight={isOpenRight}
+              setChosen={setChosen}
+              setHovered={this.setHovered}
+            />
+          );
+        }
+
+        return spell;
       }
-
-      return spell;
-    });
+    );
 
     this.setState({ spells });
+    return spells;
   }
 
   setHovered(name, description, cooldownBurn) {
@@ -98,24 +107,32 @@ class SpellsPopup extends React.Component {
     }
   }
 
-  componentDidMount() {
-    this.fetchSpells().then(() => this.renderSpells());
+  async componentDidMount() {
+    await this.fetchSpells();
+    this.renderSpells();
   }
 
   render() {
-    const { isOpen } = this.props;
-
     const { spells } = this.state;
 
     return (
-      <div className="choose-summoners__popup" style={{ display: !isOpen && 'none' }}>
-        <span className="choose-summoners__popup--name">{this.spellName()}</span>
-        <span className="choose-summoners__popup--description">{this.spellDescription()}</span>
+      <div className="choose-summoners__popup">
+        <span className="choose-summoners__popup--name">
+          {this.spellName()}
+        </span>
+        <span className="choose-summoners__popup--description">
+          {this.spellDescription()}
+        </span>
         <span className="choose-summoners__popup--base-cooldown">
-          {`Base cooldown: ${(this.spellName() === 'Teleport' && '420-240') || this.spellCooldown()}`}
+          {`Base cooldown: ${
+            (this.spellName() === 'Teleport' && '420-240') ||
+            this.spellCooldown()
+          }`}
         </span>
         <span className="choose-summoners__popup--delimiter" />
-        <div className="choose-summoners__popup--spells-container">{spells}</div>
+        <div className="choose-summoners__popup--spells-container">
+          {spells}
+        </div>
       </div>
     );
   }

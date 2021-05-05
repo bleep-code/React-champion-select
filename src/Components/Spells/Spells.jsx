@@ -4,15 +4,9 @@ import React from 'react';
 
 import SpellsPopup from '../SpellsPopup/SpellsPopup';
 
-import {urls} from '../../Fixtures/fixtures.json';
+import { urls } from '../../Fixtures/fixtures.json';
 
 class Spells extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {};
-  }
-
   render() {
     const {
       isOpen,
@@ -26,11 +20,7 @@ class Spells extends React.Component {
 
     return (
       <>
-        <div
-          className={`bottom-section--choose-summoners choose-summoners ${
-            isOpen ? 'open' : ''
-          }`}
-        >
+        <div className={`bottom-section--choose-summoners choose-summoners`}>
           <div
             className="choose-summoners__summoner-spell--left"
             style={{
