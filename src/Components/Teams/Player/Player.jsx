@@ -3,7 +3,7 @@ import './Player.css';
 import React from 'react';
 import _ from 'lodash';
 
-import { nicknames, roles, urls } from '../../Fixtures/fixtures.json';
+import { nicknames, roles, urls } from '../../../Fixtures/fixtures.json';
 
 class Player extends React.Component {
   constructor(props) {

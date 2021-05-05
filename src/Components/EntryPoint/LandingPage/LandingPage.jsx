@@ -3,7 +3,7 @@ import './LandingPage.css';
 import React from 'react';
 
 import Configurator from '../Configurator/Configurator';
-import ChampionSelect from '../ChampionSelect/ChampionSelect';
+import ChampionSelect from '../../ChampionSelect--Main/ChampionSelect';
 
 class LandingPage extends React.Component {
   constructor(props) {

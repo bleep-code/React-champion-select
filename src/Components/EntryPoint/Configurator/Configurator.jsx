@@ -2,8 +2,8 @@ import './Configurator.css';
 
 import React from 'react';
 
-import ChampionSelect from '../ChampionSelect/ChampionSelect';
-import FormField from '../FormField/FormField';
+import ChampionSelect from '../../ChampionSelect--Main/ChampionSelect';
+import FormField from './FormField/FormField';
 
 import fixtures from './fixtures.json';
 

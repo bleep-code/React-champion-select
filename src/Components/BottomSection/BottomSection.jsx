@@ -3,11 +3,11 @@ import './BottomSection.css';
 import React from 'react';
 import _ from 'lodash';
 
-import Spells from '../Spells/Spells';
-import Runes from '../Runes/Runes';
-import Extras from '../Extras/Extras';
+import Spells from './Spells/Spells';
+import Runes from './Runes/Runes';
+import Extras from './Extras/Extras';
 
-import {defaultSummoners} from '../../Fixtures/fixtures.json';
+import { defaultSummoners } from '../../Fixtures/fixtures.json';
 
 class BottomSection extends React.Component {
   constructor(props) {
@@ -27,42 +27,42 @@ class BottomSection extends React.Component {
   }
 
   setChosen(chosen, side) {
-    const {spellsChosenLeft, spellsChosenRight} = this.state;
+    const { spellsChosenLeft, spellsChosenRight } = this.state;
 
     if (side.includes('spells')) {
       if (side === 'spells-left' && !_.isEqual(chosen, spellsChosenRight)) {
-        this.setState({spellsChosenLeft: chosen});
+        this.setState({ spellsChosenLeft: chosen });
       }
 
       if (side === 'spells-right' && !_.isEqual(chosen, spellsChosenLeft)) {
-        this.setState({spellsChosenRight: chosen});
+        this.setState({ spellsChosenRight: chosen });
       }
 
       // ifs below are responsible for changing order of summoners in case
       // player chooses value that he already chose
 
       if (_.isEqual(chosen, spellsChosenRight) && side === 'spells-left') {
-        this.setState({spellsChosenRight: spellsChosenLeft});
-        this.setState({spellsChosenLeft: chosen});
+        this.setState({ spellsChosenRight: spellsChosenLeft });
+        this.setState({ spellsChosenLeft: chosen });
       }
 
       if (_.isEqual(chosen, spellsChosenLeft) && side === 'spells-right') {
-        this.setState({spellsChosenLeft: spellsChosenRight});
-        this.setState({spellsChosenRight: chosen});
+        this.setState({ spellsChosenLeft: spellsChosenRight });
+        this.setState({ spellsChosenRight: chosen });
       }
 
-      this.setState({spellsIsOpenLeft: false, spellsIsOpenRight: false});
+      this.setState({ spellsIsOpenLeft: false, spellsIsOpenRight: false });
     }
 
     if (side.includes('runes')) {
-      this.setState({runesChosen: chosen});
+      this.setState({ runesChosen: chosen });
 
-      this.setState({runesIsOpen: false});
+      this.setState({ runesIsOpen: false });
     }
   }
 
   openPopup(side) {
-    const {spellsIsOpenLeft, spellsIsOpenRight, runesIsOpen} = this.state;
+    const { spellsIsOpenLeft, spellsIsOpenRight, runesIsOpen } = this.state;
 
     //close all popups on opening new
     this.setState({
@@ -72,15 +72,15 @@ class BottomSection extends React.Component {
     });
 
     if (side === 'spells-left') {
-      this.setState({spellsIsOpenLeft: !spellsIsOpenLeft});
+      this.setState({ spellsIsOpenLeft: !spellsIsOpenLeft });
     }
 
     if (side === 'spells-right') {
-      this.setState({spellsIsOpenRight: !spellsIsOpenRight});
+      this.setState({ spellsIsOpenRight: !spellsIsOpenRight });
     }
 
     if (side === 'runes') {
-      this.setState({runesIsOpen: !runesIsOpen});
+      this.setState({ runesIsOpen: !runesIsOpen });
     }
   }
 

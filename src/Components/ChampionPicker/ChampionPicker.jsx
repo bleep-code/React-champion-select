@@ -4,13 +4,13 @@ import React from 'react';
 import axios from 'axios';
 import _ from 'lodash';
 
-import Announcement from '../Announcement/Announcement';
-import Timer from '../Timer/Timer';
-import Search from '../Search/Search';
-import ChampionPool from '../ChampionPool/ChampionPool';
-import LockButton from '../LockButton/LockButton';
+import Announcement from '../TopSection/Announcement/Announcement';
+import Timer from '../TopSection/Timer/Timer';
+import Search from '../TopSection/Search/Search';
 import BottomSection from '../BottomSection/BottomSection';
-import Champion from '../Champion/Champion';
+import ChampionPool from './ChampionPool/ChampionPool';
+import LockButton from './LockButton/LockButton';
+import Champion from './Champion/Champion';
 
 import { urls } from '../../Fixtures/fixtures.json';
 

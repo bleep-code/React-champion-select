@@ -2,7 +2,7 @@ import './Champion.css';
 
 import React from 'react';
 
-import { urls } from '../../Fixtures/fixtures.json';
+import { urls } from '../../../Fixtures/fixtures.json';
 
 class Champion extends React.Component {
   championState() {

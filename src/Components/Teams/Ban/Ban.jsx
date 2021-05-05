@@ -2,7 +2,7 @@ import './Ban.css';
 
 import React from 'react';
 
-import { urls } from '../../Fixtures/fixtures.json';
+import { urls } from '../../../Fixtures/fixtures.json';
 
 class Ban extends React.Component {
   render() {

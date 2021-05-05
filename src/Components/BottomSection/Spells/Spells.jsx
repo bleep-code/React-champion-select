@@ -4,7 +4,7 @@ import React from 'react';
 
 import SpellsPopup from '../SpellsPopup/SpellsPopup';
 
-import { urls } from '../../Fixtures/fixtures.json';
+import { urls } from '../../../Fixtures/fixtures.json';
 
 class Spells extends React.Component {
   render() {
@@ -20,7 +20,7 @@ class Spells extends React.Component {
 
     return (
       <>
-        <div className={`bottom-section--choose-summoners choose-summoners`}>
+        <div className="bottom-section--choose-summoners choose-summoners">
           <div
             className="choose-summoners__summoner-spell--left"
             style={{

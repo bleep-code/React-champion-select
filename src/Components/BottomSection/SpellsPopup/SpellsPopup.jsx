@@ -7,7 +7,7 @@ import Spell from '../Spell/Spell';
 import _ from 'lodash';
 import axios from 'axios';
 
-import { urls } from '../../Fixtures/fixtures.json';
+import { urls } from '../../../Fixtures/fixtures.json';
 
 class SpellsPopup extends React.Component {
   constructor(props) {
