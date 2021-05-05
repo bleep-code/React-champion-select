@@ -7,7 +7,7 @@ import _ from 'lodash';
 import Announcement from '../Announcement/Announcement';
 import Timer from '../Timer/Timer';
 import Search from '../Search/Search';
-import Picker from '../Picker/Picker';
+import ChampionPool from '../ChampionPool/ChampionPool';
 import LockButton from '../LockButton/LockButton';
 import BottomSection from '../BottomSection/BottomSection';
 import Champion from '../Champion/Champion';
@@ -194,7 +194,7 @@ class ChampionPicker extends React.Component {
           />
         </div>
         <div className="champion-picker__mid-section">
-          <Picker champions={champions} />
+          <ChampionPool champions={champions} />
           <LockButton
             chosen={chosen}
             setLocked={setLocked}

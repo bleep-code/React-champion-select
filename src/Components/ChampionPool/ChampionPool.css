@@ -1,4 +1,4 @@
-.picker {
+.champion-pool {
   width: 100%;
   height: 91%;
 
@@ -12,20 +12,20 @@
   overflow-x: hidden;
 }
 
-.picker::-webkit-scrollbar {
+.champion-pool::-webkit-scrollbar {
   width: 10px;
   margin: 0;
 }
 
-.picker::-webkit-scrollbar-corner {
+.champion-pool::-webkit-scrollbar-corner {
   display: none;
 }
 
-.picker::-webkit-scrollbar-thumb {
+.champion-pool::-webkit-scrollbar-thumb {
   background-color: var(--background-gold);
   border-radius: 10px;
 }
 
-.picker::-webkit-scrollbar-thumb:hover {
+.champion-pool::-webkit-scrollbar-thumb:hover {
   background-color: var(--background-gold);
 }
