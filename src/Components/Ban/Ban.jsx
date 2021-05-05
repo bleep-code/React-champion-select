@@ -2,20 +2,19 @@ import './Ban.css';
 
 import React from 'react';
 
-class Ban extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
+import { urls } from '../../Fixtures/fixtures.json';
 
+class Ban extends React.Component {
   render() {
+    const { bannedChamp } = this.props;
+
     return (
       <div
         className="bans__single-ban"
         style={{
-          backgroundImage: `url(http://ddragon.leagueoflegends.com/cdn/11.3.1/img/champion/${this.props.bannedChamp?.image})`,
+          backgroundImage: `url(${urls.championImg + bannedChamp?.image})`,
         }}
-      ></div>
+      />
     );
   }
 }

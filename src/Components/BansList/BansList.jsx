@@ -8,12 +8,16 @@ import Ban from '../Ban/Ban';
 
 class BansList extends React.Component {
   renderBans() {
-    const {enemy, bansCount, banningPhase, bannedChamps} = this.props;
+    const { enemy, bansCount, bannedChamps } = this.props;
 
-    return _.fill(Array(bansCount)).map((ban, index) => {
+    // new Array(length) won't work here, cause of the fact, that you won't be able to operate with it
+    // so it's replaced with lodash's _.fill, which is filling array of fixed length with undefineds (by defualt), hence you can iterate
+    const bansArray = _.fill(Array(bansCount));
+
+    return bansArray.map((ban, index) => {
       // isEnemy method limits team component to certain indexes,
       // so each team can be counted from 1 method, there's no need to use two that looks the same.
-      const isEnemy = () => {
+      const shouldBeFriendlyOrEnemy = () => {
         if (!enemy) {
           return index % 2 === 0;
         }
@@ -21,12 +25,10 @@ class BansList extends React.Component {
         return index % 2 !== 0;
       };
 
-      ban = isEnemy() && (
+      ban = shouldBeFriendlyOrEnemy() && (
         <Ban
           key={index}
-          banningPhase={banningPhase}
-          bannedChamp={bannedChamps?.length >= index + 1 && bannedChamps[index]}
-          enemy={enemy}
+          bannedChamp={bannedChamps?.length - 1 >= index && bannedChamps[index]}
         />
       );
 
@@ -35,15 +37,14 @@ class BansList extends React.Component {
   }
 
   render() {
-    const {enemy} = this.props;
+    const { enemy, bansCount } = this.props;
 
     return (
       <div
         className="team__bans-list bans"
-        onClick={() => console.log(this.props.bansCount)}
         style={{
           flexDirection: !enemy ? 'row' : 'row-reverse',
-          visibility: !this.props.bansCount && 'hidden',
+          visibility: !bansCount && 'hidden',
         }}
       >
         {this.renderBans()}

@@ -30,7 +30,8 @@
     }
   },
   "urls": {
-    "spellImg": "http://ddragon.leagueoflegends.com/cdn/11.5.1/img/spell/"
+    "spellImg": "http://ddragon.leagueoflegends.com/cdn/11.5.1/img/spell/",
+    "championImg": "http://ddragon.leagueoflegends.com/cdn/11.3.1/img/champion/"
   },
 
   "availableRoles": [
