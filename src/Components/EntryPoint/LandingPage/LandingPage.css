@@ -1,0 +1,57 @@
+.start-view {
+  width: 100vw;
+  height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-family: 'Average-Sans', 'arial', 'sans-serif';
+
+  background: url('../../../Assets/threshforest.jpg');
+}
+
+.start-view__classic-mode,
+.start-view__custom-mode {
+  width: 20vw;
+  height: 20vw;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  margin: 0 3vw;
+
+  cursor: pointer;
+
+  font-size: 4vw;
+
+  border: 2px solid rgb(48, 43, 36);
+  border-radius: 10%;
+  background-color: rgba(26, 21, 21, 0.6);
+
+  opacity: 0.6;
+
+  color: rgb(163, 153, 140);
+
+  transition: 0.3s;
+  will-change: opacity, color, transform;
+}
+
+.start-view__classic-mode:hover,
+.start-view__custom-mode:hover {
+  opacity: 1;
+
+  color: rgba(201, 179, 179, 0.8);
+
+  transform: scale(1.05);
+}
+
+.start-view__classic-mode--desc,
+.start-view__custom-mode--desc {
+  padding: 1vw 0.5vw;
+
+  text-align: justify;
+  font-size: 1vw;
+}

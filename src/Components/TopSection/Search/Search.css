@@ -1,0 +1,13 @@
+.champion-picker__top-section--search {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  width: 100%;
+  height: 20%;
+  margin-right: 200px;
+}
+
+.champion-picker__top-section--search__input {
+  align-self: flex-end;
+}

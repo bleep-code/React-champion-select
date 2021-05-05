@@ -1,0 +1,19 @@
+.bottom-section--choose-summoners {
+  position: relative;
+
+  width: 7vw;
+  height: 2.75vw;
+
+  display: flex;
+  justify-content: space-around;
+}
+
+.bottom-section--choose-summoners > * {
+  width: 2.75vw;
+  height: 2.75vw;
+
+  background-size: cover;
+
+  cursor: pointer;
+  border: 0.05vw solid var(--champion-picker-color);
+}

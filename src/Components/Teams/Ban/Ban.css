@@ -1,0 +1,11 @@
+.bans__single-ban {
+  width: 20%;
+  height: 40%;
+  margin: 0.25vw;
+
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+
+  border: 1px solid var(--champion-picker-color);
+}

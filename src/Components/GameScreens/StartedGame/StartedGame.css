@@ -1,0 +1,13 @@
+.started-game {
+  width: 100vw;
+  height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: rgb(34, 34, 51);
+  font-size: 40px;
+  font-family: 'Timeless';
+  color: rgb(169, 203, 255);
+}

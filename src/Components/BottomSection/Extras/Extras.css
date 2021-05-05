@@ -1,0 +1,14 @@
+.bottom-section--choose-extras {
+  width: 7vw;
+  height: 2.75vw;
+
+  display: flex;
+  justify-content: space-around;
+}
+
+.bottom-section--choose-extras > * {
+  width: 2.75vw;
+  height: 2.75vw;
+
+  border: 2px solid white;
+}

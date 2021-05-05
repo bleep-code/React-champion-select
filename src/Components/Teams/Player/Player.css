@@ -1,0 +1,107 @@
+.player,
+.enemy-player {
+  position: relative;
+
+  height: 20%;
+  width: 100%;
+
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+
+  font-size: 18px;
+}
+
+.enemy-player {
+  flex-direction: row-reverse;
+}
+
+.player__picking-sign {
+  position: absolute;
+
+  height: 100%;
+  width: 2%;
+
+  background-color: gold;
+}
+
+.player__summoner-spells {
+  width: 15%;
+  height: 80%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+
+  margin-left: 3%;
+  margin-right: -2%;
+  /* margin right used for compensation of player image */
+}
+
+.player__summoner-spells > * {
+  width: 60%;
+  height: 40%;
+
+  background-color: #000;
+}
+
+.player__image,
+.enemy-player__image {
+  width: 4.5vw;
+  min-width: 50px;
+  height: 4.5vw;
+  min-height: 50px;
+  /* viewports used so circles cannot become elipses */
+
+  margin: 0 5%;
+
+  border-radius: 50%;
+  border: 2px solid transparent;
+  border-color: gold;
+
+  background-size: cover;
+  background-color: black;
+}
+
+.enemy-player__image {
+  border-color: red;
+}
+
+.player__details,
+.enemy-player__details {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  color: var(--main-font-color);
+  line-height: 1.25;
+  font-size: 18px;
+}
+
+.enemy-player__details {
+  align-items: flex-end;
+}
+
+.player__details--is-picking {
+}
+
+.enemy-player__details--name,
+.player__details--position {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.player__details--position {
+  text-transform: uppercase;
+}
+
+.player__details--name,
+.enemy-player__details--summoner-text {
+  color: var(--champion-picker-color);
+}
+
+.enemy-player__details--summoner-text {
+  font-size: 28px;
+  font-weight: bold;
+}
