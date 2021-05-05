@@ -12,6 +12,8 @@ import LockButton from '../LockButton/LockButton';
 import BottomSection from '../BottomSection/BottomSection';
 import Champion from '../Champion/Champion';
 
+import { urls } from '../../Fixtures/fixtures.json';
+
 class ChampionPicker extends React.Component {
   constructor(props) {
     super(props);
@@ -31,9 +33,8 @@ class ChampionPicker extends React.Component {
   }
 
   async fetchChampions() {
-    let { data: fetchedChampions } = await axios.get(
-      'http://ddragon.leagueoflegends.com/cdn/11.3.1/data/en_US/champion.json'
-    );
+    let { data: fetchedChampions } = await axios.get(urls.champions);
+
     fetchedChampions = _.flatMap(fetchedChampions.data);
     this.setState({ fetchedChampions });
   }

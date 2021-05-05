@@ -7,6 +7,8 @@ import Spell from '../Spell/Spell';
 import _ from 'lodash';
 import axios from 'axios';
 
+import { urls } from '../../Fixtures/fixtures.json';
+
 class SpellsPopup extends React.Component {
   constructor(props) {
     super(props);
@@ -25,9 +27,8 @@ class SpellsPopup extends React.Component {
   }
 
   async fetchSpells() {
-    let { data: fetchedSpells } = await axios.get(
-      'http://ddragon.leagueoflegends.com/cdn/11.5.1/data/en_US/summoner.json'
-    );
+    let { data: fetchedSpells } = await axios.get(urls.spells);
+
     fetchedSpells = _.flatMap(fetchedSpells.data);
     this.setState({ fetchedSpells });
   }
