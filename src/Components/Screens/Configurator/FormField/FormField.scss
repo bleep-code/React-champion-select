@@ -1,0 +1,47 @@
+.form-field {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+
+  justify-content: space-between;
+
+  margin-left: 2vw;
+
+  &--question {
+  }
+
+  &--input {
+    height: 1.4vw;
+    width: 2.5vw;
+
+    margin-top: 0.5vw;
+
+    font-size: 20px;
+    text-align: center;
+
+    &::-webkit-inner-spin-button,
+    &::-webkit-outer-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+  }
+
+  .toggle-switch-wrapper {
+    margin-top: 0.5vw;
+    display: flex;
+    align-items: center;
+  }
+
+  .form-field {
+    // situation like this is correct if childrens are rendered
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    align-items: flex-end;
+
+    margin-right: 2vw;
+    text-align: right;
+  }
+}

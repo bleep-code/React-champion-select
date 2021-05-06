@@ -1,4 +1,4 @@
-import './StartedGame.css';
+import './StartedGame.scss';
 
 import React from 'react';
 

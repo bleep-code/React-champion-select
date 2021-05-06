@@ -1,8 +1,8 @@
+import './App.css';
+
 import React from 'react';
 
-import LandingPage from './Components/EntryPoint/LandingPage/LandingPage';
-
-import './App.css';
+import LandingPage from './Components/Screens/LandingPage/LandingPage';
 
 class App extends React.Component {
   constructor(props) {

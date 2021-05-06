@@ -1,4 +1,4 @@
-import './Announcement.css';
+import './Announcement.scss';
 
 import React from 'react';
 
