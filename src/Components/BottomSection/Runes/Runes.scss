@@ -31,4 +31,34 @@
   border: 0.125vw solid gold;
 
   cursor: pointer;
+
+  &__popup {
+    position: absolute;
+    bottom: 75%;
+    left: 10.1%;
+    width: 15vw;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+
+    background-color: black;
+    border: 2px solid var(--champion-picker-color);
+
+    color: var(--champion-picker-color);
+
+    overflow: hidden;
+  }
+
+  &__rune-set {
+    height: 4vw;
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 24px;
+  }
 }

@@ -1,0 +1,83 @@
+.bottom-section--choose-summoners {
+  position: relative;
+
+  width: 7vw;
+  height: 2.75vw;
+
+  display: flex;
+  justify-content: space-around;
+
+  & > * {
+    width: 2.75vw;
+    height: 2.75vw;
+
+    background-size: cover;
+
+    cursor: pointer;
+    border: 0.05vw solid var(--champion-picker-color);
+  }
+
+  &__popup {
+    position: absolute;
+    bottom: 100%;
+    left: 35%;
+    width: 20vw;
+    height: 30vw;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+
+    background-color: black;
+    border: 2px solid var(--champion-picker-color);
+
+    color: var(--champion-picker-color);
+
+    overflow: hidden;
+
+    &--name {
+      color: white;
+      font-size: 2vw;
+    }
+
+    &--description {
+      width: 100%;
+      height: 30%;
+
+      padding: 1vw;
+    }
+
+    &--base-cooldown {
+    }
+
+    &--delimiter {
+      width: 30%;
+      height: 0.1vw;
+      background-color: var(--background-gold);
+    }
+
+    &--spells-container {
+      width: 100%;
+      height: 50%;
+
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      padding: 0 0.75vw;
+
+      &::after {
+        content: '';
+        flex: auto;
+      }
+
+      & > * {
+        width: 3.5vw;
+        height: 3.5vw;
+        margin: 0.5vw;
+        border: 2px solid var(--champion-picker-color);
+        cursor: pointer;
+      }
+    }
+  }
+}

@@ -1,8 +1,8 @@
-import './Runes.css';
+import './Runes.scss';
 
 import React from 'react';
 
-import RunesPopup from '../RunesPopup/RunesPopup';
+import RunesPopup from './RunesPopup';
 
 class Runes extends React.Component {
   render() {

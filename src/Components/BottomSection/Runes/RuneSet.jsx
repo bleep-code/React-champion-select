@@ -1,5 +1,3 @@
-import './RuneSet.css';
-
 import React from 'react';
 
 class RuneSet extends React.Component {
