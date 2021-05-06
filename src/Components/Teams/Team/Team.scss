@@ -1,0 +1,25 @@
+.team {
+  &__players {
+    width: 100%;
+    height: var(--team-height);
+
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__bans-list {
+    height: 12.5%;
+    width: 60%;
+
+    display: flex;
+    align-items: center;
+    margin: 0 1vw;
+  }
+
+  &--friendly {
+  }
+
+  &--enemy {
+    align-items: flex-end !important;
+  }
+}

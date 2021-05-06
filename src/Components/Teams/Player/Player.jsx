@@ -1,4 +1,4 @@
-import './Player.css';
+import './Player.scss';
 
 import React from 'react';
 import _ from 'lodash';

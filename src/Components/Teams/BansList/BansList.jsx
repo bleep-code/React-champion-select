@@ -1,5 +1,3 @@
-import './BansList.css';
-
 import React from 'react';
 
 import _ from 'lodash';

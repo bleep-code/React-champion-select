@@ -1,4 +1,4 @@
-import './Team.css';
+import './Team.scss';
 
 import React from 'react';
 import _ from 'lodash';
