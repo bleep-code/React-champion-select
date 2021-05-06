@@ -1,0 +1,27 @@
+.champion-pool {
+  width: 100%;
+  height: 91%;
+
+  display: flex;
+  flex-wrap: wrap;
+  align-content: baseline;
+
+  border-top: 2px solid var(--background-gold);
+  border-bottom: 2px solid var(--background-gold);
+  overflow-y: scroll;
+  overflow-x: hidden;
+
+  &::-webkit-scrollbar {
+    width: 10px;
+    margin: 0;
+  }
+
+  &::-webkit-scrollbar-corner {
+    display: none;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: var(--background-gold);
+    border-radius: 10px;
+  }
+}

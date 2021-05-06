@@ -1,4 +1,4 @@
-import './LockButton.css';
+import './LockButton.scss';
 
 import React from 'react';
 

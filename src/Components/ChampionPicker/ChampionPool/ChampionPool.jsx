@@ -1,4 +1,4 @@
-import './ChampionPool.css';
+import './ChampionPool.scss';
 
 import React from 'react';
 

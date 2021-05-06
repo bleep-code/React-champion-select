@@ -1,4 +1,4 @@
-import './ChampionPicker.css';
+import './ChampionPicker.scss';
 
 import React from 'react';
 import axios from 'axios';

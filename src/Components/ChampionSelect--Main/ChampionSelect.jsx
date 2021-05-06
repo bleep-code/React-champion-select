@@ -1,4 +1,4 @@
-import './ChampionSelect.css';
+import './ChampionSelect.scss';
 
 import React from 'react';
 import _ from 'lodash';
