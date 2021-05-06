@@ -1,4 +1,4 @@
-import './Extras.css';
+import './Extras.scss';
 
 import React from 'react';
 

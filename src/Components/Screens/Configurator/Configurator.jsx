@@ -1,4 +1,4 @@
-import './Configurator.css';
+import './Configurator.scss';
 
 import React from 'react';
 

@@ -1,8 +1,8 @@
-import './Spells.css';
+import './Spells.scss';
 
 import React from 'react';
 
-import SpellsPopup from '../SpellsPopup/SpellsPopup';
+import SpellsPopup from './SpellsPopup';
 
 import { urls } from '../../../Fixtures/fixtures.json';
 

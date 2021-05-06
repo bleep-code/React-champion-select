@@ -1,4 +1,4 @@
-import './BottomSection.css';
+import './BottomSection.scss';
 
 import React from 'react';
 import _ from 'lodash';

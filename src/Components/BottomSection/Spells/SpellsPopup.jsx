@@ -1,8 +1,6 @@
-import './SpellsPopup.css';
-
 import React from 'react';
 
-import Spell from '../Spell/Spell';
+import Spell from './Spell';
 
 import _ from 'lodash';
 import axios from 'axios';
@@ -117,21 +115,21 @@ class SpellsPopup extends React.Component {
     const { spells } = this.state;
 
     return (
-      <div className="choose-summoners__popup">
-        <span className="choose-summoners__popup--name">
+      <div className="bottom-section--choose-summoners__popup">
+        <span className="bottom-section--choose-summoners__popup--name">
           {this.spellName()}
         </span>
-        <span className="choose-summoners__popup--description">
+        <span className="bottom-section--choose-summoners__popup--description">
           {this.spellDescription()}
         </span>
-        <span className="choose-summoners__popup--base-cooldown">
+        <span className="bottom-section--choose-summoners__popup--base-cooldown">
           {`Base cooldown: ${
             (this.spellName() === 'Teleport' && '420-240') ||
             this.spellCooldown()
           }`}
         </span>
-        <span className="choose-summoners__popup--delimiter" />
-        <div className="choose-summoners__popup--spells-container">
+        <span className="bottom-section--choose-summoners__popup--delimiter" />
+        <div className="bottom-section--choose-summoners__popup--spells-container">
           {spells}
         </div>
       </div>

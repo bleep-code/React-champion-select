@@ -1,0 +1,220 @@
+.picker__champion {
+  position: relative;
+
+  width: 6vw;
+  height: 6vw;
+
+  margin: 0.5%;
+  margin-top: 1.75%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+
+  cursor: pointer;
+
+  i {
+    pointer-events: none;
+    position: absolute;
+    opacity: 0;
+  }
+
+  &--image {
+    width: 5vw;
+    height: 5vw;
+
+    margin-bottom: 5%;
+
+    border: 2px solid var(--champion-picker-color);
+    pointer-events: none;
+  }
+
+  &--name {
+    font-size: 16px;
+    color: var(--champion-picker-color);
+
+    pointer-events: none;
+    white-space: nowrap;
+  }
+}
+
+.chosen {
+  img {
+    filter: saturate(0%);
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    bottom: 17%;
+
+    width: 5.3vw;
+    height: 5.3vw;
+
+    /* inspired by some guy on stackoverflow, but cannot find the post anymore, will upload as soon as i find it. */
+    background: linear-gradient(
+          to right,
+          gold var(--champion-border-size),
+          transparent var(--champion-border-size)
+        )
+        0 0,
+      linear-gradient(
+          to right,
+          gold var(--champion-border-size),
+          transparent var(--champion-border-size)
+        )
+        0 100%,
+      linear-gradient(
+          to left,
+          gold var(--champion-border-size),
+          transparent var(--champion-border-size)
+        )
+        100% 0,
+      linear-gradient(
+          to left,
+          gold var(--champion-border-size),
+          transparent var(--champion-border-size)
+        )
+        100% 100%,
+      linear-gradient(
+          to bottom,
+          gold var(--champion-border-size),
+          transparent var(--champion-border-size)
+        )
+        0 0,
+      linear-gradient(
+          to bottom,
+          gold var(--champion-border-size),
+          transparent var(--champion-border-size)
+        )
+        100% 0,
+      linear-gradient(
+          to top,
+          gold var(--champion-border-size),
+          transparent var(--champion-border-size)
+        )
+        0 100%,
+      linear-gradient(
+          to top,
+          gold var(--champion-border-size),
+          transparent var(--champion-border-size)
+        )
+        100% 100%;
+
+    background-repeat: no-repeat;
+    background-size: 18px 18px;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 17%;
+
+    width: 5vw;
+    height: 5vw;
+
+    border: var(--champion-border-size) solid gold;
+    border-radius: 50%;
+  }
+}
+
+.chosen--banning {
+  &::before {
+    content: '';
+    position: absolute;
+    bottom: 17%;
+
+    width: 5.3vw;
+    height: 5.3vw;
+
+    background: linear-gradient(
+          to right,
+          red var(--champion-border-size),
+          transparent var(--champion-border-size)
+        )
+        0 0,
+      linear-gradient(
+          to right,
+          red var(--champion-border-size),
+          transparent var(--champion-border-size)
+        )
+        0 100%,
+      linear-gradient(
+          to left,
+          red var(--champion-border-size),
+          transparent var(--champion-border-size)
+        )
+        100% 0,
+      linear-gradient(
+          to left,
+          red var(--champion-border-size),
+          transparent var(--champion-border-size)
+        )
+        100% 100%,
+      linear-gradient(
+          to bottom,
+          red var(--champion-border-size),
+          transparent var(--champion-border-size)
+        )
+        0 0,
+      linear-gradient(
+          to bottom,
+          red var(--champion-border-size),
+          transparent var(--champion-border-size)
+        )
+        100% 0,
+      linear-gradient(
+          to top,
+          red var(--champion-border-size),
+          transparent var(--champion-border-size)
+        )
+        0 100%,
+      linear-gradient(
+          to top,
+          red var(--champion-border-size),
+          transparent var(--champion-border-size)
+        )
+        100% 100%;
+
+    background-repeat: no-repeat;
+    background-size: 18px 18px;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 17%;
+
+    width: 5vw;
+    height: 5vw;
+
+    border: var(--champion-border-size) solid gold;
+    border-radius: 50%;
+
+    border-color: red;
+  }
+}
+
+.locked,
+.banned {
+  filter: saturate(0);
+  pointer-events: none;
+}
+
+.locked {
+  i {
+    display: none;
+  }
+}
+
+.banned {
+  i {
+    bottom: 15%;
+    opacity: 1;
+
+    color: rgb(207, 207, 207);
+    font-weight: 700;
+    font-size: 18px;
+  }
+}

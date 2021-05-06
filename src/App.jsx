@@ -1,8 +1,12 @@
-import React from 'react';
-
-import LandingPage from './Components/GameScreens/LandingPage/LandingPage';
-
 import './App.css';
+
+<<<<<<< HEAD
+import LandingPage from './Components/GameScreens/LandingPage/LandingPage';
+=======
+import React from 'react';
+>>>>>>> master
+
+import LandingPage from './Components/Screens/LandingPage/LandingPage';
 
 class App extends React.Component {
   constructor(props) {

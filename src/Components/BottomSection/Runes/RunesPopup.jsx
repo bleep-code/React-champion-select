@@ -1,7 +1,6 @@
-import './RunesPopup.css';
-
 import React from 'react';
-import RuneSet from '../RuneSet/RuneSet';
+
+import RuneSet from './RuneSet';
 
 class RunesPopup extends React.Component {
   render() {
@@ -9,7 +8,7 @@ class RunesPopup extends React.Component {
 
     return (
       <div
-        className="choose-runes__popup"
+        className="bottom-section--choose-runes__popup"
         onClick={(e) => {
           setChosen(e.target, 'runes');
         }}

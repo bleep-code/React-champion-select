@@ -1,24 +1,24 @@
 import React from 'react';
 
 import BansList from '../BansList/BansList';
-import Team from '../Team/Team';
+import Team from './Team';
 
-class FriendlyTeam extends React.Component {
+class EnemyTeam extends React.Component {
   render() {
     const { bansCount, banningPhase, bannedChamps } = this.props;
 
     return (
-      <div className="friendly-team team">
+      <div className="team team--enemy">
         <BansList
           bansCount={bansCount}
           banningPhase={banningPhase}
           bannedChamps={bannedChamps}
-          enemy={false}
+          enemy={true}
         />
-        <Team enemy={false} {...this.props} />
+        <Team enemy={true} {...this.props} />
       </div>
     );
   }
 }
 
-export default FriendlyTeam;
+export default EnemyTeam;

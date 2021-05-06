@@ -1,4 +1,4 @@
-import './Ban.css';
+import './Ban.scss';
 
 import React from 'react';
 

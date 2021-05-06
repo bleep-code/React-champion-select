@@ -1,13 +1,13 @@
-import './ChampionSelect.css';
+import './ChampionSelect.scss';
 
 import React from 'react';
 import _ from 'lodash';
 
-import FriendlyTeam from '../Teams/FriendlyTeam/FriendlyTeam';
-import EnemyTeam from '../Teams/EnemyTeam/EnemyTeam';
+import FriendlyTeam from '../Teams/Team/FriendlyTeam';
+import EnemyTeam from '../Teams/Team/EnemyTeam';
+import CrashedGame from '../Screens/CrashedGame/CrashedGame';
+import StartedGame from '../Screens/StartedGame/StartedGame';
 import ChampionPicker from '../ChampionPicker/ChampionPicker';
-import CrashedGame from '../GameScreens/CrashedGame/CrashedGame';
-import StartedGame from '../GameScreens/StartedGame/StartedGame';
 
 // TODO take a look at this component after refactoring everything
 
