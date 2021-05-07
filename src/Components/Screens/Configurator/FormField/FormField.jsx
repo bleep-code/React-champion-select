@@ -4,11 +4,16 @@ import React from 'react';
 
 import ToggleSwitch from '../../../../Common/ToggleSwitch/ToggleSwitch';
 class FormField extends React.Component {
-  inputValueCheck(value) {
-    if (value < 0 || value > 5) {
+  handleInput(value, min, max) {
+    if (value < min || value > max) {
       alert('These are not allowed values!');
-      // #TODO handle OOR values
+      return value.split('').slice(0, value.length - 1);
     }
+
+    console.log(value);
+    console.log(typeof value);
+
+    return +value;
   }
 
   render() {
@@ -21,6 +26,7 @@ class FormField extends React.Component {
       onChange,
       child,
       placeholder,
+      inputConstraints,
     } = this.props;
 
     if (type === 'input') {
@@ -32,8 +38,14 @@ class FormField extends React.Component {
             className="form-field--input"
             onChange={onChange}
             type="number"
-            onInput={(e) => this.inputValueCheck(e.target.value)}
             placeholder={placeholder}
+            onInput={(e) =>
+              (e.target.value = this.handleInput(
+                e.target.value,
+                inputConstraints[0],
+                inputConstraints[1]
+              ))
+            }
           />
 
           {child}
