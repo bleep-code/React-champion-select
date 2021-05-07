@@ -2,13 +2,17 @@ import './FormField.scss';
 
 import React from 'react';
 
+import _, { debounce } from 'lodash';
+
 import ToggleSwitch from '../../../../Common/ToggleSwitch/ToggleSwitch';
 class FormField extends React.Component {
-  inputValueCheck(value) {
-    if (value < 0 || value > 5) {
+  handleInput(value, min, max) {
+    if (value < min || value > max) {
       alert('These are not allowed values!');
-      // #TODO handle OOR values
+      return value.split('').slice(0, value.length - 1);
     }
+
+    return +value;
   }
 
   render() {
@@ -21,9 +25,20 @@ class FormField extends React.Component {
       onChange,
       child,
       placeholder,
+      inputConstraints,
     } = this.props;
 
     if (type === 'input') {
+      const setInputValue = (e) => {
+        return (e.target.value = this.handleInput(
+          e.target.value,
+          inputConstraints[0],
+          inputConstraints[1]
+        ));
+      };
+
+      const debouncedSetInputValue = _.debounce(setInputValue, 250);
+
       return (
         <div className="form-field">
           <span className="form-field--question">{question}</span>
@@ -32,8 +47,8 @@ class FormField extends React.Component {
             className="form-field--input"
             onChange={onChange}
             type="number"
-            onInput={(e) => this.inputValueCheck(e.target.value)}
             placeholder={placeholder}
+            onInput={(e) => debouncedSetInputValue(e)}
           />
 
           {child}

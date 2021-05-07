@@ -67,7 +67,8 @@ class Configurator extends React.Component {
                 question={fixtures.banningPhase.followUp}
                 type="input"
                 onChange={setBansCount}
-                placeholder={60}
+                placeholder="0-5"
+                inputConstraints={[0, 5]}
               />
             )
           }
@@ -84,7 +85,8 @@ class Configurator extends React.Component {
                 question={fixtures.playersCount.followUp}
                 type="input"
                 onChange={setPlayersCount}
-                placeholder={'0-5'}
+                placeholder="1-5"
+                inputConstraints={[1, 5]}
               />
             )
           }
@@ -101,15 +103,16 @@ class Configurator extends React.Component {
                 question={fixtures.move.followUp}
                 type="input"
                 onChange={setMoveTime}
-                placeholder={'0-5'}
+                placeholder="5-60"
+                inputConstraints={[5, 60]}
               />
             )
           }
         />
         <FormField
           question={fixtures.allPlayers.q}
-          leftLabel={fixtures.allPlayers.labels[1]}
-          rightLabel={fixtures.allPlayers.labels[0]}
+          leftLabel={fixtures.allPlayers.labels[0]}
+          rightLabel={fixtures.allPlayers.labels[1]}
           isToggled={chooseAllPlayers}
           onChange={toggleChooseAllPlayers}
         />

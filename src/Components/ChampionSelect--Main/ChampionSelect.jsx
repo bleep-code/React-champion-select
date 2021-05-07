@@ -9,8 +9,6 @@ import CrashedGame from '../Screens/CrashedGame/CrashedGame';
 import StartedGame from '../Screens/StartedGame/StartedGame';
 import ChampionPicker from '../ChampionPicker/ChampionPicker';
 
-// TODO take a look at this component after refactoring everything
-
 class ChampionSelect extends React.Component {
   constructor(props) {
     super(props);
@@ -74,7 +72,7 @@ class ChampionSelect extends React.Component {
     }
   }
 
-  setBanned() {
+  toggleBanningPhase() {
     const { banningPhase } = this.state;
 
     const { moveTime } = this.props;
@@ -118,7 +116,7 @@ class ChampionSelect extends React.Component {
       clearInterval(intervalId);
 
       if (banningPhase) {
-        return this.setBanned();
+        return this.toggleBanningPhase();
       }
 
       return this.setState({ isStarted: !isStarted });

@@ -10,7 +10,7 @@ class Announcement extends React.Component {
       return 'Choosing phase will start in:';
     }
 
-    if (turn === playersCount + 1) {
+    if (!banningPhase && turn === playersCount + 1) {
       return 'Game will start in:';
     }
 
