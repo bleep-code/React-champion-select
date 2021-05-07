@@ -2,16 +2,29 @@ import './FormField.scss';
 
 import React from 'react';
 
-import _, { debounce } from 'lodash';
+import _ from 'lodash';
 
 import ToggleSwitch from '../../../../Common/ToggleSwitch/ToggleSwitch';
 class FormField extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      input_value: undefined,
+    };
+
+    this.handleInput = this.handleInput.bind(this);
+  }
+
   handleInput(value, min, max) {
     if (value < min || value > max) {
       alert('These are not allowed values!');
-      return value.split('').slice(0, value.length - 1);
+
+      this.setState({ input_value: max });
+      return max;
     }
 
+    this.setState({ input_value: +value });
     return +value;
   }
 
@@ -29,15 +42,10 @@ class FormField extends React.Component {
     } = this.props;
 
     if (type === 'input') {
-      const setInputValue = (e) => {
-        return (e.target.value = this.handleInput(
-          e.target.value,
-          inputConstraints[0],
-          inputConstraints[1]
-        ));
-      };
+      const [min, max] = inputConstraints;
 
-      const debouncedSetInputValue = _.debounce(setInputValue, 250);
+      const debouncedHandleInput = _.debounce(this.handleInput, 250);
+      const debounceOnChange = _.debounce(onChange, 250);
 
       return (
         <div className="form-field">
@@ -45,10 +53,14 @@ class FormField extends React.Component {
 
           <input
             className="form-field--input"
-            onChange={onChange}
+            onInput={(e) => {
+              e.target.value = this.handleInput(e.target.value, min, max);
+
+              debounceOnChange(this.state.input_value || max);
+              debouncedHandleInput(e.target.value, min, max);
+            }}
             type="number"
             placeholder={placeholder}
-            onInput={(e) => debouncedSetInputValue(e)}
           />
 
           {child}

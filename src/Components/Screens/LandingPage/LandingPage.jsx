@@ -69,8 +69,9 @@ class LandingPage extends React.Component {
     this.setState({ customizePlayersCount: !this.state.customizePlayersCount });
   }
 
-  setBansCount(e) {
-    this.setState({ bansCount: 2 * parseInt(e.target.value) });
+  setBansCount(value) {
+    this.setState({ bansCount: +value * 2 });
+    console.log(value);
   }
 
   setMoveTime(e) {
