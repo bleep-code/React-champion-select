@@ -2,6 +2,8 @@ import './FormField.scss';
 
 import React from 'react';
 
+import _, { debounce } from 'lodash';
+
 import ToggleSwitch from '../../../../Common/ToggleSwitch/ToggleSwitch';
 class FormField extends React.Component {
   handleInput(value, min, max) {
@@ -27,6 +29,16 @@ class FormField extends React.Component {
     } = this.props;
 
     if (type === 'input') {
+      const setInputValue = (e) => {
+        return (e.target.value = this.handleInput(
+          e.target.value,
+          inputConstraints[0],
+          inputConstraints[1]
+        ));
+      };
+
+      const debouncedSetInputValue = _.debounce(setInputValue, 250);
+
       return (
         <div className="form-field">
           <span className="form-field--question">{question}</span>
@@ -36,13 +48,7 @@ class FormField extends React.Component {
             onChange={onChange}
             type="number"
             placeholder={placeholder}
-            onInput={(e) =>
-              (e.target.value = this.handleInput(
-                e.target.value,
-                inputConstraints[0],
-                inputConstraints[1]
-              ))
-            }
+            onInput={(e) => debouncedSetInputValue(e)}
           />
 
           {child}
