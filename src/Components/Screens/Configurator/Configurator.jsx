@@ -111,8 +111,8 @@ class Configurator extends React.Component {
         />
         <FormField
           question={fixtures.allPlayers.q}
-          leftLabel={fixtures.allPlayers.labels[1]}
-          rightLabel={fixtures.allPlayers.labels[0]}
+          leftLabel={fixtures.allPlayers.labels[0]}
+          rightLabel={fixtures.allPlayers.labels[1]}
           isToggled={chooseAllPlayers}
           onChange={toggleChooseAllPlayers}
         />
