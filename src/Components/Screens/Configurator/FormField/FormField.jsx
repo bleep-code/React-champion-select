@@ -18,8 +18,6 @@ class FormField extends React.Component {
 
   handleInput(value, min, max) {
     if (value < min || value > max) {
-      alert('These are not allowed values!');
-
       this.setState({ input_value: max });
       return max;
     }
@@ -44,9 +42,6 @@ class FormField extends React.Component {
     if (type === 'input') {
       const [min, max] = inputConstraints;
 
-      const debouncedHandleInput = _.debounce(this.handleInput, 250);
-      const debounceOnChange = _.debounce(onChange, 250);
-
       return (
         <div className="form-field">
           <span className="form-field--question">{question}</span>
@@ -56,8 +51,7 @@ class FormField extends React.Component {
             onInput={(e) => {
               e.target.value = this.handleInput(e.target.value, min, max);
 
-              debounceOnChange(this.state.input_value || max);
-              debouncedHandleInput(e.target.value, min, max);
+              onChange(this.state.input_value || max);
             }}
             type="number"
             placeholder={placeholder}
