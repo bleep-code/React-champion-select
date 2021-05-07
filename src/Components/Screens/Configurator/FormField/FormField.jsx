@@ -10,9 +10,6 @@ class FormField extends React.Component {
       return value.split('').slice(0, value.length - 1);
     }
 
-    console.log(value);
-    console.log(typeof value);
-
     return +value;
   }
 
